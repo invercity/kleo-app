@@ -1,0 +1,31 @@
+.content {
+	margin-top: 50px;
+}
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+.ng-invalid.ng-dirty {
+	border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+	border-color: #78FA89;
+}
+
+footer {
+	position:fixed;
+	left:0px;
+	bottom:0px;
+	height:20px;
+	width:100%;
+	text-align: center;
+}
+
+#contentCurve{
+	border-bottom:1px solid #ccc;
+	font-size:1px;
+	height:8px;
+	margin-bottom:8px
+}
