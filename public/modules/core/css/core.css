@@ -16,16 +16,9 @@
 
 footer {
 	position:fixed;
-	left:0px;
-	bottom:0px;
+	left:0;
+	bottom:0;
 	height:20px;
 	width:100%;
 	text-align: center;
-}
-
-#contentCurve{
-	border-bottom:1px solid #ccc;
-	font-size:1px;
-	height:8px;
-	margin-bottom:8px
 }

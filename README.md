@@ -1,7 +1,6 @@
 # Kleo
 
 [![Build Status](https://travis-ci.org/invercity/kleo.svg?branch=master)](https://travis-ci.org/invercity/kleo)
-[![Dependencies Status](https://david-dm.org/invercity/kleo.svg)](https://david-dm.org/invercity/kleo)
 
 Kleo is modern HTML5 based app, build on MEAN stack MEAN stack is [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) 
 
