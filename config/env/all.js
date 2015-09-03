@@ -2,6 +2,7 @@
 
 module.exports = {
 	app: {
+		name: 'kleo',
 		title: 'kleo',
 		description: 'Real time news feed, blog',
 		keywords: 'feed, realtime, js'

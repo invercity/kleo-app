@@ -3,6 +3,7 @@
 module.exports = {
 	db: 'mongodb://localhost/kleo-dev',
 	app: {
+		name: 'kleo',
 		title: 'kleo - Development Environment'
 	},
 	facebook: {
