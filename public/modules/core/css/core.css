@@ -1,6 +1,11 @@
 body {
+	font-family: 'robotoregular';
+}
+
+.menu {
 	font-family: 'exo_2.0regular';
 }
+
 .content {
 	margin-top: 50px;
 }
@@ -19,4 +24,8 @@ body {
 
 .pointer {
 	cursor: pointer;
+}
+
+.post-author {
+	font-family: 'exo_2.0extra_light';
 }
