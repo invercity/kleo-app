@@ -1,0 +1,13 @@
+
+<div class="list-group">
+    <a data-ng-repeat="article in items" data-ng-href="#!/articles/{{article._id}}" class="list-group-item art-item">
+        <h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
+        <p class="list-group-item-text" data-ng-bind="article.content"></p>
+        <small class="list-group-item-text">
+            Posted on
+            <span data-ng-bind="article.created | date:'mediumDate'"></span>
+            by
+            <span data-ng-bind="article.user.displayName"></span>
+        </small>
+    </a>
+</div>
