@@ -55,15 +55,4 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 			});
 		};
 	}
-]).directive('ArticleList', function() {
-	return {
-		templateUrl: '../directives/article.tmpl.html',
-		restrict: 'EAC',
-		scope: {
-			list: "=articles"
-		},
-		link: function(scope) {
-			scope.list = [1]
-		}
-	}
-});
+])
