@@ -22,8 +22,7 @@ var ArticleSchema = new Schema({
 	},
 	postType: {
 		type: String,
-		default: '',
-		required: 'Type cannot be blank'
+		default: 'news'
 	},
 	visits: {
 		type: Number,

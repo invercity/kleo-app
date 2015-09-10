@@ -6,7 +6,7 @@ angular.module('articles').directive('articleList', [
 			templateUrl: 'modules/articles/views/templates/article-list.client.html',
 			restrict: 'E',
 			scope: {
-				items: "="
+				items: '='
 			},
 			link: function postLink(scope, element, attrs) {
 
