@@ -20,6 +20,19 @@ var ArticleSchema = new Schema({
 		trim: true,
 		required: 'Title cannot be blank'
 	},
+	postType: {
+		type: String,
+		default: '',
+		required: 'Type cannot be blank'
+	},
+	visits: {
+		type: Number,
+		default: 0
+	},
+	tags: {
+		type: [String],
+		default: []
+	},
 	content: {
 		type: String,
 		default: '',
