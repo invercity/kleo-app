@@ -79,4 +79,4 @@ To run your application in a secure manner you'll need to use OpenSSL and genera
 $ sh generate-ssl-certs.sh
 ```
 Windows users can follow instructions found [here](http://www.websense.com/support/article/kbarticle/How-to-use-OpenSSL-and-Microsoft-Certification-Authority)
-To generate the key and certificate and place them in the *config/sslcert* folder.
+To generate the key and certificate and place them in the **config/sslcert** folder.
