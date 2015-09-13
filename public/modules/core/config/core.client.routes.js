@@ -17,4 +17,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 			templateUrl: 'modules/core/views/home.client.view.html'
 		});
 	}
-]);
+])
+
+	.config(['$affixProvider', function ($affixProvider) {
+		angular.extend($affixProvider.defaults, {
+			inlineStyles: false
+		});
+	}]);

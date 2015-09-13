@@ -4,10 +4,21 @@
 var ApplicationConfiguration = (function() {
 	// Init module configuration options
 	var applicationModuleName = 'kleo';
-	var applicationModuleVendorDependencies = ['ngResource', 'ngCookies',  'ngAnimate',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils'];
+	// configure vendor dependencies
+	var applicationModuleVendorDependencies = [
+		'mgcrea.ngStrap.affix',
+		'ngResource',
+		'ngCookies',
+		'ngAnimate',
+		'ngSanitize',
+		'ui.router',
+		'ui.bootstrap',
+		'ui.utils'
+	];
 
 	// Add a new vertical module
 	var registerModule = function(moduleName, dependencies) {
+
 		// Create angular module
 		angular.module(moduleName, dependencies || []);
 

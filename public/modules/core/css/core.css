@@ -2,10 +2,6 @@ body {
 	font-family: 'robotoregular';
 }
 
-.menu {
-	font-family: 'roboto_condensedregular';
-}
-
 .content {
 	margin-top: 50px;
 }
@@ -24,4 +20,8 @@ body {
 
 .pointer {
 	cursor: pointer;
+}
+
+.k-menu {
+	font-family: 'roboto_condensedregular';
 }
