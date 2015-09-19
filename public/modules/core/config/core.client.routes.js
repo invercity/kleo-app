@@ -15,12 +15,16 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		state('home', {
 			url: '/',
 			templateUrl: 'modules/core/views/home.client.view.html'
-		});
+		}).
+	  state('admin', {
+			url: '/admin',
+			templateUrl: 'modules/core/views/admin.client.view.html'
+		})
 	}
 ])
 
-	.config(['$affixProvider', function ($affixProvider) {
-		angular.extend($affixProvider.defaults, {
-			inlineStyles: false
-		});
-	}]);
+.config(['$affixProvider', function ($affixProvider) {
+	angular.extend($affixProvider.defaults, {
+		inlineStyles: false
+	});
+}]);
