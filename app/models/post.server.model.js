@@ -7,9 +7,9 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Article Schema
+ * Post Schema
  */
-var ArticleSchema = new Schema({
+var PostSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
@@ -43,4 +43,4 @@ var ArticleSchema = new Schema({
 	}
 });
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Post', PostSchema);

@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('articles').directive('articleList', [
+angular.module('posts').directive('postsList', [
 	function() {
 		return {
-			templateUrl: 'modules/articles/views/templates/article-list.client.html',
+			templateUrl: 'modules/posts/views/templates/posts-list.client.html',
 			restrict: 'E',
 			scope: {
 				items: '='
