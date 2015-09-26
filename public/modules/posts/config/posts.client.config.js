@@ -7,6 +7,6 @@ angular.module('posts').run(['Menus', 'AdminView',
 		Menus.addMenuItem('topbar', 'Posts', 'posts', 'dropdown', '/posts(/create)?');
 		Menus.addSubMenuItem('topbar', 'posts', 'List Posts', 'posts');
 		Menus.addSubMenuItem('topbar', 'posts', 'New Post', 'posts/create');
-		AdminView.addAdminPage('post', 'posts/views/admin.client.view.html');
+		AdminView.addAdminPage('posts', 'posts/views/admin.client.view.html');
 	}
 ]);
