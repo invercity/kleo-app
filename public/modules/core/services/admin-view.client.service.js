@@ -7,10 +7,10 @@ angular.module('core').factory('AdminView', [
 
 		// Public API
 		return {
-			addAdminPage: function(id, template) {
+			addAdminPage: function(id, model) {
 				adminPages.push({
 					id: id,
-					template: template
+					model: model
 				});
 			},
 			getAdminPages: function() {

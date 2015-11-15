@@ -1,8 +1,8 @@
 'use strict';
 
 // Configuring the Posts module
-angular.module('posts').run(['Menus', 'AdminView',
-	function(Menus, AdminView) {
+angular.module('posts').run(['Menus', 'AdminView', 'Posts',
+	function(Menus, AdminView, Posts) {
 		// Set top bar menu items
 
 		Menus.addMenuItem('topbar', 'Posts', 'posts', 'dropdown', '/posts(/create)?');
@@ -12,6 +12,6 @@ angular.module('posts').run(['Menus', 'AdminView',
 		/*
 		Menus.addMenuItem('topbar', 'Posts', 'posts', '/posts');
 		*/
-		AdminView.addAdminPage('posts', 'posts/views/admin.client.view.html');
+		AdminView.addAdminPage('posts', Posts);
 	}
 ]);
