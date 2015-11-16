@@ -11,7 +11,7 @@
 					<div class="navbar navbar-default" role="navigation">
 						<div class="navbar-collapse collapse sidebar-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li ng-repeat="page in pages"><a href="#">{{page.id}}</a></li>
+								<li ng-repeat="page in pages"><a ng-click="changeSelected(page)">{{page.id}}</a></li>
 							</ul>
 						</div>
 					</div>
