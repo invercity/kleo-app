@@ -8,6 +8,9 @@ angular.module('core').controller('AdminController', ['$scope', 'AdminView',
 
 		$scope.changeSelected = function(page) {
 			$scope.selectedPage = page;
-		}
+		};
+
+		$scope.items = $scope.selectedPage ? $scope.selectedPage.model.query() : [];
+		console.log($scope.items)
 	}
 ]);
