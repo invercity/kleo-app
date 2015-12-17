@@ -9,18 +9,15 @@ Kleo is a modern HTML5 based app, build on MEAN stack MEAN stack is [MongoDB](ht
 ## Prerequisites
 Make sure you have installed all these prerequisites on your development machine.
 
-* Node.js - [Download & Install Node.js](http://www.nodejs.org/download/) and the npm package manager, if you encounter any problems, you can also use this [GitHub Gist](https://gist.github.com/isaacs/579814) to install Node.js.
-* MongoDB - [Download & Install MongoDB](http://www.mongodb.org/downloads), and make sure it's running on the default port (27017).
-* Bower - You're going to use the [Bower Package Manager](http://bower.io/) to manage your front-end packages, in order to install it make sure you've installed Node.js and npm, then install bower globally using npm:
+* Node.js - [Download & Install Node.js](http://www.nodejs.org/download/) and the npm package manager, if you encounter any problems, you can also use this [GitHub Gist](https://gist.github.com/isaacs/579814) to install Node.js;
+* MongoDB - [Download & Install MongoDB](http://www.mongodb.org/downloads), and make sure it's running on the default port (27017);
+* Bower - You're going to use the [Bower Package Manager](http://bower.io/) to manage your front-end packages;
+* Grunt - You're going to use the [Grunt Task Runner](http://gruntjs.com/) to automate your development process.
+Basically you may install all required packages using:
 
 ```
-$ npm install -g bower
-```
-
-* Grunt - You're going to use the [Grunt Task Runner](http://gruntjs.com/) to automate your development process, in order to install it make sure you've installed Node.js and npm, then install grunt globally using npm:
-
-```
-$ sudo npm install -g grunt-cli
+$ sudo apt-get install nodejs mongodb
+$ sudo npm install -g grunt-cli bower
 ```
 
 ## Quick Install
