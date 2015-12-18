@@ -12,6 +12,6 @@ angular.module('posts').run(['Menus', 'AdminView', 'Posts',
 		/*
 		Menus.addMenuItem('topbar', 'Posts', 'posts', '/posts');
 		*/
-		AdminView.addAdminPage('posts', Posts);
+		AdminView.addAdminPage('posts', Posts, 'Posts');
 	}
 ]);

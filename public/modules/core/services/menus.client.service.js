@@ -31,7 +31,7 @@ angular.module('core').service('Menus', [
 			return false;
 		};
 
-		// Validate menu existance
+		// Validate menu existence
 		this.validateMenuExistance = function(menuId) {
 			if (menuId && menuId.length) {
 				if (this.menus[menuId]) {
@@ -42,8 +42,6 @@ angular.module('core').service('Menus', [
 			} else {
 				throw new Error('MenuId was not provided');
 			}
-
-			return false;
 		};
 
 		// Get the menu object by menu id

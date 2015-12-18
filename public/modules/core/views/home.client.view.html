@@ -9,9 +9,6 @@
 			</div>
 			<div data-ng-controller="PostsController" data-ng-init="find()">
 				<posts-list items="posts"></posts-list>
-				<div class="alert alert-warning text-center" data-ng-if="posts.$resolved && !posts.length">
-					No articles yet, why don't you <a href="/#!/posts/create">create one</a>?
-				</div>
 			</div>
 		</div>
 		<div class="col-md-4">
