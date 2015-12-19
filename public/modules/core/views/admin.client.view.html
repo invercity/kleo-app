@@ -4,15 +4,16 @@
 			<!-- main content -->
 			<div class="col-md-8">
 				<div class="list-group">
-					<!-- Need to do something... -->
-					<a data-ng-repeat="item in items" data-ng-href="#!/posts/{{item._id}}" class="list-group-item art-item">
-						<h4 class="list-group-item-heading" data-ng-bind="item.title"></h4>
-						<a class="btn btn-primary" href="/#!/posts/{{item._id}}/edit">
-							<i class="glyphicon glyphicon-edit"></i>
-						</a>
-						<a class="btn btn-primary" data-ng-click="remove();">
-							<i class="glyphicon glyphicon-trash"></i>
-						</a>
+					<a data-ng-repeat="item in items" data-ng-href="#!/posts/{{item._id}}" class="list-group-item art-item clearfix">
+						{{item.title}}
+						<span class="pull-right">
+							<button class="btn btn-primary" data-ng-href="/#!/posts/{{item._id}}/edit">
+								<span class="glyphicon glyphicon-edit"></span>
+							</button>
+							<button class="btn btn-primary" data-ng-click="remove();">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+						</span>
 					</a>
 				</div>
 			</div>
