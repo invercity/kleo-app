@@ -76,6 +76,11 @@ angular.module('core').service('Menus', [
 			delete this.menus[menuId];
 		};
 
+		// Alias for add menu, with position
+		this.addMenuItemPosition = function(menuId, menuItemTitle, menuItemURL, menuItemType, position) {
+			return this.addMenuItem(menuId, menuItemTitle, menuItemURL, menuItemType, null, null, null, position)
+		};
+
 		// Add menu item object
 		this.addMenuItem = function(menuId, menuItemTitle, menuItemURL, menuItemType, menuItemUIRoute, isPublic, roles, position) {
 			// Validate that the menu exists

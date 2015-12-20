@@ -4,7 +4,7 @@
 angular.module('core').run(['Menus',
   function(Menus) {
     // Set top bar menu items
-    Menus.addMenuItem('topbar', 'Study', 'study', 'dropdown');
+    Menus.addMenuItemPosition('topbar', 'Study', 'study', 'dropdown', 1);
     Menus.addSubMenuItem('topbar', 'study', 'Departments', 'departments');
   }
 ]);
