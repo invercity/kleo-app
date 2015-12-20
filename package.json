@@ -69,5 +69,11 @@
 	"repository": {
 	  "type": "git",
 	  "url": "https://github.com/invercity/kleo.git"
-	}
+	},
+  	"contributors": [
+	  {
+	  	"name": "Andriy Ermolenko",
+	  	"email": "andriy.ermolenko@gmail.com"
+	  }
+	]
 }
