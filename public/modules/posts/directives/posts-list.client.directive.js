@@ -6,10 +6,11 @@ angular.module('posts').directive('postsList', [
 			templateUrl: 'modules/posts/views/templates/posts-list.client.html',
 			restrict: 'E',
 			scope: {
-				items: '='
+				items: '=',
+				filter: '='
 			},
 			link: function postLink(scope, element, attrs) {
-
+				console.log(scope.filter)
 			}
 		};
 	}

@@ -1,5 +1,5 @@
-<div class="list-group">
-    <a data-ng-repeat="post in items" data-ng-href="#!/posts/{{post._id}}" class="list-group-item art-item">
+<div class="list-group" style="margin-top: 20px">
+    <a data-ng-repeat="post in items| filter: {'postType': filter.key}: true" data-ng-href="#!/posts/{{post._id}}" class="list-group-item art-item">
         <h4 class="list-group-item-heading" data-ng-bind="post.title"></h4>
         <p class="list-group-item-text" data-ng-bind="post.content"></p>
         <small class="list-group-item-text">

@@ -1,14 +1,16 @@
 'use strict';
 
 var dictionaries = {
-  "POST_TYPE": [
-    "news",
-    "article",
-    "announcement"
-  ]
+  "POST_TYPE": {
+    values: [
+      "News",
+      "Article",
+      "Announcement"
+    ]
+  }
 };
 
-exports.list = function(req, res, next) {
+exports.list = function(req, res) {
   res.json(dictionaries);
 };
 

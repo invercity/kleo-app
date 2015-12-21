@@ -3,12 +3,21 @@
 		<h1>New Post</h1>
 	</div>
 	<div class="col-md-12">
-		<form name="postForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+		<form name="postForm" class="form-horizontal" data-ng-submit="create()" data-ng-init="getDictionary()" novalidate>
 			<fieldset>
 				<div class="form-group" ng-class="{ 'has-error': postForm.title.$dirty && postForm.title.$invalid }">
 					<label class="control-label" for="title">Title</label>
 					<div class="controls">
 						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="type">Type</label>
+					<div class="controls">
+						<select name="type" data-ng-model="type" id="type" class="form-control" cols="30" rows="10" placeholder="Type">
+							<option value="" disabled selected>Choose type</option>
+							<option ng-repeat="option in types.values">{{option}}</option>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">

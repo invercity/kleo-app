@@ -1,13 +1,14 @@
 'use strict';
 
-angular.module('posts').controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts',
-	function($scope, $stateParams, $location, Authentication, Posts) {
+angular.module('posts').controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts', 'Dictionaries',
+	function($scope, $stateParams, $location, Authentication, Posts, Dictionaries) {
 		$scope.authentication = Authentication;
 
 		$scope.create = function() {
 			var post = new Posts({
 				title: this.title,
-				content: this.content
+				content: this.content,
+				postType: this.type
 			});
 			post.$save(function(response) {
 				$location.path('posts/' + response._id);
@@ -54,5 +55,11 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 				postId: $stateParams.postId
 			});
 		};
+
+		$scope.getDictionary = function() {
+			$scope.types = Dictionaries.get({
+				dictId: 'POST_TYPE'
+			});
+		}
 	}
 ]);
