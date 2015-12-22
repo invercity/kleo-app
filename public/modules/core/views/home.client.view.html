@@ -1,11 +1,16 @@
 <div data-ng-controller="HomeController">
+	<!-- in future, will be replaced with page brief info, or banner -->
 	<div class="row">
-		<div class="page-header">
-			<h1>Welcome to Kleo home</h1>
-			<p>
-				Too see development information, go to our <a href="/#/dev">dev's</a> page
-			</p>
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>Welcome to Kleo home</h1>
+				<p>
+					Too see development information, go to our <a href="/#/dev">dev's</a> page
+				</p>
+			</div>
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-8">
 			<ul class="nav nav-tabs">
 				<li role="presentation" ng-repeat="item in postTypes" ng-class="{'active': item.active}" ><a href="#" ng-click="setSelected(item)" data-toogle="tab">{{item.title}}</a></li>
