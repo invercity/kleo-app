@@ -4,22 +4,6 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 	function($scope, $stateParams, $location, Authentication, Posts, Dictionaries) {
 		$scope.authentication = Authentication;
 
-		$scope.create = function() {
-			var post = new Posts({
-				title: this.title,
-				content: this.content,
-				postType: this.type
-			});
-			post.$save(function(response) {
-				$location.path('posts/' + response._id);
-
-				$scope.title = '';
-				$scope.content = '';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
-
 		$scope.remove = function(post) {
 			if (post) {
 				post.$remove();
@@ -37,13 +21,32 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 		};
 
 		$scope.update = function() {
-			var post = $scope.post;
+			var post;
+			if ($scope.post._id) {
+				post = $scope.post;
+				post.$update(function() {
+					$location.path('posts/' + post._id);
+				}, function(errorResponse) {
+					$scope.error = errorResponse.data.message;
+				});
+			}
+			else {
+				post = new Posts({
+					title: this.post.title,
+					content: this.post.content,
+					postType: this.post.postType,
+					displayName: this.post.displayName
+				});
 
-			post.$update(function() {
-				$location.path('posts/' + post._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
+				post.$save(function(response) {
+					$location.path('posts/' + response._id);
+
+					$scope.title = '';
+					$scope.content = '';
+				}, function(errorResponse) {
+					$scope.error = errorResponse.data.message;
+				});
+			}
 		};
 
 		$scope.find = function() {
@@ -60,6 +63,29 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 			$scope.types = Dictionaries.get({
 				dictId: 'POST_TYPE'
 			});
+		};
+
+		$scope.initUpdateForm = function() {
+			$scope.types = Dictionaries.get({
+				dictId: 'POST_TYPE'
+			});
+			if($stateParams.postId) {
+				$scope.post = Posts.get({
+					postId: $stateParams.postId
+				});
+				$scope.updateValue = 'Update';
+			}
+			else {
+				$scope.updateValue = 'Create';
+				$scope.post = {
+					displayName: true
+				}
+			}
+		};
+
+		$scope.onCancel = function() {
+			$location.path('/posts');
 		}
+
 	}
 ]);

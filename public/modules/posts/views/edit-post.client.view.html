@@ -1,6 +1,6 @@
-<section data-ng-controller="PostsController" data-ng-init="findOne()">
+<section data-ng-controller="PostsController" data-ng-init="initUpdateForm();">
 	<div class="page-header">
-		<h1>Edit Post</h1>
+		<h1>{{post._id ? 'Edit' : 'Create'}} Post</h1>
 	</div>
 	<div class="col-md-12">
 		<form name="postForm" class="form-horizontal" data-ng-submit="update(postForm.$valid)" novalidate>
@@ -14,6 +14,27 @@
 						<p ng-show="postForm.title.$error.required" class="text-danger">Title is required</p>
 					</div>
 				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && postForm.type.$invalid}">
+					<div class="row">
+						<div class="col-md-6">
+							<label class="control-label" for="type">Type</label>
+							<div class="controls">
+								<select name="type" data-ng-model="post.postType" id="type" class="form-control" cols="30" rows="10" placeholder="Type" required>
+									<option value="" disabled selected>Choose type</option>
+									<option ng-repeat="option in types.values">{{option}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<label class="control-label" for="displayName">Display author name</label>
+							<div class="controls">
+								<div class="checkbox">
+									<label><input type="checkbox" ng-model="post.displayName" id="displayName" name="displayName"> {{post.displayName ? 'Yes' : 'No'}}</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="form-group" ng-class="{ 'has-error' : submitted && postForm.content.$invalid}">
 					<label class="control-label" for="content">Content</label>
 					<div class="controls">
@@ -24,7 +45,8 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" value="Update" class="btn btn-default">
+					<input type="submit" ng-value="updateValue" class="btn btn-default" ng-disabled="!postForm.$valid">
+					<input type="button" value="Cancel" class="btn btn-default" ng-click="onCancel()">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

@@ -20,6 +20,10 @@ var PostSchema = new Schema({
 		trim: true,
 		required: 'Title cannot be blank'
 	},
+	displayName: {
+		type: Boolean,
+		default: true
+	},
 	postType: {
 		type: String,
 		default: 'news'

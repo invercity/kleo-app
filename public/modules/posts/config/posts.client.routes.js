@@ -11,7 +11,7 @@ angular.module('posts').config(['$stateProvider',
 		}).
 		state('createPost', {
 			url: '/posts/create',
-			templateUrl: 'modules/posts/views/create-post.client.view.html'
+			templateUrl: 'modules/posts/views/edit-post.client.view.html'
 		}).
 		state('viewPost', {
 			url: '/posts/:postId',

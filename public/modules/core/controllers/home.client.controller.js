@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Posts',
+	function($scope, Authentication, Posts) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -27,5 +27,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		};
 
 		$scope.setSelected($scope.postTypes[0]);
+
+		$scope.posts = Posts.query();
 	}
 ]);
