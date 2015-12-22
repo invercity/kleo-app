@@ -15,6 +15,7 @@ var fs = require('fs'),
 	cookieParser = require('cookie-parser'),
 	helmet = require('helmet'),
 	passport = require('passport'),
+	subdomain = require('wildcard-subdomains'),
 	mongoStore = require('connect-mongo')({
 		session: session
 	}),
@@ -110,8 +111,16 @@ module.exports = function(db) {
 	app.use(helmet.ienoopen());
 	app.disable('x-powered-by');
 
+	// enable sub-domains
+	app.use(subdomain({ domain: 'localhost:3000', namespace: 'subdomain'}) );
+
 	// Setting the app router and static folder
 	app.use(express.static(path.resolve('./public')));
+
+	// basic sub-domain handler
+	app.get('/subdomain/:thesubdomain', function(req, res, next){
+		res.send(req.params.thesubdomain);
+	});
 
 	// Globbing routing files
 	config.getGlobbedFiles('./app/routes/**/*.js').forEach(function(routePath) {
