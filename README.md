@@ -3,7 +3,7 @@
 
 Kleo is a modern HTML5 based app, build on MEAN stack MEAN stack is [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) 
 
-`development` tutorial see in `doc/DEV.md`
+`development` tutorial see in `doc/DEV.md`  
 `contribution` tutorial see in `doc/CONTRIB.md`
 
 ## Prerequisites

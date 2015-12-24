@@ -22,7 +22,8 @@ var fs = require('fs'),
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
-	path = require('path');
+	path = require('path'),
+	busboyBodyParser = require('busboy-body-parser');
 
 module.exports = function(db) {
 	// Initialize express app
@@ -116,6 +117,8 @@ module.exports = function(db) {
 
 	// Setting the app router and static folder
 	app.use(express.static(path.resolve('./public')));
+	// multi-part support
+	app.use(busboyBodyParser());
 
 	// basic sub-domain handler
 	app.get('/subdomain/:thesubdomain', function(req, res, next){
