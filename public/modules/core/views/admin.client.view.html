@@ -4,7 +4,7 @@
 			<!-- control bar -->
 			<div class="col-md-3">
 				<tabset vertical="true" type="pills">
-					<tab ng-repeat="page in pages" ng-click="changeSelected(page)" heading="{{page.title}}"></tab>
+					<tab ng-repeat="page in pages" ng-click="changeSelected(page)" heading="{{page.title}}" style="cursor: pointer"></tab>
 				</tabset>
 			</div>
 			<!-- main content -->
@@ -13,10 +13,10 @@
 					<a data-ng-repeat="item in items" class="list-group-item clearfix">
 						{{item.title}}
 						<span class="pull-right">
-							<button class="btn btn-primary" data-ng-click="edit(item);">
+							<button class="btn btn-sm" data-ng-click="edit(item);">
 								<span class="glyphicon glyphicon-edit"></span>
 							</button>
-							<button class="btn btn-primary" data-ng-click="remove();">
+							<button class="btn btn-sm" data-ng-click="remove();">
 								<span class="glyphicon glyphicon-trash"></span>
 							</button>
 						</span>
