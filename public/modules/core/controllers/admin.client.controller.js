@@ -13,7 +13,6 @@ angular.module('core').controller('AdminController', ['$scope', '$location', 'Ad
 		$scope.items = $scope.selectedPage ? $scope.selectedPage.model.query() : [];
 
 		$scope.edit = function(item) {
-			console.log('edit!')
 			$location.path('/posts/' + item._id + '/edit');
 		}
 	}
