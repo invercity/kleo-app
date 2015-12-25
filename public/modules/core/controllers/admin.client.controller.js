@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('AdminController', ['$scope', 'AdminView',
-	function($scope, AdminView) {
+angular.module('core').controller('AdminController', ['$scope', '$location', 'AdminView',
+	function($scope, $location, AdminView) {
 		$scope.pages = AdminView.getAdminPages();
 
 		$scope.selectedPage = $scope.pages.length ? $scope.pages[0] : null;
@@ -11,6 +11,10 @@ angular.module('core').controller('AdminController', ['$scope', 'AdminView',
 		};
 
 		$scope.items = $scope.selectedPage ? $scope.selectedPage.model.query() : [];
-		console.log($scope.items)
+
+		$scope.edit = function(item) {
+			console.log('edit!')
+			$location.path('/posts/' + item._id + '/edit');
+		}
 	}
 ]);
