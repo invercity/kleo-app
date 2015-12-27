@@ -28,6 +28,6 @@ angular.module('users').config(['$httpProvider',
 		]);
 	}
 ])
-	.run(['AdminView', function(AdminView) {
-		//AdminView.addAdminPage('users', 'users/views/admin.client.view.html');
+	.run(['Users', 'AdminView', function(Users, AdminView) {
+		AdminView.addAdminPage('users', Users, 'Users');
 	}]);
