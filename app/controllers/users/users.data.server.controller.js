@@ -1,24 +1,9 @@
+'use strict';
+
 var mongoose = require('mongoose'),
   errorHandler = require('../errors.server.controller'),
-  Post = mongoose.model('User'),
+  User = mongoose.model('User'),
   _ = require('lodash');
-
-/**
- * Delete user
- */
-exports.delete = function(req, res) {
-  var user = req.user;
-
-  user.remove(function(err) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(user);
-    }
-  });
-};
 
 /**
  * List of Users
