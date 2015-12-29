@@ -15,6 +15,14 @@ angular.module('core').controller('AdminController', ['$scope', '$location', 'Ad
 
 		$scope.edit = function(item) {
 			$location.path('/posts/' + item._id + '/edit');
+		};
+
+		$scope.remove = function(item) {
+			var id = item._id;
+			item.$remove();
+			$scope.items = _.reject($scope.items, function(p) {
+				return p._id == id;
+			});
 		}
 	}
 ]);
