@@ -35,7 +35,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 					title: this.post.title,
 					content: this.post.content,
 					postType: this.post.postType,
-					displayName: this.post.displayName
+					authorDisplay: this.post.authorDisplay
 				});
 
 				post.$save(function(response) {
@@ -78,7 +78,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 			else {
 				$scope.updateValue = 'Create';
 				$scope.post = {
-					displayName: true
+					authorDisplay: true
 				}
 			}
 		};

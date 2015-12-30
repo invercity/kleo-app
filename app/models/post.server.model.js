@@ -20,7 +20,7 @@ var PostSchema = new Schema({
 		trim: true,
 		required: 'Title cannot be blank'
 	},
-	displayName: {
+	authorDisplay: {
 		type: Boolean,
 		default: true
 	},

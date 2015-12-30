@@ -5,7 +5,7 @@
         <small class="list-group-item-text">
             Posted on
             <span data-ng-bind="post.created | date:'mediumDate'"></span>
-            <span data-ng-bind="'by ' + post.user.displayName" ng-if="post.displayName"></span>
+            <span data-ng-bind="'by ' + post.user.displayName" ng-if="post.authorDisplay"></span>
         </small>
     </a>
 </div>
