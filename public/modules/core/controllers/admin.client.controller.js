@@ -14,7 +14,8 @@ angular.module('core').controller('AdminController', ['$scope', '$location', 'Ad
 		$scope.items = $scope.selectedPage ? $scope.selectedPage.model.query() : [];
 
 		$scope.edit = function(item) {
-			$location.path('/posts/' + item._id + '/edit');
+			var url = _.template('/<%= route %>s/<%= id %>/edit');
+			$location.path(url({'route': 'post', 'id': item._id}));
 		};
 
 		$scope.remove = function(item) {
