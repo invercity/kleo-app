@@ -5,8 +5,7 @@
 var init = require('./config/init')(),
 	config = require('./config/config'),
 	mongoose = require('mongoose'),
-	chalk = require('chalk')
-
+	chalk = require('chalk');
 
 /**
  * Main application entry file.
