@@ -11,6 +11,7 @@ var mongoose = require('mongoose'),
  */
 var RoleSchema = new Schema({
   name: String,
+  displayName: String,
   permissions: Schema.Types.Mixed
 });
 
