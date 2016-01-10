@@ -1,13 +1,11 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = function(app, router) {
   var upload  = require('../../app/controllers/content.server.controller');
 
-
-  app.route('/content/:filename')
+  router.route('/content/:filename')
     .get(upload.read);
 
-
-  app.route('/content')
+  router.route('/content')
     .post(upload.write);
 };

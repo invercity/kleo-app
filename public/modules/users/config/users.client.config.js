@@ -10,7 +10,7 @@ angular.module('users').config(['$httpProvider',
 					responseError: function(rejection) {
 						switch (rejection.status) {
 							case 401:
-								// Deauthenticate the global user
+								// De-authenticate the global user
 								Authentication.user = null;
 
 								// Redirect to signin page

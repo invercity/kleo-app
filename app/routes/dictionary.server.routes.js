@@ -2,12 +2,12 @@
 
 var dictionaries = require('../../app/controllers/dictionary.server.controller');
 
-module.exports = function(app) {
-  app.route('/dictionary')
+module.exports = function(app, router) {
+  router.route('/dictionary')
     .get(dictionaries.list);
 
-  app.route('/dictionary/:dictId')
+  router.route('/dictionary/:dictId')
     .get(dictionaries.getById);
 
-  app.param('dictId', dictionaries.getById);
+  router.param('dictId', dictionaries.getById);
 };

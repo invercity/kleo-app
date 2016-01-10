@@ -125,9 +125,12 @@ module.exports = function(db) {
 		res.send(req.params.thesubdomain);
 	});
 
+	var router = express.Router();
+	app.use('/api', router);
+
 	// Globbing routing files
 	config.getGlobbedFiles('./app/routes/**/*.js').forEach(function(routePath) {
-		require(path.resolve(routePath))(app);
+		require(path.resolve(routePath))(app, router);
 	});
 
 	// Assume 'not found' in the error msgs is a 404. this is somewhat silly, but valid, you can do whatever you like, set properties, use instanceof etc.
@@ -144,13 +147,13 @@ module.exports = function(db) {
 		});
 	});
 
-	// Assume 404 since no middleware responded
-	app.use(function(req, res) {
+	/*// Assume 404 since no middleware responded
+	app.use('*', function(req, res) {
 		res.status(404).render('404', {
 			url: req.originalUrl,
 			error: 'Not Found'
 		});
-	});
+	});*/
 
 	if (process.env.NODE_ENV === 'secure') {
 		// Log SSL usage
