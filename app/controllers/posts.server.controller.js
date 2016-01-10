@@ -100,10 +100,11 @@ exports.postByID = function(req, res, next, id) {
  * Post authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.post.user.id !== req.user.id) {
+	// will be replaced with role checking ..
+	/*if (req.post.user.id !== req.user.id) {
 		return res.status(403).send({
 			message: 'User is not authorized'
 		});
-	}
+	}*/
 	next();
 };

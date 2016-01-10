@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
  * List of Users
  */
 exports.list = function(req, res) {
-  User.find().exec(function(err, users) {
+  User.find().populate('roles').exec(function(err, users) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -24,7 +24,7 @@ exports.list = function(req, res) {
  * User middleware
  */
 exports.userByID = function(req, res, next, id) {
-  User.findById(id).exec(function(err, user) {
+  User.findById(id).populate('roles').exec(function(err, user) {
     if (err) return next(err);
     if (!user) return next(new Error('Failed to load user ' + id));
     req.user = user;

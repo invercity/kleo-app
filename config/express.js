@@ -23,7 +23,8 @@ var fs = require('fs'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
 	path = require('path'),
-	busboyBodyParser = require('busboy-body-parser');
+	busboyBodyParser = require('busboy-body-parser'),
+	socketIO = require('socket.io');
 
 module.exports = function(db) {
 	// Initialize express app
@@ -121,8 +122,8 @@ module.exports = function(db) {
 	app.use(busboyBodyParser());
 
 	// basic sub-domain handler
-	app.get('/subdomain/:thesubdomain', function(req, res, next){
-		res.send(req.params.thesubdomain);
+	app.get('/subdomain/:name', function(req, res){
+		res.send(req.params.name);
 	});
 
 	var router = express.Router();
@@ -146,14 +147,6 @@ module.exports = function(db) {
 			error: err.stack
 		});
 	});
-
-	/*// Assume 404 since no middleware responded
-	app.use('*', function(req, res) {
-		res.status(404).render('404', {
-			url: req.originalUrl,
-			error: 'Not Found'
-		});
-	});*/
 
 	if (process.env.NODE_ENV === 'secure') {
 		// Log SSL usage

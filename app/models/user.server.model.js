@@ -70,10 +70,9 @@ var UserSchema = new Schema({
 	additionalProvidersData: {},
 	roles: {
 		type: [{
-			type: String,
-			enum: ['user', 'admin']
-		}],
-		default: ['user']
+			type: Schema.ObjectId,
+			ref: 'Role'
+		}]
 	},
 	updated: {
 		type: Date
