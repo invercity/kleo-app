@@ -1,8 +1,7 @@
 'use strict';
 
 // Config HTTP Error Handling
-angular.module('users').config(['$httpProvider',
-	function($httpProvider) {
+angular.module('users').config(['$httpProvider', function($httpProvider) {
 		// Set the httpProvider "not authorized" interceptor
 		$httpProvider.interceptors.push(['$q', '$location', 'Authentication',
 			function($q, $location, Authentication) {
@@ -26,8 +25,22 @@ angular.module('users').config(['$httpProvider',
 				};
 			}
 		]);
-	}
-])
+	}])
+
 	.run(['Users', 'AdminView', function(Users, AdminView) {
-		AdminView.addAdminPage('users', Users, 'Users');
+		AdminView.addAdminPage({
+			id: 'users',
+			title: 'Users',
+			model: Users,
+			scheme: [
+				{
+					name: 'displayName',
+					title: 'Name',
+					type: 'string'
+				}
+			],
+			actions: {
+				remove: true
+			}
+		});
 	}]);

@@ -52,3 +52,7 @@ body {
 		padding-bottom: 12px;
 	}
 }
+
+.list-group-item {
+	cursor: pointer;
+}

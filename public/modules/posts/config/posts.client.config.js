@@ -12,6 +12,37 @@ angular.module('posts').run(['Menus', 'AdminView', 'Posts',
 		/*
 		Menus.addMenuItem('topbar', 'Posts', 'posts', '/posts');
 		*/
-		AdminView.addAdminPage('posts', Posts, 'Posts');
+		//AdminView.addAdminPage('posts', Posts, 'Posts');
+		AdminView.addAdminPage({
+			title: 'Posts',
+			model: Posts,
+			id: 'posts',
+			scheme: [
+				{
+					name: 'title',
+					title: 'Title',
+					type: 'string'
+				},
+				{
+					name: 'created',
+					title: 'Created',
+					type: 'date'
+				},
+				{
+					name: 'postType',
+					title: 'Type',
+					type: 'string'
+				},
+				{
+					name: 'user',
+					title: 'User',
+					type: 'string'
+				}
+			],
+			actions: {
+				edit: true,
+				remove: true
+			}
+		})
 	}
 ]);

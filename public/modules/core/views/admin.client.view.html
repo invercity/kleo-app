@@ -11,12 +11,12 @@
 			<div class="col-md-9">
 				<div class="list-group">
 					<a data-ng-repeat="item in items" class="list-group-item clearfix">
-						{{item.title}}
+						{{item[selectedPage.scheme[0].name]}}
 						<span class="pull-right">
-							<button class="btn btn-sm" data-ng-click="edit(item);">
+							<button class="btn btn-sm" ng-if="selectedPage.actions.edit" data-ng-click="edit(item);">
 								<span class="glyphicon glyphicon-edit"></span>
 							</button>
-							<button class="btn btn-sm" data-ng-click="remove(item);">
+							<button class="btn btn-sm" ng-if="selectedPage.actions.remove" data-ng-click="remove(item);">
 								<span class="glyphicon glyphicon-trash"></span>
 							</button>
 						</span>
