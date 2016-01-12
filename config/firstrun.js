@@ -21,6 +21,9 @@ module.exports = function() {
         firstName: 'admin',
         lastName: 'admin',
         displayName: 'admin',
+        username: 'admin',
+        password: 'admin',
+        email: 'admin@kleo.com',
         roles: [adminRole._id]
       });
 
