@@ -5,7 +5,7 @@ var User = mongoose.model('User');
 var Role = mongoose.model('Role');
 var chalk = require('chalk');
 
-module.exports = function() {
+module.exports = function(cb) {
   var adminRole = new Role({
     name: 'admin',
     displayName: 'Admin',
@@ -22,7 +22,7 @@ module.exports = function() {
         lastName: 'admin',
         displayName: 'admin',
         username: 'admin',
-        password: 'admin',
+        password: 'admin123',
         email: 'admin@kleo.com',
         roles: [adminRole._id]
       });
@@ -30,14 +30,18 @@ module.exports = function() {
       adminUser.save(function(err) {
         if (!err) {
           chalk.green('Models initialized successfully');
+          cb(true);
         }
         else {
           chalk.red('Error while initializing User model');
+          cb();
         }
+
       })
     }
     else {
       chalk.red('Error while initializing Role model');
+      cb();
     }
   });
 };
