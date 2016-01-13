@@ -1,6 +1,7 @@
 language: node_js
+sudo: required
 node_js:
-  - "4.2.4"
+  - "0.10"
 env:
   - NODE_ENV=travis
 services:
