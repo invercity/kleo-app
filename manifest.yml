@@ -4,8 +4,8 @@ declared-services:
     label: mongolab 
     plan: sandbox 
 applications:
-- name: mean
-  host: mean-${random-word}
+- name: kleo
+  host: kleo-${random-word}
   memory: 128M
   services:
   - mean-mongo
