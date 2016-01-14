@@ -1,26 +1,31 @@
-FROM dockerfile/nodejs
+FROM node:0.10
 
 MAINTAINER Matthias Luebken, matthias@catalyst-zero.com
 
-WORKDIR /home/kleo
+# Install gem sass for  grunt-contrib-sass
+RUN apt-get update -qq && apt-get install -y build-essential
+RUN apt-get install -y ruby
+RUN gem install sass
 
-# Install Kleo Prerequisites
+WORKDIR /home/mean
+
+# Install Mean.JS Prerequisites
 RUN npm install -g grunt-cli
 RUN npm install -g bower
 
-# Install Kleo packages
-ADD package.json /home/kleo/package.json
+# Install Mean.JS packages
+ADD package.json /home/mean/package.json
 RUN npm install
 
 # Manually trigger bower. Why doesnt this work via npm install?
-ADD .bowerrc /home/kleo/.bowerrc
-ADD bower.json /home/kleo/bower.json
+ADD .bowerrc /home/mean/.bowerrc
+ADD bower.json /home/mean/bower.json
 RUN bower install --config.interactive=false --allow-root
 
 # Make everything available for start
-ADD . /home/kleo
+ADD . /home/mean
 
-# currently only works for development
+# Set development environment as default
 ENV NODE_ENV development
 
 # Port 3000 for server

@@ -1,3 +1,0 @@
-# Kleo contribution guide
-
-## TBD

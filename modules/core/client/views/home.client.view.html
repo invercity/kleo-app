@@ -1,0 +1,40 @@
+<div data-ng-controller="HomeController">
+  <!-- in future, will be replaced with page brief info, or banner -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>Welcome to Kleo home</h1>
+        <p>
+          Too see development information, go to our <a href="/dev">dev's</a> page
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <ul class="nav nav-tabs">
+        <li role="presentation" ng-repeat="item in postTypes" ng-class="{'active': item.active}" ><a href="#" ng-click="setSelected(item)" data-toogle="tab">{{item.title}}</a></li>
+      </ul>
+      <posts-list items="posts" filter="selectedPostType"></posts-list>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Announcements</h3>
+        </div>
+        <div class="panel-body">
+          <posts-list items="posts" filter="{key: 'Announcement'}"></posts-list>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">News from sites</h3>
+        </div>
+        <div class="panel-body">
+          <posts-list items="posts" filter="{key: 'Announcement'}" disabled-author="true"></posts-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
