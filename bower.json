@@ -1,6 +1,6 @@
 {
   "name": "kleo",
-  "version": "0.0.1",
+  "version": "0.1.0-dev",
   "description": "Real time news feed, blog",
   "dependencies": {
     "bootstrap": "~3",

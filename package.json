@@ -1,7 +1,7 @@
 {
   "name": "kleo",
   "description": "Real time news feed, blog",
-  "version": "0.4.1",
+  "version": "0.1.0-dev",
   "private": false,
   "author": "Andriy Ermolenko",
   "license": "MIT",
