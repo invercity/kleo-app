@@ -20,6 +20,9 @@
         <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
       </li>
     </ul>
+    <!--
+    <input type="text" ng-model="searchQuery" placeholder="Type to search..." typeahead="address for address in getLocations($viewValue)" class="form-control">
+    -->
     <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
       <li ui-sref-active="active">
         <a ui-sref="authentication.signup">Sign Up</a>
