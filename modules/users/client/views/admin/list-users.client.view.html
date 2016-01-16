@@ -1,21 +1,55 @@
 <section>
-  <div class="page-header">
-    <div class="row">
-      <div class="col-md-4">
-        <h1>Users</h1>
+  <div class="row">
+    <div class="page-header">
+      <h4>Administration: {{selected.head.name}}: {{selected.subhead.name}}</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3" style="padding-left: 0">
+      <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+        <ul class="nav bs-docs-sidenav">
+          <li ng-class="{'active': head.active}" ng-repeat="head in data" >
+            <a href="#" ng-click="setActiveHead(head)">{{head.name}} </a>
+            <ul class="nav">
+              <li ng-class="{'active': subhead.active}" ng-repeat="subhead in head.items">
+                <a href="#" ng-click="setActive(subhead)">{{subhead.name}} </a>
+              </li>
+              <li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-4" style="margin-top: 2em; margin-bottom: 20px">
+          <input class="form-control col-md-4"
+                 type="text"
+                 ng-model="search"
+                 placeholder="Search"
+                 ng-change="figureOutItemsToDisplay()" />
+        </div>
       </div>
-      <div class="col-md-4" style="margin-top: 2em">
-        <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+      <div class="row">
+        <div class="col-md-12">
+          <div class="list-group">
+            <a ng-repeat="user in pagedItems" ui-sref="admin.user({userId: user._id})" class="list-group-item">
+              <h4 class="list-group-item-heading" ng-bind="user.username"></h4>
+              <p class="list-group-item-text pull-right small" ng-bind="user.roles"></p>
+              <p class="list-group-item-text" ng-bind="user.email"></p>
+            </a>
+          </div>
+
+          <pagination
+                  boundary-links="true"
+                  max-size="8"
+                  items-per-page="itemsPerPage"
+                  total-items="filterLength"
+                  ng-model="currentPage"
+                  ng-change="pageChanged()">
+          </pagination>
+        </div>
       </div>
     </div>
   </div>
-  <div class="list-group">
-    <a ng-repeat="user in pagedItems" ui-sref="admin.user({userId: user._id})" class="list-group-item">
-      <h4 class="list-group-item-heading" ng-bind="user.username"></h4>
-      <p class="list-group-item-text pull-right small" ng-bind="user.roles"></p>
-      <p class="list-group-item-text" ng-bind="user.email"></p>
-    </a>
-  </div>
-
-  <pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></pagination>
 </section>
