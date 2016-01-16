@@ -7,7 +7,7 @@ angular.module('chat').run(['Menus',
     Menus.addMenuItem('topbar', {
       title: 'Chat',
       state: 'chat',
-      position: '4'
+      position: 3
     });
   }
 ]);
