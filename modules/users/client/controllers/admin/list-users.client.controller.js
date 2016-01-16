@@ -51,13 +51,13 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
     };
 
     $scope.setActive = function(item) {
-      if ($scope.selected.subhead && item != $scope.selected.subhead) $scope.selected.subhead.active = false;
+      if ($scope.selected.subhead && item !== $scope.selected.subhead) $scope.selected.subhead.active = false;
       item.active = true;
       $scope.selected.subhead = item;
     };
 
     $scope.setActiveHead = function(head) {
-      if ($scope.selected.head && head != $scope.selected.head) {
+      if ($scope.selected.head && head !== $scope.selected.head) {
         $scope.selected.head.active = false;
         $scope.selected.subhead.active = false;
       }
@@ -68,9 +68,5 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
     };
 
     $scope.setActiveHead($scope.data[0]);
-
-    $scope.$watch('selected', function(n, o) {
-      console.log('new: ', n, ', old: ', o)
-    })
   }
 ]);
