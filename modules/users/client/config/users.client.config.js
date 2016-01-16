@@ -27,4 +27,19 @@ angular.module('users').config(['$httpProvider',
       }
     ]);
   }
-]);
+])
+
+.run(['AdminService', 'Users', function(Admin, Users) {
+  Admin.addModel({
+    id: 'users',
+    title: 'Users',
+    model: Users,
+    options: {
+      title: 'username',
+      subtitle: 'email',
+      other: 'roles',
+      route: 'admin.user',
+      modelId: 'userId'
+    }
+  });
+}]);
