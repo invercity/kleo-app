@@ -35,3 +35,11 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+.news-panel {
+  padding-top: 20px;
+}
+
+.widget-ann-item {
+  margin-bottom: 0 !important;
+}
