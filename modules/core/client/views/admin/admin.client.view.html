@@ -1,0 +1,23 @@
+<section class="container">
+  <div class="page-header">
+    <h2>Administration: {{selected.head.name}}: {{selected.subhead.name}}</h2>
+  </div>
+  <div class="col-md-3" style="padding-left: 0">
+    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+      <ul class="nav bs-docs-sidenav">
+        <li ng-class="{'active': head.active}" ng-repeat="head in data" >
+          <a href="#" ng-click="setActiveHead(head)">{{head.name}} </a>
+          <ul class="nav">
+            <li ng-class="{'active': subhead.active}" ng-repeat="subhead in head.items">
+              <a href="#" ng-click="setActive(subhead)">{{subhead.name}} </a>
+            </li>
+            <li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="col-md-9">
+    <admin-model-manager items="items" options="options" ng-if="items"></admin-model-manager>
+  </div>
+</section>

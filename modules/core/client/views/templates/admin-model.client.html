@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-4" style="margin-top: 2em; margin-bottom: 20px">
+        <input class="form-control col-md-4"
+               type="text"
+               ng-model="search"
+               placeholder="Search"
+               ng-change="figureOutItemsToDisplay()" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="list-group">
+            <a ng-repeat="page in pagedItems" ui-sref="{{options.route}}({ {{options.modelId}}: page._id})" class="list-group-item">
+                <h4 class="list-group-item-heading" ng-bind="page[options.title]"></h4>
+                <p class="list-group-item-text pull-right small" ng-bind="page[options.other]"></p>
+                <p class="list-group-item-text" ng-bind="page[options.subtitle]"></p>
+            </a>
+        </div>
+
+        <pagination
+                boundary-links="true"
+                max-size="8"
+                items-per-page="itemsPerPage"
+                total-items="filterLength"
+                ng-model="currentPage"
+                ng-change="pageChanged()">
+        </pagination>
+    </div>
+</div>

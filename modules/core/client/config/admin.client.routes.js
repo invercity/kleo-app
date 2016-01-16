@@ -11,6 +11,11 @@ angular.module('core.admin.routes').config(['$stateProvider',
         data: {
           roles: ['admin']
         }
+      })
+      .state('admin.main', {
+        url: '/',
+        templateUrl: 'modules/core/client/views/admin/admin.client.view.html',
+        controller: 'AdminController'
       });
   }
 ]);
