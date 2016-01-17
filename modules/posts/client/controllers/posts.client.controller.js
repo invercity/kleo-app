@@ -40,35 +40,6 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
         });
       }
     };
-
-    /*// Create new Post
-    $scope.create = function (isValid) {
-      $scope.error = null;
-
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'articleForm');
-
-        return false;
-      }
-
-      // Create new Post object
-      var post = new Posts({
-        title: this.title,
-        content: this.content
-      });
-
-      // Redirect after save
-      post.$save(function (response) {
-        $location.path('posts/' + response._id);
-
-        // Clear form fields
-        $scope.title = '';
-        $scope.content = '';
-      }, function (errorResponse) {
-        $scope.error = errorResponse.data.message;
-      });
-    }; */
-
     // Remove existing Post
     $scope.remove = function (post) {
       if (post) {
@@ -86,25 +57,6 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
       }
     };
 
-    /*// Update existing Post
-    $scope.update = function (isValid) {
-      $scope.error = null;
-
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'articleForm');
-
-        return false;
-      }
-
-      var article = $scope.article;
-
-      article.$update(function () {
-        $location.path('posts/' + article._id);
-      }, function (errorResponse) {
-        $scope.error = errorResponse.data.message;
-      });
-    }; */
-
     // Find a list of Posts
     $scope.find = function () {
       $scope.posts = Posts.query();
@@ -115,7 +67,6 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
       $scope.post = Posts.get({
         postId: $stateParams.postId
       });
-      console.log($scope.post);
     };
 
     $scope.getDictionary = function() {
