@@ -38,7 +38,7 @@ angular.module('users').config(['$httpProvider',
       title: 'username',
       subtitle: 'email',
       other: 'roles',
-      route: 'admin.user',
+      route: 'users.view',
       modelId: 'userId'
     }
   });

@@ -173,7 +173,8 @@ angular.module('core').service('Menus', [
 
     this.addMenuItem('topbar', {
       title: 'Main',
-      state: 'home'
+      state: 'home',
+      roles: ['*']
     });
   }
 ]);

@@ -4,8 +4,17 @@
 angular.module('users').config(['$stateProvider',
   function ($stateProvider) {
     $stateProvider
-      .state('admin.user', {
-        url: '/users/:userId',
+      .state('users', {
+        url: '/users',
+        abstract: true,
+        template: '<ui-view/>'
+      })
+      .state('users.list', {
+        url: '',
+        template: ''
+      })
+      .state('users.view', {
+        url: '/:userId',
         templateUrl: 'modules/users/client/views/admin/view-user.client.view.html',
         controller: 'UserController',
         resolve: {
@@ -16,8 +25,8 @@ angular.module('users').config(['$stateProvider',
           }]
         }
       })
-      .state('admin.user-edit', {
-        url: '/users/:userId/edit',
+      .state('users.edit', {
+        url: '/:userId/edit',
         templateUrl: 'modules/users/client/views/admin/edit-user.client.view.html',
         controller: 'UserController',
         resolve: {
