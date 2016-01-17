@@ -19,6 +19,8 @@ Basically you may install all required packages using:
 ```
 $ sudo apt-get install nodejs mongodb
 $ sudo npm install -g grunt-cli bower
+$ sudo apt-get install rubygems
+$ sudo gem install sass
 ```
 
 ## Quick Install
