@@ -15,6 +15,7 @@
   "globals": { // Globals variables.
     "angular": true,
     "io": true,
+    "_": true,
     "ApplicationConfiguration": true
   },
   "predef": [ // Extra globals.

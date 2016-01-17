@@ -20,6 +20,11 @@ angular.module('core').factory('AdminService', [
       },
       addModel: function(model) {
         adminPages[0].items.push(model);
+      },
+      getModel: function(modelId) {
+        return _.find(adminPages[0].items, function(model) {
+          return model.id === modelId;
+        });
       }
     };
   }

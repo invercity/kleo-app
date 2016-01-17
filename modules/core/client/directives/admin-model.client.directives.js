@@ -1,19 +1,29 @@
 'use strict';
 
-angular.module('core').directive('adminModelManager', ['$filter',
-  function($filter) {
+angular.module('core').directive('adminModelManager', ['$filter', 'AdminService',
+  function($filter, Admin) {
     return {
       templateUrl: 'modules/core/client/views/templates/admin-model.client.html',
       restrict: 'E',
       scope: {
-        items: '=',
-        options: '='
+        model: '='
       },
       link: function(scope, element, attrs) {
 
         scope.pagedItems = [];
         scope.itemsPerPage = 15;
         scope.currentPage = 1;
+
+        scope.$watch('model', function(id) {
+          var modelObj = Admin.getModel(id);
+          if (modelObj) {
+            modelObj.model.query(function(items) {
+              scope.items = items;
+              scope.options = modelObj.options;
+              scope.figureOutItemsToDisplay();
+            });
+          }
+        });
 
         scope.figureOutItemsToDisplay = function () {
           scope.filteredItems = $filter('filter')(scope.items, {
@@ -32,8 +42,6 @@ angular.module('core').directive('adminModelManager', ['$filter',
         scope.pageRoute = function(id) {
           return scope.options.route + '({' + scope.options.modelId + ': ' + id + '})';
         };
-
-        scope.figureOutItemsToDisplay();
       }
     };
   }

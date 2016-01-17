@@ -28,18 +28,6 @@ angular.module('core.admin').controller('AdminController', ['$scope', 'AdminServ
         head.items[0].active = true;
         $scope.selectedTab.subhead = head.items[0];
       }
-      getDataForActive();
-    };
-
-    var getDataForActive = function() {
-      switch ($scope.selectedTab.head.id) {
-        case 'models':
-          $scope.items = null;
-          $scope.selectedTab.subhead.model.query(function(data) {
-            $scope.items = data;
-          });
-          break;
-      }
     };
 
     $scope.setActiveHead($scope.tabs[0]);
