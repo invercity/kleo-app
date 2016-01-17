@@ -19,7 +19,7 @@ angular.module('core').factory('AdminService', [
         return adminPages;
       },
       addModel: function(model) {
-        adminPages[0].items.push(model)
+        adminPages[0].items.push(model);
       }
     };
   }
