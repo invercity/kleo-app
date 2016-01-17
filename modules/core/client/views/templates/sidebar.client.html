@@ -1,0 +1,12 @@
+<nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+    <ul class="nav bs-docs-sidenav">
+        <li ui-sref-active="active" ng-repeat="tab in tabs" >
+            <a ui-sref="{{tab.state}}">{{tab.title}} </a>
+            <ul class="nav">
+                <li ui-sref-active="active" ng-repeat="subtab in tab.items">
+                    <a ui-sref="{{subtab.state}}">{{subtab.title}} </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

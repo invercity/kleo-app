@@ -19,8 +19,9 @@ angular.module('core.admin').controller('AdminController', ['$scope', 'AdminServ
     $scope.setActiveHead = function(head) {
       if ($scope.selectedTab.head && head !== $scope.selectedTab.head) {
         $scope.selectedTab.head.active = false;
-        $scope.selectedTab.subhead.active = false;
       }
+      if ($scope.selectedTab.subhead) $scope.selectedTab.subhead.active = false;
+      $scope.selectedTab.subhead = false;
       head.active = true;
       $scope.selectedTab.head = head;
       if (head.items.length) {
