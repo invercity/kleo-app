@@ -10,6 +10,15 @@ angular.module('core').directive('adminModelManager', ['$filter',
         options: '='
       },
       link: function(scope, element, attrs) {
+
+        scope.$watch('items', function(n, o) {
+          scope.items = n
+        });
+
+        scope.$watch('options', function(n, o) {
+          scope.options = n;
+        });
+
         scope.pagedItems = [];
         scope.itemsPerPage = 15;
         scope.currentPage = 1;

@@ -14,6 +14,7 @@ angular.module('core.admin').controller('AdminController', ['$scope', 'AdminServ
       if ($scope.selectedTab.subhead && item !== $scope.selectedTab.subhead) $scope.selectedTab.subhead.active = false;
       item.active = true;
       $scope.selectedTab.subhead = item;
+      getDataForActive();
     };
 
     $scope.setActiveHead = function(head) {
@@ -33,6 +34,7 @@ angular.module('core.admin').controller('AdminController', ['$scope', 'AdminServ
     var getDataForActive = function() {
       switch ($scope.selectedTab.head.id) {
         case 'models':
+          $scope.items = null;
           $scope.selectedTab.subhead.model.query(function(data) {
             $scope.items = data;
           });
