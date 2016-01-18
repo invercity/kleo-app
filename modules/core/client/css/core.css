@@ -165,3 +165,18 @@ a:hover .header-profile-image {
 .panel-widget-container {
   padding: 0;
 }
+
+/*Nav*/
+.nav-tabs > li.active > a {
+  color: black;
+}
+
+.nav-tabs > li > a {
+  color: #555355;
+}
+
+/*Links*/
+.link {
+  color: black;
+  font-weight: bolder;
+}
