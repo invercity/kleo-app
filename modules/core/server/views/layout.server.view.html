@@ -35,14 +35,16 @@
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 </head>
 
-<body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content">
-    <section class="container">
-      {% block content %}{% endblock %}
+<body class="ng-cloak body-color">
+  <div class="wrapper">
+    <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+    <section class="content">
+      <section class="container">
+        {% block content %}{% endblock %}
+      </section>
     </section>
-  </section>
-  <footer ng-include="'/modules/core/client/views/footer.client.view.html'" class="container"></footer>
+    <footer ng-include="'/modules/core/client/views/footer.client.view.html'" class="main-footer"></footer>
+  </div>
 
   <!--Embedding The User Object-->
   <script type="text/javascript">

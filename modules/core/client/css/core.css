@@ -1,3 +1,7 @@
+html, body{
+  /*min-height: 100%;*/
+  height: 100%;
+}
 .content {
   margin-top: 50px;
 }
@@ -40,6 +44,36 @@ a:hover .header-profile-image {
   padding-top: 20px;
 }
 
+.body-color{
+  background-color: #eee;
+}
+
+.wrapper {
+  display: table;
+  height: 100%;
+  margin: auto;
+  background-color: #fff;
+}
+.wrapper > .content {
+  display: table-row;
+  height: 100%;
+}
+.wrapper > .content > .container{
+  padding-top: 51px;
+}
+
 .widget-ann-item {
   margin-bottom: 0 !important;
+}
+
+/*Footer*/
+.main-footer{
+}
+.main-footer > .container{
+  padding: 20px;
+  background-color: #000;
+  color: #fff;
+}
+.copyright{
+  text-align: center;
 }
