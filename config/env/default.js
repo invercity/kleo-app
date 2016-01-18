@@ -24,9 +24,9 @@ module.exports = {
   // sessionSecret should be changed for security measures and concerns
   sessionSecret: 'MEAN',
   // sessionKey is set to the generic sessionId key used by PHP applications
-  // for obsecurity reasons
+  // for security reasons
   sessionKey: 'sessionId',
   sessionCollection: 'sessions',
-  logo: 'modules/core/client/img/brand/logo.png',
-  favicon: 'modules/core/client/img/brand/favicon.ico'
+  //logo: 'modules/core/client/img/brand/logo.png',
+  favicon: 'modules/core/client/img/brand/kleo.png'
 };
