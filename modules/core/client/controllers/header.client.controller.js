@@ -1,19 +1,16 @@
 'use strict';
 
-angular.module('core').config(function(NotificationProvider) {
-  NotificationProvider.setOptions({
-    delay: 100000,
-    startTop: 20,
-    startRight: 10,
-    verticalSpacing: 20,
-    horizontalSpacing: 20,
-    positionX: 'right',
-    positionY: 'bottom'
-  });
-});
-
-angular.module('core').controller('MainController', ['$scope', '$http', '$state', 'Authentication', 'SystemData', 'Menus', 'Notification',
-  function ($scope, $http, $state, Authentication, SystemData, Menus, Notification) {
+angular.module('core').controller('HeaderController', ['$scope', '$http', '$state', 'Authentication', 'SystemData', 'Menus', 'NotificationService',
+  function ($scope, $http, $state, Authentication, SystemData, Menus, NotificationService) {
+    NotificationService.init();
+    /*
+    setTimeout(function() {
+      NotificationService.showNotification({
+        title: 'Kleo app',
+        content: 'Something happened!',
+        icon: 'modules/core/client/img/brand/kleo.png'
+      });
+    }, 5000);*/
     // Expose view variables
     $scope.$state = $state;
     $scope.authentication = Authentication;
