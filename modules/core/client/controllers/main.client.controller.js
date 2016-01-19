@@ -12,8 +12,8 @@ angular.module('core').config(function(NotificationProvider) {
   });
 });
 
-angular.module('core').controller('HeaderController', ['$scope', '$http', '$state', 'Authentication', 'Menus', 'Notification',
-  function ($scope, $http, $state, Authentication, Menus, Notification) {
+angular.module('core').controller('MainController', ['$scope', '$http', '$state', 'Authentication', 'SystemData', 'Menus', 'Notification',
+  function ($scope, $http, $state, Authentication, SystemData, Menus, Notification) {
     // Expose view variables
     $scope.$state = $state;
     $scope.authentication = Authentication;
@@ -44,5 +44,9 @@ angular.module('core').controller('HeaderController', ['$scope', '$http', '$stat
         });
       });
     };
+
+    SystemData.getData().then(function(data) {
+      $scope.app = data;
+    });
   }
 ]);

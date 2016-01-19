@@ -178,3 +178,7 @@ a:hover .header-profile-image {
   color: black;
   font-weight: bolder;
 }
+
+.nav-icon-btn {
+  margin-right: 2px;
+}

@@ -6,22 +6,8 @@ angular.module('posts').run(['Menus', 'AdminService', 'Posts',
     // Add the posts dropdown item
     Menus.addMenuItem('topbar', {
       title: 'Posts',
-      state: 'posts',
-      type: 'dropdown',
+      state: 'posts.list',
       roles: ['*']
-    });
-
-    // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'posts', {
-      title: 'List Posts',
-      state: 'posts.list'
-    });
-
-    // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'posts', {
-      title: 'Create Posts',
-      state: 'posts.create',
-      roles: ['user']
     });
 
     Admin.addModel({

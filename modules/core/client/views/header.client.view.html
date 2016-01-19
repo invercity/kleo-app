@@ -1,4 +1,4 @@
-<div class="container" ng-controller="HeaderController">
+<div class="container" ng-controller="MainController">
   <div class="navbar-header">
     <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
       <span class="sr-only">Toggle navigation</span>
@@ -39,21 +39,24 @@
           <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu">
-          <li ui-sref-active="active">
-            <a ui-sref="settings.profile">Edit Profile</a>
-          </li>
-          <!--<li ui-sref-active="active">
-            <a ui-sref="settings.picture">Change Profile Picture</a>
-          </li>
           <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
-            <a ui-sref="settings.password">Change Password</a>
+            <a ui-sref="posts.create">
+              <i class="glyphicon glyphicon-plus nav-icon-btn"></i>
+              Create post
+            </a>
           </li>
           <li ui-sref-active="active">
-            <a ui-sref="settings.accounts">Manage Social Accounts</a>
-          </li> -->
+            <a ui-sref="settings.profile">
+              <i class="glyphicon glyphicon-pencil nav-icon-btn"></i>
+              Edit Profile
+            </a>
+          </li>
           <li class="divider"></li>
           <li>
-            <a href="/api/auth/signout" target="_self">Signout</a>
+            <a href="/api/auth/signout" target="_self">
+              <i class="glyphicon glyphicon-log-out nav-icon-btn"></i>
+              Signout
+            </a>
           </li>
         </ul>
       </li>
