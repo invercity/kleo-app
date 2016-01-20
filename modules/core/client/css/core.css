@@ -1,6 +1,11 @@
 html, body{
   height: 100%;
 }
+
+header .container {
+  padding: 0;
+}
+
 .content {
   margin-top: 50px;
 }
@@ -114,8 +119,7 @@ a:hover .header-profile-image {
   font-weight: 500;
   color: #767676;
 }
-.bs-docs-sidebar .nav > li > a:hover,
-.bs-docs-sidebar .nav > li > a:focus {
+.bs-docs-sidebar .nav > li > a:hover {
   padding-left: 19px;
   color: #000;
   text-decoration: none;
@@ -123,8 +127,7 @@ a:hover .header-profile-image {
   border-left: 1px solid #000;
 }
 .bs-docs-sidebar .nav > .active > a,
-.bs-docs-sidebar .nav > .active:hover > a,
-.bs-docs-sidebar .nav > .active:focus > a {
+.bs-docs-sidebar .nav > .active:hover > a {
   padding-left: 18px;
   font-weight: bold;
   color: #000;
@@ -144,13 +147,11 @@ a:hover .header-profile-image {
   font-size: 13px;
   font-weight: normal;
 }
-.bs-docs-sidebar .nav .nav > li > a:hover,
-.bs-docs-sidebar .nav .nav > li > a:focus {
+.bs-docs-sidebar .nav .nav > li > a:hover {
   padding-left: 29px;
 }
 .bs-docs-sidebar .nav .nav > .active > a,
-.bs-docs-sidebar .nav .nav > .active:hover > a,
-.bs-docs-sidebar .nav .nav > .active:focus > a {
+.bs-docs-sidebar .nav .nav > .active:hover > a {
   padding-left: 28px;
   font-weight: 500;
 }
@@ -181,4 +182,10 @@ a:hover .header-profile-image {
 
 .nav-icon-btn {
   margin-right: 2px;
+}
+
+/*Search*/
+.search {
+  margin-top: 7px;
+  width: 25%;
 }
