@@ -5,13 +5,12 @@
   <div class="row">
     <nav class="col-sm-3 col-md-3 bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
       <ul class="nav bs-docs-sidenav">
-        <li ng-class="{'active': tab.active}" ng-repeat="tab in tabs" >
+        <li ng-class="{'active': tab.active}" ng-repeat="tab in tabs">
           <a href="#" ng-click="setActiveHead(tab)">{{tab.title}} </a>
           <ul class="nav">
             <li ng-class="{'active': subtab.active}" ng-repeat="subtab in tab.items">
               <a href="#" ng-click="setActive(subtab)">{{subtab.title}} </a>
             </li>
-            <li>
           </ul>
         </li>
       </ul>

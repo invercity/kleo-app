@@ -60,7 +60,18 @@
       </li>
     </ul>
 
-    <input type="text" ng-model="searchQuery" placeholder="Type to search..." typeahead="address for address in getLocations($viewValue)" class="search form-control navbar-right">
+    <input type="text" autocomplete
+           ng-model="searchQuery"
+           placeholder="Type to search..."
+           typeahead="address for address in getLocations($viewValue)"
+           typeahead-template-url="customTemplate"
+           class="search form-control navbar-right"
+           typeahead-focus-first="true" >
 
+    <script type="text/ng-template" id="customTemplate">
+      <a href="/posts">
+        <span ng-bind-html="match.label | typeaheadHighlight:query"></span>
+      </a>
+    </script>
   </nav>
 </div>

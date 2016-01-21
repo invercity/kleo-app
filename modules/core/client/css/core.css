@@ -187,5 +187,15 @@ a:hover .header-profile-image {
 /*Search*/
 .search {
   margin-top: 7px;
-  width: 25%;
+  width: 30%;
+  /*-webkit-transition: width 1s ease-in-out;
+  -moz-transition:width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;*/
+  float:right;
+}
+
+.search:focus {
+  /*width: 30%;
+  z-index: 100;*/
 }
