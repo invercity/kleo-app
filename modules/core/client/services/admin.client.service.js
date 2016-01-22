@@ -5,10 +5,12 @@ angular.module('core').factory('AdminService', [
     var adminPages = [
       {
         id: 'models',
+        state: 'admin.main.mode({moduleId: "models"})',
         title: 'Models',
         items: []
       }, {
         id: 'pages',
+        state: 'admin.main.mode({moduleId: "pages"})',
         title: 'Pages',
         items: []
       }
@@ -19,6 +21,7 @@ angular.module('core').factory('AdminService', [
         return adminPages;
       },
       addModel: function(model) {
+        model.state = 'admin.main.mode.item({moduleId: "models", itemId: "' + model.id + '"})';
         adminPages[0].items.push(model);
       },
       getModel: function(modelId) {

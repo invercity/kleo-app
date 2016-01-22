@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('core').directive('adminModelManager', ['$filter', 'AdminService',
+angular.module('core').directive('adminModuleModel', ['$filter', 'AdminService',
   function($filter, Admin) {
     return {
-      templateUrl: 'modules/core/client/views/templates/admin-model.client.html',
+      templateUrl: 'modules/core/client/views/templates/admin-module-model.client.html',
       restrict: 'E',
       scope: {
         model: '='
