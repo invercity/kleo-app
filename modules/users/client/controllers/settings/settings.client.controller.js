@@ -18,6 +18,6 @@ angular.module('users').controller('SettingsController', ['$scope', 'Authenticat
       state: 'settings.password',
       title: 'Change Password',
       items: []
-    }]
+    }];
   }
 ]);
