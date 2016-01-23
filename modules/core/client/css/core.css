@@ -201,3 +201,22 @@ a:hover .header-profile-image {
   z-index: 100;
 }
 */
+
+.main-btn {
+  display: inline-block;
+  width: 50px;
+}
+
+.btn-container {
+  text-align: justify;
+  margin-left: 12px;
+}
+
+.btn-container > div {
+  margin-top: 16px;
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  *display: inline;
+  zoom: 1
+}
