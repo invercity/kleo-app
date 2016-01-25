@@ -5,7 +5,7 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
-  Notification = mongoose.model('Notification'),
+  Notify = mongoose.model('Notification'),
   _ = require('lodash'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
@@ -13,7 +13,7 @@ var path = require('path'),
  * Create a notification
  */
 exports.create = function (req, res) {
-  var notification = new Notification(req.body);
+  var notification = new Notify(req.body);
 
   notification.save(function (err) {
     if (err) {
@@ -30,7 +30,7 @@ exports.create = function (req, res) {
  * List of Notification
  */
 exports.list = function (req, res) {
-  Notification.find().exec(function (err, notifications) {
+  Notify.find().exec(function (err, notifications) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
