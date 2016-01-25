@@ -206,6 +206,9 @@ a:hover .header-profile-image {
   /*display: inline-block;
   width: 50px;*/
   margin: 12px;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
 }
 
 .btn-container {
