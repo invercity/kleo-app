@@ -203,8 +203,9 @@ a:hover .header-profile-image {
 */
 
 .main-btn {
-  display: inline-block;
-  width: 50px;
+  /*display: inline-block;
+  width: 50px;*/
+  margin: 12px;
 }
 
 .btn-container {
