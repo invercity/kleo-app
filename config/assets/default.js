@@ -18,7 +18,9 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/lodash/lodash.js',
-        'public/lib/angular-ui-notification/dist/angular-ui-notification.js'
+        'public/lib/angular-ui-notification/dist/angular-ui-notification.js',
+        'public/lib/angular-strap/dist/angular-strap.min.js',
+        'public/lib/angular-strap/dist/angular-strap.tpl.min.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

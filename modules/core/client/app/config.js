@@ -12,7 +12,8 @@ var ApplicationConfiguration = (function () {
     'ui.bootstrap',
     'ui.utils',
     'angularFileUpload',
-    'ui-notification'
+    'ui-notification',
+    'mgcrea.ngStrap'
   ];
 
   // Add a new vertical module
