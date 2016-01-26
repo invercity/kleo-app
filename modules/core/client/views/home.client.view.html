@@ -29,7 +29,7 @@
             <div class="row">
               <div class="panel-control-buttons">
                 <div class="control-btn-block" ng-repeat="button in mainButtons">
-                  <button class="btn btn-default btn-lg control-btn">
+                  <button class="btn btn-default btn-lg control-btn" ng-click="onBell();">
                     <span class="glyphicon glyphicon-{{button.icon}}"></span>
                   </button>
                   <div class="control-btn-text">{{button.title}}</div>

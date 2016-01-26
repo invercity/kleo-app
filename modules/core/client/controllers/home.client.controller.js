@@ -1,9 +1,19 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Posts',
-  function ($scope, Authentication, Posts) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Posts', 'NotificationService',
+  function ($scope, Authentication, Posts, NotificationService) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
+
+    $scope.onBell = function() {
+      setTimeout(function() {
+        NotificationService.showNotification({
+          title: 'Kleo app',
+          content: 'Something happened!',
+          icon: 'modules/core/client/img/brand/kleo.png'
+        });
+      }, 0);
+    };
 
     $scope.postTypes = [
       {
@@ -69,6 +79,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       user: 'J. D. Henderson',
       date: 'Feb 14, 2013',
       from: 'bbc.uk'
-    }]
+    }];
   }
 ]);

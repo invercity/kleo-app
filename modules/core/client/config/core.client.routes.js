@@ -49,6 +49,6 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider', '$affixPr
     .state('page', {
       url: '/page',
       templateUrl: 'modules/core/client/views/page.client.view.html'
-    })
+    });
   }
 ]);

@@ -5,6 +5,16 @@ angular.module('core').controller('PageController', ['$scope', 'Authentication',
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
+    $scope.onBell = function() {
+      setTimeout(function() {
+        NotificationService.showNotification({
+          title: 'Kleo app',
+          content: 'Something happened!',
+          icon: 'modules/core/client/img/brand/kleo.png'
+        });
+      }, 0);
+    };
+
     $scope.postTypes = [
       {
         key: 'News',
@@ -69,6 +79,6 @@ angular.module('core').controller('PageController', ['$scope', 'Authentication',
       user: 'J. D. Henderson',
       date: 'Feb 14, 2013',
       from: 'bbc.uk'
-    }]
+    }];
   }
 ]);
