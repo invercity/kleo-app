@@ -20,9 +20,14 @@
           <div class="col-md-5 col-sm-9 col-xs-8">
             <div class="row">
               <div style="padding-left: 8px">
-                <button class="btn btn-default btn-lg main-btn">
-                  <span class="glyphicon glyphicon-list-alt"></span>
-                </button>
+                <div style="display: inline-block">
+                  <button class="btn btn-default btn-lg main-btn">
+                    <span class="glyphicon glyphicon-list-alt"></span>
+                  </button>
+                  <div>
+                    Some Name
+                  </div>
+                </div>
                 <button class="btn btn-default btn-lg main-btn">
                   <span class="glyphicon glyphicon-heart"></span>
                 </button>
@@ -78,34 +83,35 @@
     </div>
   </div>
 
-  <div class="navbar navbar-inverse navbar-subdomain" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
+  <div class="navbar-subdomain-container">
+    <div class="navbar navbar-inverse navbar-subdomain" role="navigation" data-offset-top="150" bs-affix>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
 
-    <div class="collapse navbar-collapse">
-
-      <ul class="nav navbar-nav">
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+      <div class="collapse navbar-collapse subdomain-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 

@@ -230,3 +230,23 @@ a:hover .header-profile-image {
   margin-left: -15px;
   margin-right: -15px;
 }
+
+.navbar.navbar-inverse.navbar-subdomain.affix {
+  position: fixed;
+  top: 51px;
+  z-index: 9999;
+}
+
+.navbar-subdomain-container {
+  height: 66px;
+}
+
+.subdomain-collapse > .navbar-nav > li > a, .navbar-brand {
+  padding-top:4px !important;
+  padding-bottom:0 !important;
+  height: 28px;
+}
+
+.navbar-subdomain-container > .navbar {
+  min-height:28px !important;
+}
