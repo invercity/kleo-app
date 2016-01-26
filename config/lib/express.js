@@ -164,9 +164,12 @@ module.exports.initModulesClientRoutes = function (app) {
   // Setting the app router and static folder
   app.use('/', express.static(path.resolve('./public')));
 
+  //app.use('/sub/:subdomain/', express.static(path.resolve('./public')));
+
   // Globbing static routing
   config.folders.client.forEach(function (staticPath) {
     app.use(staticPath, express.static(path.resolve('./' + staticPath)));
+    //app.use('sub/:subdomain/' + staticPath, express.static(path.resolve('./' + staticPath)));
   });
 };
 
@@ -186,7 +189,9 @@ module.exports.initModulesServerPolicies = function (app) {
 module.exports.initModulesServerRoutes = function (app) {
   // Globbing routing files
   config.files.server.routes.forEach(function (routePath) {
-    require(path.resolve(routePath))(app);
+    var router = express.Router();
+    app.use('/', router);
+    require(path.resolve(routePath))(router);
   });
 };
 
