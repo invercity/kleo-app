@@ -46,6 +46,11 @@ a:hover .header-profile-image {
 
 .news-panel {
   padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.news-panel-item {
+  margin-bottom: 5px;
 }
 
 .body-color{
@@ -84,6 +89,12 @@ a:hover .header-profile-image {
 .copyright {
   color: #8b8b8b;
   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .main-footer > .container {
+    padding: 5px 20px;
+  }
 }
 
 .footer-map-btn {
@@ -202,30 +213,53 @@ a:hover .header-profile-image {
 }
 */
 
-.main-btn {
-  /*display: inline-block;
-  width: 50px;*/
-  margin: 12px;
+/* Logo bar */
+
+/* Control panel bar*/
+.panel-control-buttons {
+  padding-left: 8px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.control-btn-block {
+  display: inline-block;
+}
+
+.control-btn {
+  margin: 15px;
   box-shadow: none;
   border: none;
   border-radius: 0;
 }
 
-.btn-container {
-  text-align: justify;
-  margin-left: 12px;
+@media (max-width: 768px) {
+  .control-btn {
+    margin: 3px;
+  }
+
+  .logo-img {
+    height: 80px;
+  }
 }
 
-.btn-container > div {
-  margin-top: 16px;
-  width: 70px;
-  height: 70px;
-  display: inline-block;
-  *display: inline;
-  zoom: 1
+@media (min-width: 990px) {
+  .control-btn {
+    margin: 5px;
+  }
 }
 
-/* navbar 2 */
+@media (min-width: 768px) {
+  .control-btn-block {
+    margin-right: 5px;
+  }
+}
+
+.control-btn-text {
+  text-align: center;
+}
+
+/* navbar subdomain */
 .navbar-subdomain {
   margin-left: -15px;
   margin-right: -15px;
@@ -238,7 +272,7 @@ a:hover .header-profile-image {
 }
 
 .navbar-subdomain-container {
-  height: 66px;
+  height: 50px;
 }
 
 .subdomain-collapse > .navbar-nav > li > a, .navbar-brand {
@@ -251,6 +285,6 @@ a:hover .header-profile-image {
   min-height:28px !important;
 }
 
-.btn-text-center {
-  text-align: center;
+.main-header {
+  margin-bottom: 10px !important;
 }

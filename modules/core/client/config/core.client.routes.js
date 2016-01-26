@@ -45,6 +45,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider', '$affixPr
     .state('dev', {
       url: '/dev',
       templateUrl: 'modules/core/client/views/dev.client.view.html'
-    });
+    })
+    .state('page', {
+      url: '/page',
+      templateUrl: 'modules/core/client/views/page.client.view.html'
+    })
   }
 ]);

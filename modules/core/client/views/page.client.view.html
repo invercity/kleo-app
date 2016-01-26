@@ -1,0 +1,118 @@
+<div data-ng-controller="PageController">
+    <!-- in future, will be replaced with page brief info, or banner -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header" style="margin-top: 10px">
+                <div class="row">
+                    <!-- logo bar -->
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                        <!--<h1>Welcome to Kleo home</h1>
+                        <p>
+                          Too see development information, go to our <a class="link" ui-sref="dev">dev's</a> page
+                        </p> -->
+                        <img class="logo-img" style="height: 100px" src="modules/core/client/img/sublogo.png">
+                    </div>
+                    <div class="col-md-5 hidden-sm col-xs-9">
+                        <div class="row" style="font-family: 'Book Antiqua  Arial'; text-align: right; font-size: 18px; margin-right: 5px">
+                            <b>Department of Something</b>
+                        </div>
+                        <div class="row" style="font-family: 'Book Antiqua  Arial'; text-align: right; font-size: 16px; margin-right: 5px">
+                            Founded: 1987
+                        </div>
+                        <div class="row hidden-xs" style="font-family: 'Book Antiqua  Arial'; text-align: right; font-size: 16px; margin-right: 5px">
+                            Dome details: The standard chunk of Lorem Ipsum used since the 1500s
+                            is reproduced below for those interested. Sections 1.10.32 and 1.10.33
+                        </div>
+                    </div>
+                    <!-- control buttons bar -->
+                    <div class="col-md-5 col-sm-9 col-xs-12">
+                        <div class="row">
+                            <div class="panel-control-buttons">
+                                <div class="control-btn-block" ng-repeat="button in mainButtons">
+                                    <button class="btn btn-default btn-lg control-btn">
+                                        <span class="glyphicon glyphicon-{{button.icon}}"></span>
+                                    </button>
+                                    <div class="control-btn-text">{{button.title}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- bar end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar-subdomain-container">
+      <div class="navbar navbar-inverse navbar-subdomain" role="navigation" data-offset-top="120" bs-affix>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse-2" data-target=".navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="collapse collapse-2 navbar-collapse navbar-collapse-2 subdomain-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">DOMAIN.STU</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Articles</a></li>
+            <li class="dropdown dropdown-2">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown-2">Books<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-repeat="item in postTypes" ng-class="{'active': item.active}" ><a href="#" ng-click="setSelected(item)" data-toogle="tab">{{item.title}}</a></li>
+            </ul>
+            <div class="news-panel">
+                <posts-list items="posts" filter="selectedPostType"></posts-list>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Announcements</h3>
+                </div>
+                <div class="panel-body panel-widget-container">
+                    <posts-list items="posts" filter="{key: 'Announcement'}" disabled-author="true"></posts-list>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">News from sites</h3>
+                </div>
+                <div class="panel-body panel-widget-container">
+                    <div class="list-group widget-ann-item">
+                        <a data-ng-repeat="item in news" class="list-group-item news-panel-item" href="#">
+                            <h4 class="list-group-item-heading" data-ng-bind="item.title"></h4>
+                            <p class="list-group-item-text" data-ng-bind="item.content"></p>
+                            <small class="list-group-item-text">
+                                Posted on
+                                <span data-ng-bind="item.date"></span>
+                                <span data-ng-bind="'by ' + item.user"></span>
+                                <span  style="float: right"><i>from</i> <b>{{item.from}}</b></span>
+                            </small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
