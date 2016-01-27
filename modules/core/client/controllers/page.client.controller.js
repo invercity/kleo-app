@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('PageController', ['$scope', 'Authentication', 'Posts',
-  function ($scope, Authentication, Posts) {
+angular.module('core').controller('PageController', ['$scope', 'Authentication', 'Posts', 'NotificationService',
+  function ($scope, Authentication, Posts, NotificationService) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
