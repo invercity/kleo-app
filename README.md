@@ -33,6 +33,20 @@ To install Node.js dependencies you're going to use npm again, in the applicatio
 $ npm install
 ```
 
+## First Run
+For creaing default app 'administator' user, set ``MONGO_SEED`` environment variable to ``true`` on a first launch (only once)
+
+```
+$ MONGO_SEED=true grunt
+```
+During launch, default 'user' and 'admin' will be created, and you'll see next messages in stdout:
+
+```
+Local user added with password set to [some pass] 
+Local admin added with password set to [some pass]
+```
+After that, you may login to system using username: 'admin' and password [some pass].
+
 ## Running Application
 After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
 
