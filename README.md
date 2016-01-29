@@ -42,8 +42,8 @@ $ MONGO_SEED=true grunt
 During launch, default 'user' and 'admin' will be created, and you'll see next messages in stdout:
 
 ```
-Local user added with password set to [some pass] 
-Local admin added with password set to [some pass]
+$ Local user added with password set to [some pass] 
+$ Local admin added with password set to [some pass]
 ```
 After that, you may login to system using username: 'admin' and password [some pass].
 
