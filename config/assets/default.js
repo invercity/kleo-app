@@ -6,7 +6,8 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-        'public/lib/angular-ui-notification/dist/angular-ui-notification.css'
+        'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
+        'public/lib/textAngular/dist/textAngular.css'
       ],
       js: [
         'public/lib/angular/angular.js',
@@ -20,7 +21,10 @@ module.exports = {
         'public/lib/lodash/lodash.js',
         'public/lib/angular-ui-notification/dist/angular-ui-notification.js',
         'public/lib/angular-strap/dist/angular-strap.min.js',
-        'public/lib/angular-strap/dist/angular-strap.tpl.min.js'
+        'public/lib/angular-strap/dist/angular-strap.tpl.min.js',
+        'public/lib/textAngular/dist/textAngular-rangy.min.js',
+        'public/lib/textAngular/dist/textAngular-sanitize.min.js',
+        'public/lib/textAngular/dist/textAngular.min.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },
