@@ -53,5 +53,8 @@ $ grunt
 
 Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000) <br/>
 
+## Wiki
+Wiki pages you can found [here](https://github.com/invercity/kleo/wiki)
+
 ## License
 ### MIT
