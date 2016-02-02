@@ -38,7 +38,7 @@
         <div class="form-group" ng-class="{ 'has-error' : submitted && postForm.content.$invalid}">
           <label class="control-label" for="content">Content</label>
           <div class="controls">
-            <textarea name="content" data-ng-model="post.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+            <text-angular id="content" data-ng-model="post.content" required></text-angular>
           </div>
           <div ng-show="submitted && postForm.content.$invalid" class="help-block">
             <p ng-show="postForm.content.$error.required" class="text-danger">Content is required</p>

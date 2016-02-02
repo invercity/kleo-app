@@ -13,7 +13,7 @@ var ApplicationConfiguration = (function () {
     'ui.utils',
     'angularFileUpload',
     'ui-notification',
-    'mgcrea.ngStrap',
+    'mgcrea.ngStrap.affix',
     'textAngular'
   ];
 
