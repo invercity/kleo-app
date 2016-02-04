@@ -4,7 +4,9 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+  Schema = mongoose.Schema,
+  dictionary = require('../../../dictionary/server/controllers/dictionary.server.controller'),
+  postTypes = dictionary.getJSONById('POST_TYPE');
 
 /**
  * Post Schema
@@ -20,13 +22,24 @@ var PostSchema = new Schema({
     trim: true,
     required: 'Title cannot be blank'
   },
+  options: {
+    type: Schema.Types.Mixed,
+    default: {
+      displayAuthor: true,
+      showMain: false,
+      showGlobal: false
+    }
+  },
+  // deprecated
+  // will be removed in future API releases
   authorDisplay: {
     type: Boolean,
     default: true
   },
   postType: {
     type: String,
-    default: 'news'
+    enum: postTypes,
+    default: postTypes[0]
   },
   visits: {
     type: Number,
@@ -40,6 +53,10 @@ var PostSchema = new Schema({
     type: String,
     default: '',
     trim: true
+  },
+  domain: {
+    type: String,
+    default: ''
   },
   user: {
     type: Schema.ObjectId,
