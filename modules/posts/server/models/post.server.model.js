@@ -49,6 +49,10 @@ var PostSchema = new Schema({
     type: [String],
     default: []
   },
+  preview: {
+    type: String,
+    trim: true
+  },
   content: {
     type: String,
     default: '',
