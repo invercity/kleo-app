@@ -25,7 +25,6 @@ var PostSchema = new Schema({
   options: {
     type: Schema.Types.Mixed,
     default: {
-      displayAuthor: true,
       showMain: false,
       showGlobal: false
     }
