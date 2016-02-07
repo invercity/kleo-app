@@ -29,7 +29,7 @@ var isAdmin = function(user) {
 exports.create = function (req, res) {
 
   if (!isAdmin(req.user)) {
-    if (req.body.options.showMain || req.body.options.showGlobal) {
+    if (req.body.options && (req.body.options.showMain || req.body.options.showGlobal)) {
       return res.status(403).send({
         message: 'You need administrator rights to make this action'
       });
@@ -63,7 +63,7 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   if (!isAdmin(req.user)) {
-    if (req.body.options.showMain || req.body.options.showGlobal) {
+    if (req.body.options && (req.body.options.showMain || req.body.options.showGlobal)) {
       return res.status(403).send({
         message: 'You need administrator rights to make this action'
       });
@@ -72,18 +72,19 @@ exports.update = function (req, res) {
   }
 
   var post = req.post;
+
   var updateFields = {
-    title: post.title,
-    preview: post.preview,
-    content: post.content,
-    tags: post.tags
+    title: req.body.title,
+    preview: req.body.preview,
+    content: req.body.content,
+    tags: req.body.tags
   };
 
-  if (post.options) updateFields.options = post.options;
+  if (req.body.options) updateFields.options = post.options;
 
-  Post.findByIdAndUpdate(post._id, {
-    $set: updateFields
-  }, function (err, post) {
+  post = _.extend(post, updateFields);
+
+  post.save(function(err, post) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -134,7 +135,7 @@ exports.postByID = function (req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
-      message: 'Post ID is invalid'
+      message: 'Post is invalid'
     });
   }
 
