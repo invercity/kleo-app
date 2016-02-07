@@ -63,7 +63,8 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   if (!isAdmin(req.user)) {
-    if (req.body.showMain !== req.post.showMain || req.body.showGlobal !== req.post.showGlobal) {
+    if ((undefined !== req.body.showMain && req.body.showMain !== req.post.showMain) ||
+      (undefined !== req.body.showGlobal && req.body.showGlobal !== req.post.showGlobal)) {
       return res.status(403).send({
         message: 'You need administrator rights to make this action'
       });
