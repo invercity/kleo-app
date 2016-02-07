@@ -20,6 +20,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/posts/:postId',
       permissions: '*'
+    }, {
+      resources: '/api/news',
+      permissions: ['get']
     }]
   }, {
     roles: ['user'],
@@ -29,6 +32,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/posts/:postId',
       permissions: ['get']
+    }, {
+      resources: '/api/news',
+      permissions: ['get']
     }]
   }, {
     roles: ['guest'],
@@ -37,6 +43,9 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }, {
       resources: '/api/posts/:postId',
+      permissions: ['get']
+    }, {
+      resources: '/api/news',
       permissions: ['get']
     }]
   }]);
@@ -48,7 +57,7 @@ exports.invokeRolesPolicies = function () {
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
 
-  // If an article is being processed and the current user created it then allow any manipulation
+  // If a post is being processed and the current user created it then allow any manipulation
   if ((roles.indexOf('admin') !== -1) || req.post && req.user && req.post.user.id === req.user.id) {
     return next();
   }

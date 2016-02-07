@@ -26,11 +26,16 @@
               </div>
             </div>
             <div class="col-md-6">
-              <label class="control-label" for="authorDisplay">Display author name</label>
+              <label class="control-label" for="someId">&nbsp</label>
               <div class="controls">
+                <button type="button" id="someId" class="btn btn-default" ng-disabled="!post.postType" ng-model="post.showGlobal" bs-checkbox required>
+                  <span class="glyphicon glyphicon-check" ng-if="post.showGlobal"></span> Show in News Block
+                </button>
+                <!--
                 <div class="checkbox">
                   <label><input type="checkbox" ng-model="post.authorDisplay" id="authorDisplay" name="authorDisplay"> {{post.authorDisplay ? 'Yes' : 'No'}}</label>
                 </div>
+                -->
               </div>
             </div>
           </div>

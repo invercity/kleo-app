@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Posts', 'NotificationService',
-  function ($scope, Authentication, Posts, NotificationService) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'News', 'NotificationService',
+  function ($scope, Authentication, News, NotificationService) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
@@ -38,7 +38,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     $scope.setSelected($scope.postTypes[0]);
 
-    $scope.posts = Posts.query();
+    $scope.posts = News.query();
 
     $scope.mainButtons = [
       {

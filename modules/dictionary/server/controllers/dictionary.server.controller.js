@@ -4,7 +4,7 @@ var dictionaries = {
   "POST_TYPE": {
     values: [
       "News",
-      "Post",
+      "Article",
       "Announcement"
     ]
   }

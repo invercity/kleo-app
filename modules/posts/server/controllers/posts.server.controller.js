@@ -29,7 +29,7 @@ var isAdmin = function(user) {
 exports.create = function (req, res) {
 
   if (!isAdmin(req.user)) {
-    if (req.body.options && (req.body.options.showMain || req.body.options.showGlobal)) {
+    if (req.body.showMain || req.body.showGlobal) {
       return res.status(403).send({
         message: 'You need administrator rights to make this action'
       });
@@ -63,12 +63,11 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   if (!isAdmin(req.user)) {
-    if (req.body.options && (req.body.options.showMain || req.body.options.showGlobal)) {
+    if (req.body.showMain != req.post.showMain || req.body.showGlobal != req.post.showGlobal) {
       return res.status(403).send({
         message: 'You need administrator rights to make this action'
       });
     }
-    req.body.options = undefined;
   }
 
   var post = req.post;
@@ -77,10 +76,10 @@ exports.update = function (req, res) {
     title: req.body.title,
     preview: req.body.preview,
     content: req.body.content,
-    tags: req.body.tags
+    tags: req.body.tags,
+    showMain: req.body.showMain,
+    showGlobal: req.body.showGlobal
   };
-
-  if (req.body.options) updateFields.options = post.options;
 
   post = _.extend(post, updateFields);
 
@@ -149,5 +148,23 @@ exports.postByID = function (req, res, next, id) {
     }
     req.post = post;
     next();
+  });
+};
+
+/**
+ * Get list of posts for selected domain
+ */
+exports.getPostsForDomain = function(req, res) {
+  Post.find({
+    //domain: null,
+    showGlobal: true
+  }).sort('-created').populate('user', 'displayName').exec(function (err, posts) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(posts);
+    }
   });
 };

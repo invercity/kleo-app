@@ -22,18 +22,13 @@ var PostSchema = new Schema({
     trim: true,
     required: 'Title cannot be blank'
   },
-  options: {
-    type: Schema.Types.Mixed,
-    default: {
-      showMain: false,
-      showGlobal: false
-    }
-  },
-  // deprecated
-  // will be removed in future API releases
-  authorDisplay: {
+  showMain: {
     type: Boolean,
-    default: true
+    default: false
+  },
+  showGlobal: {
+    type: Boolean,
+    default: false
   },
   postType: {
     type: String,
