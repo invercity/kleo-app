@@ -199,5 +199,5 @@ exports.getTopPostsForType = function(req, res) {
       } else {
         res.json(posts);
       }
-    })
+    });
 };
