@@ -153,34 +153,13 @@ exports.postByID = function (req, res, next, id) {
 };
 
 /**
- * Get list of posts for selected domain
- */
-exports.getPostsForDomain = function(req, res) {
-  Post.find({
-    //domain: null,
-    showGlobal: true
-  })
-    .sort('-created')
-    .populate('user', 'displayName')
-    .exec(function (err, posts) {
-      if (err) {
-        return res.status(400).send({
-          message: errorHandler.getErrorMessage(err)
-        });
-      } else {
-        res.json(posts);
-
-      }
-    });
-};
-
-/**
  * Get top post of selected type for main page
  * @param req
  * @param res
  */
 exports.getTopPostsForType = function(req, res) {
   var type = req.query.type;
+  var limit = req.query.limit;
   var searchObject = {
     //domain: null,
     showGlobal: true
@@ -188,9 +167,11 @@ exports.getTopPostsForType = function(req, res) {
   if (type) {
     searchObject.postType = type;
   }
-  Post.find(searchObject)
-    .sort('-created')
-    .limit(10)
+  var query = Post.find(searchObject)
+    .sort('-created');
+  if (limit) query = query.limit(limit);
+  query
+    .populate('user', 'displayName')
     .exec(function(err, posts) {
       if (err) {
         return res.status(400).send({

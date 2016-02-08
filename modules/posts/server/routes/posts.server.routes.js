@@ -9,7 +9,7 @@ var postsPolicy = require('../policies/posts.server.policy'),
 module.exports = function (app) {
   // News routes
   app.route('/api/news').all(postsPolicy.isAllowed)
-    .get(posts.getPostsForDomain);
+    .get(posts.getTopPostsForType);
   // Posts collection routes
   app.route('/api/posts').all(postsPolicy.isAllowed)
     .get(posts.list)

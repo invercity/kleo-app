@@ -38,7 +38,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     $scope.setSelected($scope.postTypes[0]);
 
-    $scope.posts = News.query();
+    News.getData().then(function(result) {
+      $scope.posts = result;
+    });
 
     $scope.mainButtons = [
       {
