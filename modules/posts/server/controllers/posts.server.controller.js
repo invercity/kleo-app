@@ -159,13 +159,45 @@ exports.getPostsForDomain = function(req, res) {
   Post.find({
     //domain: null,
     showGlobal: true
-  }).sort('-created').populate('user', 'displayName').exec(function (err, posts) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(posts);
-    }
-  });
+  })
+    .sort('-created')
+    .populate('user', 'displayName')
+    .exec(function (err, posts) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(posts);
+
+      }
+    });
+};
+
+/**
+ * Get top post of selected type for main page
+ * @param req
+ * @param res
+ */
+exports.getTopPostsForType = function(req, res) {
+  var type = req.query.type;
+  var searchObject = {
+    //domain: null,
+    showGlobal: true
+  };
+  if (type) {
+    searchObject.postType = type;
+  }
+  Post.find(searchObject)
+    .sort('-created')
+    .limit(10)
+    .exec(function(err, posts) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(posts);
+      }
+    })
 };
