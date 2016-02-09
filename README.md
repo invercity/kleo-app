@@ -13,12 +13,6 @@ Make sure you have installed all these prerequisites on your development machine
 * Bower - You're going to use the [Bower Package Manager](http://bower.io/) to manage your front-end packages;
 * Grunt - You're going to use the [Grunt Task Runner](http://gruntjs.com/) to automate your development process.
 
-**IMPORTANT:** Actually we support Node.JS ```v4.x```, previous versions are **not** supported. Please check your Node.JS version using: 
-
-```
-$ node -v
-```
-
 Basically you may install all required packages using:
 
 ```
@@ -26,6 +20,12 @@ $ sudo apt-get install nodejs mongodb
 $ sudo npm install -g grunt-cli bower
 $ sudo apt-get install rubygems
 $ sudo gem install sass
+```
+
+**IMPORTANT:** Actually we support Node.JS ```v4.x```, previous versions are **not** supported. Please check your Node.JS version using: 
+
+```
+$ node -v
 ```
 
 ## Quick Install
