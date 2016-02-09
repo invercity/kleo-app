@@ -17,6 +17,7 @@ before_install:
   - gem install sass --version "=3.3.7"
   - npm i nsp -g
 install:
+  - sudo pip install virtualenv
   - pip install codecov
 after_script:
   - nsp audit-package
