@@ -18,7 +18,7 @@ before_install:
   - npm i nsp -g
 install:
   - sudo pip install virtualenv
-  - pip install codecov
+  - sudo pip install codecov
 after_script:
   - nsp audit-package
 after_success:
