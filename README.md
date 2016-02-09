@@ -1,6 +1,9 @@
 # Kleo
 [![Build Status](https://travis-ci.org/invercity/kleo.svg?branch=master)](https://travis-ci.org/invercity/kleo)
 [![GitHub version](https://badge.fury.io/gh/invercity%2Fkleo.svg)](https://badge.fury.io/gh/invercity%2Fkleo)
+[![node](https://img.shields.io/node/v/gh-badges.svg)](https://github.com/invercity/kleo)
+[![Codecov](https://img.shields.io/codecov/c/github/codecov/example-python.svg)](https://github.com/invercity/kleo)
+[![David](https://img.shields.io/david/strongloop/express.svg)](https://github.com/invercity/kleo)
 
 Kleo is a modern HTML5 based app, build on **MEAN** stack ([**M**ongoDB](http://www.mongodb.org/), [**N**ode.js](http://www.nodejs.org/), [**E**xpress](http://expressjs.com/), [**A**ngularJS](http://angularjs.org/))
 
