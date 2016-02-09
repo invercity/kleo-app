@@ -13,19 +13,23 @@ Make sure you have installed all these prerequisites on your development machine
 * Bower - You're going to use the [Bower Package Manager](http://bower.io/) to manage your front-end packages;
 * Grunt - You're going to use the [Grunt Task Runner](http://gruntjs.com/) to automate your development process.
 
-Basically you may install all required packages using:
-
+Installing Node.JS: (if not installed before)
 ```
-$ sudo apt-get install nodejs mongodb
+$ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+```
+**IMPORTANT:** Actually we support Node.JS ```v4.x```, previous versions are **not** supported. Please check your Node.JS version using: 
+```
+$ node -v
+```
+If your version is lower than 4.x - please also do the above steps.
+
+Installing other packages: 
+```
+$ sudo apt-get install mongodb
 $ sudo npm install -g grunt-cli bower
 $ sudo apt-get install rubygems
 $ sudo gem install sass
-```
-
-**IMPORTANT:** Actually we support Node.JS ```v4.x```, previous versions are **not** supported. Please check your Node.JS version using: 
-
-```
-$ node -v
 ```
 
 ## Quick Install
@@ -38,7 +42,7 @@ To install Node.js dependencies you're going to use npm again, in the applicatio
 $ npm install
 ```
 
-## First Run
+## First Launch
 For creaing default app 'administator' user, set ``MONGO_SEED`` environment variable to ``true`` on a first launch (only once)
 
 ```
@@ -52,14 +56,12 @@ $ Local admin added with password set to [some pass]
 ```
 After that, you may login to system using username: 'admin' and password [some pass].
 
-## Running Application
-After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
+Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000) <br/>
+Next time, you may launch application with the following command:
 
 ```
 $ grunt
 ```
-
-Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000) <br/>
 
 ## Wiki
 Wiki pages you can found [here](https://github.com/invercity/kleo/wiki)
