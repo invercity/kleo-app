@@ -90,10 +90,13 @@ module.exports.initMiddleware = function (app) {
   app.use(flash());
 
   // Add multipart handling middleware
-  app.use(multer({
+
+  // UPD - will be turned off and replaced by GridFS Content
+  // feature 'upliad images' will no work for now
+  /* app.use(multer({
     dest: './uploads/',
     inMemory: true
-  }));
+  })); */
 };
 
 /**
