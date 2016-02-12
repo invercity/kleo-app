@@ -27,6 +27,9 @@ exports.write = function(req, res) {
   writeStream.end();
 };
 
+exports.current = function (req, res) {
+  res.json(req.content);
+};
 
 exports.read = function(req, res) {
 
