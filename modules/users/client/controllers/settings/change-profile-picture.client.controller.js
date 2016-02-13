@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('users').controller('ChangeProfilePictureController', ['$scope', '$timeout', '$window', 'Authentication', 'FileUploader',
-  function ($scope, $timeout, $window, Authentication, FileUploader) {
+angular.module('users').controller('ChangeProfilePictureController', ['$scope', '$http', '$timeout', '$window', 'Authentication', 'FileUploader',
+  function ($scope, $http, $timeout, $window, Authentication, FileUploader) {
     $scope.user = Authentication.user;
     $scope.imageURL = $scope.user.profileImageURL;
 
     // Create file uploader instance
     $scope.uploader = new FileUploader({
-      url: 'api/content'
+      url: 'api/files'
     });
 
     $scope.uploader.onCompleteItem = function(item, res, stat, head) {
@@ -45,11 +45,13 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
       // Show success message
       $scope.success = true;
 
-      // Populate user object
-      $scope.user = Authentication.user = response;
-
-      // Clear upload buttons
-      $scope.cancelUpload();
+      $http.post('/api/users/picture', {filename: response.location})
+        .success(function(data) {
+          // Populate user object
+          $scope.user = Authentication.user = data;
+          // Clear upload buttons
+          $scope.cancelUpload();
+        });
     };
 
     // Called after the user has failed to uploaded a new picture
