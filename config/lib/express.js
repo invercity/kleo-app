@@ -16,7 +16,8 @@ var config = require('../config'),
   helmet = require('helmet'),
   flash = require('connect-flash'),
   consolidate = require('consolidate'),
-  path = require('path');
+  path = require('path'),
+  busboy = require('busboy-body-parser');
 
 /**
  * Initialize local variables
@@ -87,6 +88,8 @@ module.exports.initMiddleware = function (app) {
   // Add the cookie parser and flash middleware
   app.use(cookieParser());
   app.use(flash());
+
+  app.use(busboy());
 
   // Add multipart handling middleware
 

@@ -7,8 +7,15 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
 
     // Create file uploader instance
     $scope.uploader = new FileUploader({
-      url: 'api/users/picture'
+      url: 'api/content'
     });
+
+    $scope.uploader.onCompleteItem = function(item, res, stat, head) {
+      console.log(item);
+      console.log(res);
+      console.log(stat);
+      console.log(head);
+    };
 
     // Set file uploader image filter
     $scope.uploader.filters.push({

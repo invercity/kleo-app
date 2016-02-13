@@ -8,12 +8,12 @@ angular.module('users').controller('SettingsController', ['$scope', 'Authenticat
       state: 'settings.profile',
       title: 'Edit Profile',
       items: []
-    }, /*{
+    }, {
       id: 'picture',
       state: 'settings.picture',
       title: 'Change Profile Picture',
       items: []
-    }, */{
+    }, {
       id: 'password',
       state: 'settings.password',
       title: 'Change Password',

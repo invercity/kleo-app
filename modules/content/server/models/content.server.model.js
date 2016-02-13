@@ -16,6 +16,13 @@ var ContentSchema = new Schema({
   mimeType: {
     type: String
   },
+  fileId: {
+    type: Schema.ObjectId
+  },
+  location: {
+    type: String,
+    default: '/content/' + this.fileId
+  },
   created: {
     type: Date,
     default: Date.now
@@ -23,6 +30,9 @@ var ContentSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  tags: {
+    type: ['String']
   },
   size: {
     type: Number
