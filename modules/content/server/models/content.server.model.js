@@ -20,8 +20,7 @@ var ContentSchema = new Schema({
     type: Schema.ObjectId
   },
   location: {
-    type: String,
-    default: '/content/' + this.fileId
+    type: String
   },
   created: {
     type: Date,
@@ -37,6 +36,11 @@ var ContentSchema = new Schema({
   size: {
     type: Number
   }
+});
+
+ContentSchema.pre('save', function(next) {
+  this.location = '/api/content/' + this.fileId;
+  next();
 });
 
 mongoose.model('Content', ContentSchema);
