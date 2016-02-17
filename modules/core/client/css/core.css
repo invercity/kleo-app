@@ -288,3 +288,33 @@ a:hover .header-profile-image {
 .main-header {
   margin-bottom: 10px !important;
 }
+
+.dropdown-box {
+    width: 300px;
+}
+
+.dropdown-image {
+    width:120px;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.dropdown-hor {
+    float: left;
+    display: block;
+}
+
+.dropdown-right {
+    float: right;
+}
+
+.dropdown-create {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.dropdown-name {
+    padding-top: 10px;
+    padding-left: 30px;
+}
