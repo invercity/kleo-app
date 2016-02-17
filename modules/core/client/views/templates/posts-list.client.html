@@ -1,11 +1,12 @@
 <div class="list-group widget-ann-item">
-    <a data-ng-repeat="post in items| filter: {'postType': filter.key}: true" class="list-group-item news-panel-item" ui-sref="posts.view({postId:post._id})">
-        <h4 class="list-group-item-heading" data-ng-bind="post.title"></h4>
+    <div data-ng-repeat="post in items| filter: {'postType': filter.key}: true" class="list-group-item" >
+    	
+        <h4 class="list-group-item-heading"> <a class="news-panel-item" ui-sref="posts.view({postId:post._id})"><span data-ng-bind="post.title"></span></a></h4>
         <p class="list-group-item-text" data-ng-bind-html="post.content"></p>
         <small class="list-group-item-text">
             Posted on
             <span data-ng-bind="post.created | date:'mediumDate'"></span>
             <span data-ng-bind="'by ' + post.user.displayName" ng-if="post.authorDisplay"></span>
         </small>
-    </a>
+    </div>
 </div>
