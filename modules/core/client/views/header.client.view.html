@@ -6,61 +6,101 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <!--<a ui-sref="home" class="navbar-brand">Main</a>-->
-  </div>
-  <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
-    <ul class="nav navbar-nav" ng-if="menu.shouldRender(authentication.user);">
-      <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-switch="item.type" ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }" class="{{item.class}}" dropdown="item.type === 'dropdown'">
-        <a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
-        <ul ng-switch-when="dropdown" class="dropdown-menu">
-          <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
-            <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
-          </li>
-        </ul>
-        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
-      </li>
-    </ul>
+    <!--<a ui-sref="home" class="navbar-brand">Main</a>
+  -->
+</div>
+<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
+  <ul class="nav navbar-nav" ng-if="menu.shouldRender(authentication.user);">
+    <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-switch="item.type" ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }" class="{{item.class}}" dropdown="item.type === 'dropdown'">
+      <a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle role="button">
+        {{::item.title}}&nbsp;
+        <span class="caret"></span>
+      </a>
+      <ul ng-switch-when="dropdown" class="dropdown-menu">
+        <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
+          <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
+        </li>
+      </ul>
+      <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
+    </li>
+  </ul>
 
-    <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
-      <li ui-sref-active="active">
-        <a ui-sref="authentication.signup">Sign Up</a>
-      </li>
-      <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Sign In</a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
-      <li class="dropdown" dropdown>
-        <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
-          <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
-          <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+  <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
+    <li ui-sref-active="active">
+      <a ui-sref="authentication.signup">Sign Up</a>
+    </li>
+    <li class="divider-vertical"></li>
+    <li ui-sref-active="active">
+      <a ui-sref="authentication.signin">Sign In</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
+    <li class="dropdown" dropdown>
+      <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
+        <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
+        <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+      </a>
+
+      <!-- Menu -->
+      <ul class="dropdown-menu" >
+        <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
+
+          <div class="navbar-content" role="menu">
+            <div class="row">
+              <div class="col-md-5">
+                <input nv-file-select="" uploader="uploader" type="file" style="opacity: 0 ; position: absolute; width: 100px; height:100px">
+                <img src="http://placehold.it/120x120" alt="Alternate Text" class="img-responsive" />
+                <p class="text-center small">
+                  <a href="/settings/picture" class="ng-binding" ui-sref="settings.picture">Change Photo</a>
+                </p>
+              </div>
+              <div class="col-md-7">
+                <span ng-bind="authentication.user.displayName"></span>
+                <p class="text-muted small">Тут должна быть почта ?!</p>
+                <div class="divider" ui-sref-active="active"></div>
+                <a ui-sref="settings.profile" class="btn btn-primary btn-sm active">View Profile</a>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-footer">
+            <div class="navbar-footer-content">
+              <div class="row">
+                <div class="col-md-6 col-md-6a">
+                  <a ui-sref="posts.create" class="btn btn-default btn-sm">Create post</a>
+                </div>
+                <div class="col-md-6 col-md-6a">
+                  <a href="/api/auth/signout" target="_self" class="btn btn-default btn-sm pull-right">Sign out</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- <ul class="dropdown-menu" role="menu">
+      <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
+        <a ui-sref="posts.create"> <i class="glyphicon glyphicon-plus nav-icon-btn"></i>
+          Create post
         </a>
-        <ul class="dropdown-menu" role="menu">
-          <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
-            <a ui-sref="posts.create">
-              <i class="glyphicon glyphicon-plus nav-icon-btn"></i>
-              Create post
-            </a>
-          </li>
-          <li ui-sref-active="active">
-            <a ui-sref="settings.profile">
-              <i class="glyphicon glyphicon-pencil nav-icon-btn"></i>
-              Edit Profile
-            </a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="/api/auth/signout" target="_self">
-              <i class="glyphicon glyphicon-log-out nav-icon-btn"></i>
-              Signout
-            </a>
-          </li>
-        </ul>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="settings.profile"> <i class="glyphicon glyphicon-pencil nav-icon-btn"></i>
+          Edit Profile
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="/api/auth/signout" target="_self">
+          <i class="glyphicon glyphicon-log-out nav-icon-btn"></i>
+          Signout
+        </a>
       </li>
     </ul>
+    -->
+  </li>
+</ul>
 
-    <!--<input type="text" autocomplete
+<!--<input type="text" autocomplete
            ng-model="searchQuery"
            placeholder="Type to search..."
            typeahead="address for address in getLocations($viewValue)"
@@ -68,10 +108,11 @@
            class="search form-control navbar-right"
            typeahead-focus-first="true" >
 
-    <script type="text/ng-template" id="customTemplate">
+<script type="text/ng-template" id="customTemplate">
       <a href="/posts">
         <span ng-bind-html="match.label | typeaheadHighlight:query"></span>
       </a>
-    </script> -->
-  </nav>
+    </script>
+-->
+</nav>
 </div>
