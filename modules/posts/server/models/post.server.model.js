@@ -59,6 +59,13 @@ var PostSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  pictureUrl: {
+    type: String
+  },
+  draft: {
+    type: Boolean,
+    default: false
   }
 });
 

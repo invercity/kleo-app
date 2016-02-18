@@ -31,15 +31,21 @@
                 <button type="button" id="someId" class="btn btn-default" ng-disabled="!post.postType" ng-model="post.showGlobal" bs-checkbox required>
                   <span class="glyphicon glyphicon-check" ng-if="post.showGlobal"></span> Show in News Block
                 </button>
-                <!--
-                <div class="checkbox">
-                  <label><input type="checkbox" ng-model="post.authorDisplay" id="authorDisplay" name="authorDisplay"> {{post.authorDisplay ? 'Yes' : 'No'}}</label>
-                </div>
-                -->
               </div>
             </div>
           </div>
         </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : submitted && postForm.preview.$invalid}">
+          <label class="control-label" for="preview">Preview</label>
+          <div class="controls">
+            <textarea name="pewview" data-ng-model="post.preview" id="preview" class="form-control" cols="30" rows="2" placeholder="Preview" required></textarea>
+          </div>
+          <div ng-show="submitted && postForm.preview.$invalid" class="help-block">
+            <p ng-show="postForm.preview.$error.required" class="text-danger">Preview text is required</p>
+          </div>
+        </div>
+
         <div class="form-group" ng-class="{ 'has-error' : submitted && postForm.content.$invalid}">
           <label class="control-label" for="content">Content</label>
           <div class="controls">
