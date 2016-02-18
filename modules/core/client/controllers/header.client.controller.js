@@ -3,14 +3,7 @@
 angular.module('core').controller('HeaderController', ['$scope', '$http', '$state', 'Authentication', 'SystemData', 'Menus', 'NotificationService',
   function ($scope, $http, $state, Authentication, SystemData, Menus, NotificationService) {
     NotificationService.init();
-    /*
-    setTimeout(function() {
-      NotificationService.showNotification({
-        title: 'Kleo app',
-        content: 'Something happened!',
-        icon: 'modules/core/client/img/brand/kleo.png'
-      });
-    }, 5000);*/
+
     // Expose view variables
     $scope.$state = $state;
     $scope.authentication = Authentication;
