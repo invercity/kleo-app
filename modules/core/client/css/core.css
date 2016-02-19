@@ -289,11 +289,19 @@ a:hover .header-profile-image {
   margin-bottom: 10px !important;
 }
 
-.dropdown-box {
+.header-menu {
     width: 300px;
 }
 
-.dropdown-image {
+.header-menu-text {
+    color: black;
+}
+.header-menu-text:hover {
+    color:dimgray;
+    text-decoration: none;
+}
+
+.header-menu-image {
     width:120px;
     padding-left: 15px;
     padding-top: 10px;
@@ -301,6 +309,16 @@ a:hover .header-profile-image {
     float: left;
 }
 
-.dropdown-right {
+.header-menu-name {
+    font-size: 16px;
+}
+.header-menu-left {
+    padding-left: 15px;
+}
+.header-menu-right {
     float: right;
+    padding-right: 15px;
+}
+.header-menu-top {
+    padding-top: 10px;
 }
