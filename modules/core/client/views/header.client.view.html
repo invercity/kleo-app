@@ -32,41 +32,62 @@
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
       <li dropdown>
-        <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
+        <a class="dropdown-toggle" dropdown-toggle role="button" data-toggle="dropdown">
           <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
         </a>
         <ul class="dropdown-menu dropdown-box" role="menu">
-            <li class="dropdown-hor">
-                <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="dropdown-image"/>
-            </li>
-            <li class="dropdown-hor col-md-7 dropdown-name">
-                <span ng-bind="authentication.user.displayName"></span>
+            <li>
+                <div class="navbar-content">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="dropdown-image img-responsive"/>
+                            <p class="text-center small">
+                                <a href="#">Change Photo</a></p>
+                        </div>
+                        <div class="col-md-7">
+                            <span ng-bind="authentication.user.displayName"></span>
+                            <div class="divider">
+                            </div>
+                            <a href="#" class="btn btn-primary btn-sm active">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-footer">
+                    <div class="navbar-footer-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="#" class="btn btn-default btn-sm">Change Passowrd</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="http://www.jquery2dotnet.com" class="btn btn-default btn-sm pull-right">Sign Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <!--    <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="dropdown-image"/>
+                <span ng-bind="authentication.user.displayName" class="col-md-7" ></span>
                 <div class="divider"></div>
-            </li>
-            <li ui-sref-active="active" class="dropdown-hor dropdown-create">
                 <a ui-sref="users.view({userId: authentication.user._id})">
                     <i class="glyphicon glyphicon-eye-open nav-icon-btn"></i>
                     View Profile
                 </a>
-            </li>
-            <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'" class="dropdown-hor dropdown-create">
                 <a ui-sref="posts.create">
                     <i class="glyphicon glyphicon-plus nav-icon-btn"></i>
                     Create Post
                 </a>
-            </li>
-            <li ui-sref-active="active">
                 <a ui-sref="settings.profile">
                     <i class="glyphicon glyphicon-pencil nav-icon-btn"></i>
                     Edit Profile
                 </a>
-            </li>
-            <li class="divider"></li>
-            <li class="dropdown-right">
+
+                <div class="divider"></div>
                 <a href="/api/auth/signout" target="_self">
-                <i class="glyphicon glyphicon-log-out nav-icon-btn"></i>
-                Sign Out
-                </a>
+                    <i class="glyphicon glyphicon-log-out nav-icon-btn"></i>
+                    Sign Out
+                    </a>
+                    -->
             </li>
         </ul>
       </li>
