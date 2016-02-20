@@ -302,7 +302,8 @@ a:hover .header-profile-image {
 }
 
 .header-menu-image {
-    width:120px;
+    width:100px;
+    height: 100px;
     padding-left: 15px;
     padding-top: 10px;
     padding-bottom: 5px;
