@@ -33,7 +33,7 @@
     <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
       <li class="dropdown" dropdown>
         <a class="dropdown-toggle" dropdown-toggle role="button" data-toggle="dropdown">
-          <span class="circle" ng-bind="'AE'"></span> <b class="caret"></b>
+          <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
         </a>
         <ul class="dropdown-menu header-menu" role="menu">
             <li>
