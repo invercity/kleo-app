@@ -325,6 +325,14 @@ a:hover .header-profile-image {
     padding-top: 10px;
 }
 
+.header-profile-txt {
+  opacity: 0.8;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
 /* Tabs & Panel styles */
 .nav-tabs { border-bottom: 2px solid #DDD; }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
