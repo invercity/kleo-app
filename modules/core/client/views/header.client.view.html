@@ -35,7 +35,7 @@
         <a class="dropdown-toggle" dropdown-toggle role="button" data-toggle="dropdown">
           <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
         </a>
-        <ul class="dropdown-menu header-menu" role="menu">
+        <ul class="dropdown-menu header-menu hidden-xs" role="menu">
           <li>
             <div class="navbar-content">
               <div class="row">
@@ -64,6 +64,28 @@
                 Sign Out
               </a>
             </div>
+          </li>
+        </ul>
+
+        <ul class="dropdown-menu hidden-md hidden-sm hidden-lg" role="menu">
+          <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
+            <a ui-sref="posts.create">
+              <i class="glyphicon glyphicon-edit nav-icon-btn"></i>
+              Create post
+            </a>
+          </li>
+          <li ui-sref-active="active">
+            <a ui-sref="users.view({'userId': authentication.user._id})">
+              <i class="glyphicon glyphicon-eye-open nav-icon-btn"></i>
+              View Profile
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="/api/auth/signout" target="_self">
+              <i class="glyphicon glyphicon-log-out nav-icon-btn"></i>
+              Signout
+            </a>
           </li>
         </ul>
       </li>
