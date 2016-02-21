@@ -29,7 +29,7 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
       var user = $scope.user;
 
       user.$update(function () {
-        $state.go('admin.user', {
+        $state.go('users.view', {
           userId: user._id
         });
       }, function (errorResponse) {

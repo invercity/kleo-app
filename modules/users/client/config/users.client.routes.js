@@ -4,18 +4,29 @@
 angular.module('users').config(['$stateProvider',
   function ($stateProvider) {
     $stateProvider
-      .state('users', {
-        url: '/users',
-        abstract: true,
-        template: '<ui-view/>'
-      })
       .state('users.list', {
-        url: '',
+        url: '/users',
         template: ''
       })
-      .state('users.view', {
-        url: '/:userId',
+      .state('users', {
+        url: '/users/:userId',
+        abstract: true,
         templateUrl: 'modules/users/client/views/users/view-user.client.view.html',
+        controller: function($scope, $state, userResolve, Authentication) {
+          $scope.user = userResolve;
+          $scope.authentication = Authentication;
+        },
+        resolve: {
+          userResolve: ['$stateParams', 'Users', function ($stateParams, Users) {
+            return Users.get({
+              userId: $stateParams.userId
+            });
+          }]
+        }
+      })
+      .state('users.view', {
+        url: '',
+        templateUrl: 'modules/users/client/views/users/view-user-info.client.view.html',
         controller: 'UserController',
         resolve: {
           userResolve: ['$stateParams', 'Users', function ($stateParams, Users) {
@@ -26,7 +37,7 @@ angular.module('users').config(['$stateProvider',
         }
       })
       .state('users.edit', {
-        url: '/:userId/edit',
+        url: '/edit',
         templateUrl: 'modules/users/client/views/users/edit-user.client.view.html',
         controller: 'UserController',
         resolve: {
