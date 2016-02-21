@@ -291,38 +291,42 @@ a:hover .header-profile-image {
 
 /* Account menu */
 .header-menu {
-    width: 300px;
+  width: 300px;
 }
 
 .header-menu-text {
-    color: black;
+  color: black;
 }
 .header-menu-text:hover {
-    color:dimgray;
-    text-decoration: none;
+  color:dimgray;
+  text-decoration: none;
 }
 
 .header-menu-image {
-    width:100px;
-    height: 100px;
-    padding-left: 15px;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    float: left;
+  width:100px;
+  height: 100px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  float: left;
 }
 
 .header-menu-name {
-    font-size: 16px;
+  font-size: 16px;
 }
 .header-menu-left {
-    padding-left: 15px;
+  padding-left: 15px;
 }
 .header-menu-right {
-    float: right;
-    padding-right: 15px;
+  float: right;
 }
 .header-menu-top {
-    padding-top: 10px;
+  padding-top: 10px;
+}
+.header-menu-actions {
+  padding: 2px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 /* Tabs & Panel styles */
