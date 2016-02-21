@@ -36,40 +36,35 @@
           <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
         </a>
         <ul class="dropdown-menu header-menu" role="menu">
-            <li>
-                <div class="navbar-content">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-menu-image img-responsive"/>
-                            <a ui-sref="settings.profile" class="header-menu-left header-menu-text">
-                                <i class="glyphicon glyphicon-pencil nav-icon-btn"></i>
-                                Edit Profile
-                            </a>
-                        </div>
-                        <div class="header-menu-top col-md-7">
-                            <span ng-bind="authentication.user.displayName" class="header-menu-name"></span>
-                            <div class="divider"></div>
-                        </div>
-                        <div><a ui-sref="users.view({userId: authentication.user._id})" class="header-menu-text col-md-7 header-menu-top">
-                                <i class="glyphicon glyphicon-eye-open nav-icon-btn"></i>
-                                View Profile
-                            </a>
-                        </div>
-                        <div><a ui-sref="posts.create" class="header-menu-text col-md-7">
-                                <i class="glyphicon glyphicon-plus nav-icon-btn"></i>
-                                Create Post
-                            </a>
-                        </div>
-                    </div>
+          <li>
+            <div class="navbar-content">
+              <div class="row">
+                <div class="col-md-5">
+                  <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-menu-image img-responsive"/>
                 </div>
-                <div class="divider"></div>
+                <div class="header-menu-top col-md-7">
+                  <span ng-bind="authentication.user.displayName" class="header-menu-name"></span>
+                  <div class="divider"></div>
+                </div>
+
                 <div>
-                        <a href="/api/auth/signout" target="_self" class="header-menu-text header-menu-right">
-                            <i class="glyphicon glyphicon-log-out nav-icon-btn"></i>
-                            Sign Out
-                        </a>
+                  <a ui-sref="posts.create" class="header-menu-text col-md-7">
+                    <i class="glyphicon glyphicon-pencil nav-icon-btn"></i>
+                    Create Post
+                  </a>
                 </div>
-            </li>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div>
+              <a ui-sref="users.view({userId: authentication.user._id})" class="header-menu-text header-menu-actions">
+                View Profile
+              </a>
+              <a href="/api/auth/signout" target="_self" class="header-menu-text header-menu-actions header-menu-right">
+                Sign Out
+              </a>
+            </div>
+          </li>
         </ul>
       </li>
     </ul>
