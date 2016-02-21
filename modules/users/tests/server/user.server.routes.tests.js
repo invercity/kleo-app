@@ -48,7 +48,7 @@ describe('User CRUD tests', function () {
     });
   });
 
-  it('should not be able to retrieve a list of users if not admin', function (done) {
+  it('should be able to retrieve a list of users if not admin', function (done) {
     agent.post('/api/auth/signin')
       .send(credentials)
       .expect(200)
@@ -60,7 +60,7 @@ describe('User CRUD tests', function () {
 
         // Save a new article
         agent.get('/api/users')
-          .expect(403)
+          .expect(200)
           .end(function (usersGetErr, usersGetRes) {
             if (usersGetErr) {
               return done(usersGetErr);
