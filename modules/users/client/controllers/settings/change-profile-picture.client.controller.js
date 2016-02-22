@@ -10,13 +10,6 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
       url: 'api/files'
     });
 
-    $scope.uploader.onCompleteItem = function(item, res, stat, head) {
-      console.log(item);
-      console.log(res);
-      console.log(stat);
-      console.log(head);
-    };
-
     // Set file uploader image filter
     $scope.uploader.filters.push({
       name: 'imageFilter',

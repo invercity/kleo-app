@@ -71,9 +71,9 @@ a:hover .header-profile-image {
   padding-top: 51px;
 }
 
-.widget-ann-item {
-  margin-bottom: 0 !important;
-}
+/* Posts widget */
+.widget-ann-item { margin-bottom: 0 !important; }
+p > img { width: 100%; }
 
 /*Footer*/
 .main-footer > .container{

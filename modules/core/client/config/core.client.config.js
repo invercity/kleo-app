@@ -10,7 +10,7 @@ angular.module('core')
 
   .config(['$provide', function($provide){
     // this demonstrates how to register a new tool and add it to the default toolbar
-    $provide.decorator('taOptions', ['$delegate', function(taOptions){
+    $provide.decorator('taOptions', ['$delegate', 'taRegisterTool', '$modal', function(taOptions, taRegisterTool, $modal){
       // $delegate is the taOptions we are decorating
       // here we override the default toolbars and classes specified in taOptions.
       taOptions.forceTextAngularSanitize = false; // set false to allow the textAngular-sanitize provider to be replaced
@@ -19,7 +19,7 @@ angular.module('core')
         ['h2', 'h3', 'h4', 'h5', 'p', 'pre', 'quote'],
         ['ul', 'ol', 'redo', 'undo', 'clear'],
         ['justifyLeft','justifyCenter','justifyRight', 'justifyFull'],
-        ['html', 'insertImage', 'insertLink']
+        ['html', 'uploadImage', 'insertLink']
       ];
       taOptions.classes = {
         focussed: 'focussed',
@@ -31,6 +31,27 @@ angular.module('core')
         textEditor: 'form-control',
         htmlEditor: 'form-control'
       };
+      taRegisterTool('uploadImage', {
+        buttontext: 'Upload Image',
+        iconclass: "fa fa-image",
+        action: function (deferred,restoreSelection) {
+          $modal.open({
+            controller: 'UploadImageController',
+            templateUrl: 'modules/core/client/views/templates/upload-image.client.html'
+          }).result.then(
+            function (result) {
+              restoreSelection();
+              document.execCommand('insertImage', true, result);
+              deferred.resolve();
+            },
+            function () {
+              deferred.resolve();
+            }
+          );
+          return false;
+        }
+      });
+
       return taOptions; // whatever you return will be the taOptions
     }]);
   }]);
