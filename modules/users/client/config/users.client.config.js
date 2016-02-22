@@ -35,9 +35,20 @@ angular.module('users').config(['$httpProvider',
     title: 'Users',
     model: Users,
     options: {
-      title: 'username',
-      subtitle: 'email',
-      other: 'roles',
+      name: {
+        title: 'Username',
+        value: 'username'
+      },
+      fields: [
+        {
+          title: 'Email',
+          value: 'email'
+        },
+        {
+          title: 'Roles',
+          value: 'roles'
+        }
+      ],
       route: 'users.view',
       modelId: 'userId'
     }

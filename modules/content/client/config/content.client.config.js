@@ -9,9 +9,20 @@ angular.module('content').run(['Menus', 'AdminService', 'Content',
       title: 'Content',
       model: Content,
       options: {
-        title: 'name',
-        subtitle: 'user',
-        other: 'created',
+        name: {
+          title: 'File ID',
+          value: 'fileId'
+        },
+        fields: [
+          {
+            title: 'User',
+            value: ['user', 'displayName']
+          },
+          {
+            title: 'Created',
+            value: 'created'
+          }
+        ],
         route: 'content.view',
         modelId: 'contentId'
       }

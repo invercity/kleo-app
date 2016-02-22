@@ -10,8 +10,10 @@ angular.module('core').directive('adminModuleModel', ['$filter', 'AdminService',
       },
       link: function(scope, element, attrs) {
 
+        scope.isArray = angular.isArray;
+
         scope.pagedItems = [];
-        scope.itemsPerPage = 15;
+        scope.itemsPerPage = 10;
         scope.currentPage = 1;
 
         scope.$watch('model', function(id) {

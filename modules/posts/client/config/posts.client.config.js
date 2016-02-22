@@ -15,9 +15,20 @@ angular.module('posts').run(['Menus', 'AdminService', 'Posts',
       title: 'Posts',
       model: Posts,
       options: {
-        title: 'title',
-        subtitle: 'postType',
-        other: 'created',
+        name: {
+          title: 'Title',
+          value: 'title'
+        },
+        fields: [
+          {
+            title: 'Type',
+            value: 'postType'
+          },
+          {
+            title: 'Creation Date',
+            value: 'created'
+          }
+        ],
         route: 'posts.view',
         modelId: 'postId'
       }
