@@ -36,8 +36,8 @@ angular.module('core')
         iconclass: "fa fa-image",
         action: function (deferred,restoreSelection) {
           $modal.open({
-            controller: 'UploadImageController',
-            templateUrl: 'modules/core/client/views/templates/upload-image.client.html'
+            controller: 'InsertImageController',
+            templateUrl: 'modules/core/client/views/templates/insert-image.client.html'
           }).result.then(
             function (result) {
               restoreSelection();

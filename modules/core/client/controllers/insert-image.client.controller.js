@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('core').controller('UploadImageController', ['$scope', '$modalInstance', '$window', '$timeout', 'FileUploader',
+angular.module('core').controller('InsertImageController', ['$scope', '$modalInstance', '$window', '$timeout', 'FileUploader',
   function($scope, $modalInstance, $window, $timeout, FileUploader){
 
   // Create file uploader instance
