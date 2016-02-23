@@ -73,7 +73,7 @@ a:hover .header-profile-image {
 
 /* Posts widget */
 .widget-ann-item { margin-bottom: 0 !important; }
-p > img { width: 100%; }
+p > img { max-width: 100%; width: 500px}
 
 /*Footer*/
 .main-footer > .container{

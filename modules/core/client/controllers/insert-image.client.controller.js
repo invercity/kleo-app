@@ -52,7 +52,7 @@ angular.module('core').controller('InsertImageController', ['$scope', '$modalIns
   // Cancel the upload process
   $scope.cancelUpload = function () {
     $scope.uploader.clearQueue();
-    $scope.imageURL = $scope.user.profileImageURL;
+    $scope.imageURL = $scope.image;
   };
 
   // Called after the user has successfully uploaded a new picture
