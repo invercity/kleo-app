@@ -1,5 +1,24 @@
+/* Core styles */
 html, body{
   height: 100%;
+}
+
+.body-color{
+  background-color: #eee;
+}
+
+.wrapper {
+  display: table;
+  height: 100%;
+  margin: auto;
+  background-color: #fff;
+}
+.wrapper > .content {
+  display: table-row;
+  height: 100%;
+}
+.wrapper > .content > .container{
+  padding-top: 51px;
 }
 
 header .container {
@@ -44,36 +63,41 @@ a:hover .header-profile-image {
   display: inline;
 }
 
+/* News panel */
 .news-panel {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 0 !important;
+}
+
+.news-panel-container {
+  margin: 10px 0;
+}
+
+.news-panel-item-head {
+  margin-bottom: 10px;
 }
 
 .news-panel-item {
   margin-bottom: 5px;
 }
 
-.body-color{
-  background-color: #eee;
+.news-panel-item-title {
+  margin-bottom: 0;
 }
 
-.wrapper {
-  display: table;
-  height: 100%;
-  margin: auto;
-  background-color: #fff;
-}
-.wrapper > .content {
-  display: table-row;
-  height: 100%;
-}
-.wrapper > .content > .container{
-  padding-top: 51px;
+.news-panel-item-link:hover {
+  text-decoration: none;
 }
 
-/* Posts widget */
+p > img {
+  max-width: 100%;
+  width: 600px;
+}
+
+/*Widgets*/
+.panel-widget-container {
+  padding: 0;
+}
 .widget-ann-item { margin-bottom: 0 !important; }
-p > img { max-width: 100%; width: 500px}
 
 /*Footer*/
 .main-footer > .container{
@@ -169,11 +193,6 @@ p > img { max-width: 100%; width: 500px}
 
 .bs-docs-sidebar .nav > .active > ul {
   display: block;
-}
-
-/*Widgets*/
-.panel-widget-container {
-  padding: 0;
 }
 
 /*Nav*/

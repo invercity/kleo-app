@@ -49,7 +49,7 @@
         <ul class="nav nav-tabs">
           <li role="presentation" ng-repeat="item in postTypes" ng-class="{'active': item.active}" ><a href="#" ng-click="setSelected(item)" data-toogle="tab">{{item.title}}</a></li>
         </ul>
-        <div style="margin-top: 10px">
+        <div class="news-panel-container">
           <posts-list items="posts" filter="selectedPostType"></posts-list>
         </div>
       </div>
