@@ -25,7 +25,8 @@ module.exports = {
         'public/lib/angular-strap/dist/angular-strap.tpl.min.js',
         'public/lib/textAngular/dist/textAngular-rangy.min.js',
         'public/lib/textAngular/dist/textAngular-sanitize.min.js',
-        'public/lib/textAngular/dist/textAngular.min.js'
+        'public/lib/textAngular/dist/textAngular.min.js',
+        'public/lib/moment/min/moment-with-locales.min.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },
