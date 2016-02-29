@@ -60,7 +60,7 @@ var PostSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
-  pictureUrl: {
+  previewImg: {
     type: String
   },
   draft: {

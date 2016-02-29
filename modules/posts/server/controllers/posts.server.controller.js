@@ -79,7 +79,8 @@ exports.update = function (req, res) {
     content: req.body.content,
     tags: req.body.tags,
     showMain: req.body.showMain,
-    showGlobal: req.body.showGlobal
+    showGlobal: req.body.showGlobal,
+    previewImg: req.body.previewImg
   };
 
   post = _.extend(post, updateFields);

@@ -3,6 +3,12 @@
 // Articles controller
 angular.module('posts').controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts', 'Dictionaries',
   function ($scope, $stateParams, $location, Authentication, Posts, Dictionaries) {
+
+    // hack for upload image
+    $scope.$on('imageURLChanged', function(ev, url) {
+      $scope.post.previewImg = url;
+    });
+
     $scope.authentication = Authentication;
 
     $scope.update = function(isValid) {
@@ -25,14 +31,17 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
       else {
         post = new Posts({
           title: this.post.title,
+          showGlobal: this.post.showGlobal,
+          preview: this.post.preview,
           content: this.post.content,
           postType: this.post.postType,
-          authorDisplay: this.post.authorDisplay
+          previewImg: this.post.previewImg
+          // draft: this.post.draft,
+          // showMain: this.post.showMain
         });
 
         post.$save(function(response) {
           $location.path('posts/' + response._id);
-
           $scope.title = '';
           $scope.content = '';
         }, function(errorResponse) {

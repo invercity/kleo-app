@@ -26,9 +26,9 @@
               </div>
             </div>
             <div class="col-md-6">
-              <label class="control-label" for="someId">&nbsp</label>
+              <label class="control-label" for="showGlobal">&nbsp</label>
               <div class="controls">
-                <button type="button" id="someId" class="btn btn-default" ng-disabled="!post.postType" ng-model="post.showGlobal" bs-checkbox required>
+                <button type="button" id="showGlobal" class="btn btn-default" ng-disabled="!post.postType" ng-model="post.showGlobal" bs-checkbox required>
                   <span class="glyphicon glyphicon-check" ng-if="post.showGlobal"></span> Show in News Block
                 </button>
               </div>
@@ -36,10 +36,12 @@
           </div>
         </div>
 
+        <upload-image image="post.previewImg" image-title="'Preview Image'"></upload-image>
+
         <div class="form-group" ng-class="{ 'has-error' : submitted && postForm.preview.$invalid}">
           <label class="control-label" for="preview">Preview</label>
           <div class="controls">
-            <textarea name="pewview" data-ng-model="post.preview" id="preview" class="form-control" cols="30" rows="2" placeholder="Preview" required></textarea>
+            <textarea name="preview" data-ng-model="post.preview" id="preview" class="form-control" cols="30" rows="2" placeholder="Preview" required></textarea>
           </div>
           <div ng-show="submitted && postForm.preview.$invalid" class="help-block">
             <p ng-show="postForm.preview.$error.required" class="text-danger">Preview text is required</p>
