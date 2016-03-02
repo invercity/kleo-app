@@ -9,7 +9,8 @@ angular.module('core').directive('uploadImage', ['$window', '$timeout', 'FileUpl
         textCenter: '=',
         image: '=',
         imageAlt: '=',
-        imageTitle: '='
+        imageTitle: '=',
+        onSuccess: '='
       },
       link: function(scope, element, attrs) {
 
@@ -67,6 +68,7 @@ angular.module('core').directive('uploadImage', ['$window', '$timeout', 'FileUpl
         scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
           scope.success = true;
           scope.image = response.location;
+          if (scope.onSuccess) scope.onSuccess(scope.image);
           scope.$emit('imageURLChanged', scope.image);
         };
       }
