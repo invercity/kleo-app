@@ -12,6 +12,11 @@ angular.module('core').directive('uploadImage', ['$window', '$timeout', 'FileUpl
         imageTitle: '='
       },
       link: function(scope, element, attrs) {
+
+        scope.$watch('image',function(){
+          if (scope.image) scope.imageUrl = scope.image;
+        });
+
         // Create file uploader instance
         scope.uploader = new FileUploader({
           url: 'api/files'
