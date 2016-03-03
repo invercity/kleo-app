@@ -28,6 +28,6 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
 
     $scope.back = function() {
       $location.path('/users/' + $scope.user._id);
-    }
+    };
   }
 ]);
