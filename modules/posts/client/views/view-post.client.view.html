@@ -5,7 +5,7 @@
         <h1 ng-bind="post.title"></h1>
         <kui-post-details post="post"></kui-post-details>
       </div>
-      <div class="pull-right" ng-show="(authentification.user.roles.indexOf('admin') !== -1) || (authentication.user._id == post.user._id)">
+      <div class="pull-right" ng-show="(authentication.isAdmin()) || (authentication.hasAccess(post.user._id))">
         <a class="btn btn-primary" ui-sref="posts.edit({postId: post._id})">
           <i class="glyphicon glyphicon-edit"></i>
         </a>

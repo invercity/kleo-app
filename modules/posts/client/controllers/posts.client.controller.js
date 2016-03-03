@@ -85,6 +85,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
     };
 
     $scope.initUpdateForm = function() {
+      if (!$scope.authentication.isAdmin() || $scope.authentication.user._id)
       $scope.types = Dictionaries.get({
         dictId: 'POST_TYPE'
       });
@@ -92,13 +93,15 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
         $scope.post = Posts.get({
           postId: $stateParams.postId
         });
+        // reject user with no rights for edit
+        if (!$scope.authentication.isAdmin() || $scope.authentication.user._id !== $scope.post.user._id) {
+          $location.path('forbidden');
+        }
         $scope.updateValue = 'Update';
       }
       else {
         $scope.updateValue = 'Create';
-        $scope.post = {
-          authorDisplay: true
-        };
+        $scope.post = {};
       }
     };
 
