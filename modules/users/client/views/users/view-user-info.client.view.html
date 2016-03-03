@@ -32,17 +32,6 @@
                 <div class="col-md-8 profile-content-value" ng-bind="user.roles"></div>
             </div>
             <hr/>
-            <!--EDIT OR DELETE-->
-            <div class="row">
-                <div class="col-md-4 col-md-offset-2">
-                    <a class="btn btn-primary btn-placement" ui-sref="users.edit({userId: user._id})">
-                        <i class="glyphicon glyphicon-edit"></i>
-                    </a>
-                    <a class="btn btn-primary btn-placement" ng-click="remove();" ng-if="user._id !== authentication.user._id">
-                        <i class="glyphicon glyphicon-trash"></i>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 </div>

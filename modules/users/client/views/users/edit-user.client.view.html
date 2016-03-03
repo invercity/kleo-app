@@ -1,7 +1,4 @@
 <section>
-  <div class="page-header">
-    <h1>User <span ng-bind="user.username"></span></h1>
-  </div>
   <div class="col-md-12">
     <form name="userForm" ng-submit="update(userForm.$valid)" novalidate>
       <fieldset>
@@ -30,6 +27,7 @@
         </div>
         <div class="form-group">
           <input type="submit" value="Update" class="btn btn-default">
+          <input type="button" value="Delete" class="btn btn-default" ng-click="delete();" ng-if="user._id !== authentication.user._id">
         </div>
         <div ng-show="error" class="text-danger">
           <strong ng-bind="error"></strong>
