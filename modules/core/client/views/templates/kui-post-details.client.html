@@ -1,0 +1,5 @@
+<small class="list-group-item-text">
+    <!-- this is just temporary implementation. Later it will be replaced with momemtjs library -->
+    <span data-ng-bind="post.created | date:'dd-MM-yyyy HH:mm:ss'"></span>
+    <span data-ng-bind="'by ' + post.user.displayName" ng-if="false"></span>
+</small>

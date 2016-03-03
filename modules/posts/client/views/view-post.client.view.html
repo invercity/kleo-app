@@ -1,24 +1,19 @@
 <section ng-controller="PostsController" ng-init="findOne()">
-  <div class="page-header">
-    <h1 ng-bind="post.title"></h1>
-  </div>
-  <div class="col-md-12">
-    <div class="pull-right" ng-show="(authentification.user.roles.indexOf('admin') !== -1) || (authentication.user._id == post.user._id)">
-      <a class="btn btn-primary" ui-sref="posts.edit({postId: post._id})">
-        <i class="glyphicon glyphicon-edit"></i>
-      </a>
-      <a class="btn btn-primary" ng-click="remove();">
-        <i class="glyphicon glyphicon-trash"></i>
-      </a>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="page-header">
+        <h1 ng-bind="post.title"></h1>
+        <kui-post-details post="post"></kui-post-details>
+      </div>
+      <div class="pull-right" ng-show="(authentification.user.roles.indexOf('admin') !== -1) || (authentication.user._id == post.user._id)">
+        <a class="btn btn-primary" ui-sref="posts.edit({postId: post._id})">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="remove();">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
+      </div>
+      <p class="lead" ng-bind-html="post.content"></p>
     </div>
-    <p class="lead" ng-bind-html="post.content"></p>
-    <small>
-      <em class="text-muted">
-        Posted on
-        <span ng-bind="post.created | date:'mediumDate'"></span>
-        by
-        <span ng-bind="post.user.displayName"></span>
-      </em>
-    </small>
   </div>
 </section>

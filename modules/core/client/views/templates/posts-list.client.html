@@ -1,20 +1,16 @@
 <div class="list-group news-panel">
-    <div data-ng-repeat="post in items| filter: {'postType': filter.key}: true" class="list-group-item news-panel-item">
-        <div class="news-panel-item-head">
-            <h4 class="list-group-item-heading news-panel-item-title">
-                <a class="news-panel-item-link" ui-sref="posts.view({postId:post._id})">
-                    <span data-ng-bind="post.title"></span>
-                </a>
-            </h4>
-            <small class="list-group-item-text">
-                <!-- this is just temporary implementation. Later it will be replaced with momemtjs library -->
-                <span data-ng-bind="post.created | date:'dd-MM-yyyy HH:mm:ss'"></span>
-                <span data-ng-bind="'by ' + post.user.displayName" ng-if="displayAuthor"></span>
-            </small>
-        </div>
-        <p>
-            <img ng-if="post.previewImg" src="{{post.previewImg}}">
-        </p>
-        <p class="list-group-item-text" data-ng-bind="post.preview"></p>
-    </div>
+  <div data-ng-repeat="post in items| filter: {'postType': filter.key}: true" class="list-group-item news-panel-item">
+    <div class="news-panel-item-head">
+      <h4 class="list-group-item-heading news-panel-item-title">
+        <a class="news-panel-item-link" ui-sref="posts.view({postId:post._id})">
+          <span data-ng-bind="post.title"></span>
+        </a>
+        </h4>
+        <kui-post-details post="post"></kui-post-details>
+      </div>
+      <p>
+        <img ng-if="post.previewImg" src="{{post.previewImg}}">
+      </p>
+    <p class="list-group-item-text" data-ng-bind="post.preview"></p>
+  </div>
 </div>
