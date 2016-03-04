@@ -90,14 +90,16 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
         dictId: 'POST_TYPE'
       });
       if($stateParams.postId) {
-        $scope.post = Posts.get({
-          postId: $stateParams.postId
-        });
-        // reject user with no rights for edit
-        if (!$scope.authentication.isAdmin() || $scope.authentication.user._id !== $scope.post.user._id) {
-          $location.path('forbidden');
-        }
         $scope.updateValue = 'Update';
+        Posts.get({
+          postId: $stateParams.postId
+        }, function(post) {
+          $scope.post = post;
+          // reject user with no rights for edit
+          if (!$scope.authentication.isAdmin() || !$scope.authentication.hasAccess($scope.post.user._id)) {
+            $location.path('forbidden');
+          }
+        });
       }
       else {
         $scope.updateValue = 'Create';

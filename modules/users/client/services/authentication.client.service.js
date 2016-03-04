@@ -3,14 +3,18 @@
 // Authentication service for user variables
 angular.module('users').factory('Authentication', ['$window',
   function ($window) {
-    return {
+    var auth = {
       user: $window.user,
       isAdmin: function() {
-        return $window.user.roles.indexOf('admin') !== -1;
+        return this.user.roles.indexOf('admin') !== -1;
       },
       hasAccess: function(id) {
-        return $window.user._id === id;
+        return this.user._id === id;
+      },
+      setUser: function(user) {
+        this.user = user;
       }
     };
+    return auth;
   }
 ]);
