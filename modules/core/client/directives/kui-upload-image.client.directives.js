@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('core').directive('uploadImage', ['$window', '$timeout', 'FileUploader',
+angular.module('core').directive('kuiUploadImage', ['$window', '$timeout', 'FileUploader',
   function($window, $timeout, FileUploader) {
     return {
       templateUrl: 'modules/core/client/views/templates/upload-image.client.html',
