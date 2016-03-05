@@ -13,6 +13,13 @@ html, body{
   margin: auto;
   background-color: #fff;
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
 .wrapper > .content {
   display: table-row;
   height: 100%;
