@@ -6,10 +6,10 @@ angular.module('users').factory('Authentication', ['$window',
     var auth = {
       user: $window.user,
       isAdmin: function() {
-        return this.user.roles.indexOf('admin') !== -1;
+        return this.user && this.user.roles.indexOf('admin') !== -1;
       },
       hasAccess: function(id) {
-        return this.user._id === id;
+        return this.user && this.user._id === id;
       },
       setUser: function(user) {
         this.user = user;
