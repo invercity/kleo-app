@@ -10,6 +10,7 @@ angular.module('core').directive('uploadImage', ['$window', '$timeout', 'FileUpl
         image: '=',
         imageAlt: '=',
         imageTitle: '=',
+        category: '=',
         onSuccess: '='
       },
       link: function(scope, element, attrs) {
@@ -31,6 +32,10 @@ angular.module('core').directive('uploadImage', ['$window', '$timeout', 'FileUpl
             return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
           }
         });
+
+        scope.uploader.onBeforeUploadItem = function(item) {
+          item.formData.push({category: scope.category})
+        };
 
         // Called after the user selected a new picture file
         scope.uploader.onAfterAddingFile = function (fileItem) {
