@@ -4,7 +4,9 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+  Schema = mongoose.Schema,
+  dictionary = require('../../../dictionary/server/controllers/dictionary.server.controller'),
+  contentTypes = dictionary.getJSONById('CONTENT_TYPE');
 
 /**
  * Content Schema
@@ -35,6 +37,10 @@ var ContentSchema = new Schema({
   },
   size: {
     type: Number
+  },
+  category: {
+    type: String,
+    enum: contentTypes
   }
 });
 

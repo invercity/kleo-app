@@ -7,6 +7,13 @@ var dictionaries = {
       "Article",
       "Announcement"
     ]
+  },
+  "CONTENT_TYPE": {
+    values: [
+      "Avatar",
+      "Post",
+      "Document"
+    ]
   }
 };
 

@@ -9,6 +9,9 @@ module.exports = function (app) {
     .delete(content.delete)
     .post(content.write);
 
+  app.route('/api/files/:id')
+    .get(content.get);
+
   app.route('/api/content/:id')
     .get(content.read);
 };

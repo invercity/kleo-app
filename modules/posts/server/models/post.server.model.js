@@ -32,8 +32,7 @@ var PostSchema = new Schema({
   },
   postType: {
     type: String,
-    enum: postTypes,
-    default: postTypes[0]
+    enum: postTypes
   },
   visits: {
     type: Number,

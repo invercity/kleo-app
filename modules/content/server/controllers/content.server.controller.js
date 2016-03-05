@@ -27,7 +27,8 @@ exports.write = function(req, res) {
       created: file.uploadDate,
       name: file.fileName,
       size: file.length,
-      user: req.user._id
+      user: req.user._id,
+      category: req.body.category
     });
     return meta.save(function(err, data) {
       res.status(200).send(data);
@@ -68,13 +69,29 @@ exports.read = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-  var _id = req.params.fileId;
-  gfs.remove({_id: _id}, function (err) {
-    if (err) return res.status(400).send({
-      message: errorHandler.getErrorMessage(err)
+  var id = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'Content id is invalid'
     });
-    else res.send();
-  });
+  }
+
+  Content.remove({_id: id}, function(err) {
+    if (!err) {
+      gfs.remove({_id: id}, function (err) {
+        if (err) return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+        else res.send();
+      });
+    }
+    else {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+  })
 };
 
 exports.list = function(req, res) {
@@ -86,5 +103,24 @@ exports.list = function(req, res) {
     } else {
       res.json(contents);
     }
+  });
+};
+
+exports.get = function(req, res) {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).send({
+      message: 'Content id is invalid'
+    });
+  }
+
+  Content.findById(id).populate('user', 'displayName').exec(function (err, content) {
+    if (err) {
+      return next(err);
+    } else if (!content) {
+      return res.status(404).send({
+        message: 'No content with that identifier has been found'
+      });
+    }
+    res.send(content);
   });
 };
