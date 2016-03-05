@@ -34,7 +34,7 @@ angular.module('core').directive('uploadImage', ['$window', '$timeout', 'FileUpl
         });
 
         scope.uploader.onBeforeUploadItem = function(item) {
-          item.formData.push({category: scope.category})
+          item.formData.push({category: scope.category});
         };
 
         // Called after the user selected a new picture file
