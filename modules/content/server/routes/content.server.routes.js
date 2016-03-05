@@ -14,4 +14,7 @@ module.exports = function (app) {
 
   app.route('/api/content/:id')
     .get(content.read);
+
+  app.route('/api/users/:id/files')
+    .get(content.getFilesForUser);
 };

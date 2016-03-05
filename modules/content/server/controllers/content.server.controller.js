@@ -129,3 +129,31 @@ exports.get = function(req, res) {
     res.send(content);
   });
 };
+
+exports.getFilesForUser = function(req, res) {
+  var id = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'User id is invalid'
+    });
+  }
+
+  var query = {
+    user: id,
+    category: req.query.category
+  };
+
+  Content.find(query).exec(function (err, contents) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else if (!contents) {
+      return res.status(404).send({
+        message: 'No content with that user identifier has been found'
+      });
+    }
+    res.json(contents);
+  });
+};
