@@ -3,7 +3,7 @@
 angular.module('core').directive('kuiUploadImage', ['$window', '$timeout', 'FileUploader',
   function($window, $timeout, FileUploader) {
     return {
-      templateUrl: 'modules/core/client/views/templates/upload-image.client.html',
+      templateUrl: 'modules/core/client/views/templates/kui-upload-image.client.html',
       restrict: 'E',
       scope: {
         textCenter: '=',
