@@ -91,7 +91,7 @@ exports.delete = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     }
-  })
+  });
 };
 
 exports.list = function(req, res) {
@@ -107,7 +107,10 @@ exports.list = function(req, res) {
 };
 
 exports.get = function(req, res) {
-  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+
+  var id = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
       message: 'Content id is invalid'
     });
@@ -115,7 +118,9 @@ exports.get = function(req, res) {
 
   Content.findById(id).populate('user', 'displayName').exec(function (err, content) {
     if (err) {
-      return next(err);
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
     } else if (!content) {
       return res.status(404).send({
         message: 'No content with that identifier has been found'
