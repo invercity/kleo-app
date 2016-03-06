@@ -40,7 +40,8 @@ var ContentSchema = new Schema({
   },
   category: {
     type: String,
-    enum: contentTypes
+    enum: contentTypes,
+    required: 'You must specify category for content'
   }
 });
 
