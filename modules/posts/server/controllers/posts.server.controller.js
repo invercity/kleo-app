@@ -62,6 +62,7 @@ exports.read = function (req, res) {
  * Update a post/article/announcement
  */
 exports.update = function (req, res) {
+
   if (!isAdmin(req.user)) {
     if ((undefined !== req.body.showMain && req.body.showMain !== req.post.showMain) ||
       (undefined !== req.body.showGlobal && req.body.showGlobal !== req.post.showGlobal)) {
@@ -73,17 +74,7 @@ exports.update = function (req, res) {
 
   var post = req.post;
 
-  var updateFields = {
-    title: req.body.title,
-    preview: req.body.preview,
-    content: req.body.content,
-    tags: req.body.tags,
-    showMain: req.body.showMain,
-    showGlobal: req.body.showGlobal,
-    previewImg: req.body.previewImg
-  };
-
-  post = _.extend(post, updateFields);
+  post = _.extend(post, req.body);
 
   post.save(function(err, post) {
     if (err) {
