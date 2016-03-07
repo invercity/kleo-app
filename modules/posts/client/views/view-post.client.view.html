@@ -4,15 +4,9 @@
       <div class="page-header">
         <h1 ng-bind="post.title"></h1>
         <kui-post-details post="post"></kui-post-details>
+        <kui-dropdown title="'Options'" items="options" class="pull-right" ng-if="(authentication.isAdmin()) || (authentication.hasAccess(post.user._id))"></kui-dropdown>
       </div>
-      <div class="pull-right" ng-show="(authentication.isAdmin()) || (authentication.hasAccess(post.user._id))">
-        <a class="btn btn-primary" ui-sref="posts.edit({postId: post._id})">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
-        <a class="btn btn-primary" ng-click="remove();">
-          <i class="glyphicon glyphicon-trash"></i>
-        </a>
-      </div>
+
       <p class="lead" ng-bind-html="post.content"></p>
     </div>
   </div>

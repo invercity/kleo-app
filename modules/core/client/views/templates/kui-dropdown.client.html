@@ -1,0 +1,17 @@
+<span class="dropdown" dropdown on-toggle="toggled(open)">
+  <a href class="dropdown-toggle" dropdown-toggle>
+    {{title}}
+  </a>
+  <ul class="dropdown-menu dropdown-menu-right">
+    <li ng-repeat="item in items">
+      <a ui-sref="{{item.sref}}" ng-if="item.sref">
+        <i class="glyphicon glyphicon-{{item.icon}}"></i>
+        {{item.title}}
+      </a>
+      <a style="cursor: pointer" ng-click="item.click()" ng-if="item.click">
+        <i class="glyphicon glyphicon-{{item.icon}}"></i>
+        {{item.title}}
+      </a>
+    </li>
+  </ul>
+</span>

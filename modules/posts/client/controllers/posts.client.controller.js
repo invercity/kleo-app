@@ -76,6 +76,18 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
       $scope.post = Posts.get({
         postId: $stateParams.postId
       });
+      $scope.options = [
+        {
+          title: 'Edit',
+          icon: 'edit',
+          sref: 'posts.edit({postId: "' + $stateParams.postId + '"})'
+        },
+        {
+          title: 'Remove',
+          icon: 'trash',
+          click: $scope.remove
+        }
+      ];
     };
 
     $scope.getDictionary = function() {
