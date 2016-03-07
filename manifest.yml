@@ -1,7 +1,7 @@
 ---
 declared-services: 
   mean-mongo: 
-    label: mongolab 
+    label: mlab
     plan: sandbox 
 applications:
 - name: kleo
