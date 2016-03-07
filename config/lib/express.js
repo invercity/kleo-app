@@ -40,9 +40,8 @@ module.exports.initLocalVariables = function (app) {
 
   // Passing the request url to environment locals
   app.use(function (req, res, next) {
-    var protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-    res.locals.host = protocol + '://' + req.hostname;
-    res.locals.url = protocol + '://' + req.headers.host + req.originalUrl;
+    res.locals.host = req.protocol + '://' + req.hostname;
+    res.locals.url = req.protocol + '://' + req.headers.host + req.originalUrl;
     next();
   });
 };
