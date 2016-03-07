@@ -20,9 +20,7 @@ coverage/
 # ======================
 public/dist/
 uploads
-modules/users/client/img/profile/uploads
-config/env/local.js
-*.pem
+ config/env/local.js
 
 # Ignoring MEAN.JS's gh-pages branch for documenation
 _site/
