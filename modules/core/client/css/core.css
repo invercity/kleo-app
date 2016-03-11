@@ -95,6 +95,10 @@ a:hover .header-profile-image {
   text-decoration: none;
 }
 
+p {
+  font-size: 14px;
+}
+
 p > img {
   max-width: 100%;
   width: 600px;
