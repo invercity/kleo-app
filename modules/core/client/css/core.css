@@ -1,6 +1,18 @@
 /* Core styles */
+@font-face {
+  font-family: 'roboto';
+  src: url('Roboto-Regular-webfont.eot');
+  src: url('Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('Roboto-Regular-webfont.woff') format('woff'),
+  url('Roboto-Regular-webfont.ttf') format('truetype'),
+  url('Roboto-Regular-webfont.svg#robotoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body{
   height: 100%;
+  font-family: roboto;
 }
 
 .body-color{
@@ -95,9 +107,19 @@ a:hover .header-profile-image {
   text-decoration: none;
 }
 
+p {
+  font-size: 14px;
+}
+
 p > img {
   max-width: 100%;
   width: 600px;
+}
+
+@media (max-width: 992px) {
+  p > img {
+    width: 100%;
+  }
 }
 
 /*Widgets*/
@@ -269,7 +291,7 @@ p > img {
   }
 }
 
-@media (min-width: 990px) {
+@media (min-width: 992px) {
   .control-btn {
     margin: 5px;
   }
@@ -353,6 +375,13 @@ p > img {
   padding: 2px;
   margin-right: 10px;
   margin-left: 10px;
+}
+
+/* Navbar links */
+@media (max-width: 768px) {
+  .header-menu-item-sm {
+    padding-left: 10px;
+  }
 }
 
 /* Tabs & Panel styles */
