@@ -10,17 +10,17 @@ var mongoose = require('mongoose'),
  * Config Schema
  */
 var ConfigSchema = new Schema({
-    domain: {
-      type: String,
-      default: ''
-    },
-    type: {
-      type: String,
-      enum: ['core', 'domain']
-    },
-    data: {
-      type: Schema.Types.Mixed
-    }
+  domain: {
+    type: String,
+    default: ''
+  },
+  type: {
+    type: String,
+    enum: ['core', 'domain']
+  },
+  data: {
+    type: Schema.Types.Mixed
+  }
 });
 
 mongoose.model('Config', ConfigSchema);
