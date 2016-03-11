@@ -8,7 +8,8 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
         'public/lib/textAngular/dist/textAngular.css',
-        'public/lib/font-awesome/css/font-awesome.min.css'
+        'public/lib/font-awesome/css/font-awesome.min.css',
+        'public/lib/roboto-fontface/css/roboto-fontface.css'
       ],
       js: [
         'public/lib/angular/angular.js',
