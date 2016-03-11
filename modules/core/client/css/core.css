@@ -1,6 +1,18 @@
 /* Core styles */
+@font-face {
+  font-family: 'roboto';
+  src: url('Roboto-Regular-webfont.eot');
+  src: url('Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('Roboto-Regular-webfont.woff') format('woff'),
+  url('Roboto-Regular-webfont.ttf') format('truetype'),
+  url('Roboto-Regular-webfont.svg#robotoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body{
   height: 100%;
+  font-family: roboto;
 }
 
 .body-color{
@@ -363,6 +375,13 @@ p > img {
   padding: 2px;
   margin-right: 10px;
   margin-left: 10px;
+}
+
+/* Navbar links */
+@media (max-width: 768px) {
+  .header-menu-item-sm {
+    padding-left: 10px;
+  }
 }
 
 /* Tabs & Panel styles */
