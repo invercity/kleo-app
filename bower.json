@@ -18,7 +18,8 @@
     "angular-strap": "~2.3.7",
     "textAngular": "~1.5.0",
     "moment": "~2.11.2",
-    "roboto-fontface": "~0.4.5"
+    "roboto-fontface": "~0.4.5",
+    "angular-tree-dnd": "~3.0.4"
   },
   "resolutions": {
     "angular": "~1.3"
