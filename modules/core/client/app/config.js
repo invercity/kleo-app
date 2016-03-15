@@ -15,7 +15,9 @@ var ApplicationConfiguration = (function () {
     'ui-notification',
     'mgcrea.ngStrap.affix',
     'mgcrea.ngStrap.button',
-    'textAngular'
+    'textAngular',
+    //'$TreeDnDConvert'
+    'ui.tree'
   ];
 
   // Add a new vertical module
