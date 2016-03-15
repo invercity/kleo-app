@@ -19,7 +19,7 @@
     "postinstall": "bower install --config.interactive=false"
   },
   "dependencies": {
-    "acl": "~0.4.4",
+    "acl": "0.4.9",
     "async": "^1.5.2",
     "body-parser": "^1.13.1",
     "bower": "^1.7.7",
@@ -44,7 +44,7 @@
     "lodash": "^4.0.0",
     "method-override": "^2.3.3",
     "mocha": "~2.4.5",
-    "mongoose": "~4.4.1",
+    "mongoose": "4.4.2",
     "morgan": "^1.6.1",
     "node-pre-gyp": "~0.6.21",
     "nodemailer": "^2.1.0",
