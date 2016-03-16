@@ -16,7 +16,6 @@ var ApplicationConfiguration = (function () {
     'mgcrea.ngStrap.affix',
     'mgcrea.ngStrap.button',
     'textAngular',
-    //'$TreeDnDConvert'
     'ui.tree'
   ];
 

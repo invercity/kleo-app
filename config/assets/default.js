@@ -10,7 +10,6 @@ module.exports = {
         'public/lib/textAngular/dist/textAngular.css',
         'public/lib/font-awesome/css/font-awesome.min.css',
         'public/lib/roboto-fontface/css/roboto-fontface.css',
-        'public/lib/angular-tree-dnd/dist/ng-tree-dnd-min.css',
         'public/lib/angular-ui-tree/dist/angular-ui-tree.min.css'
       ],
       js: [
@@ -30,7 +29,6 @@ module.exports = {
         'public/lib/textAngular/dist/textAngular-sanitize.min.js',
         'public/lib/textAngular/dist/textAngular.min.js',
         'public/lib/moment/min/moment-with-locales.min.js',
-        'public/lib/angular-tree-dnd/dist/ng-tree-dnd-min.js',
         'public/lib/angular-ui-tree/dist/angular-ui-tree.min.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
