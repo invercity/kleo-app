@@ -31,6 +31,17 @@ angular.module('posts').config(['$stateProvider',
         data: {
           roles: ['user', 'admin']
         }
+      })
+      .state('users.feed', {
+        url: '/feed',
+        template: '<div class="page-header"><h2>Feed</h2></div><posts-list items="posts"></posts-list>',
+        controller: function($scope, $stateParams, Feed) {
+          var userId = $stateParams.userId;
+          Feed.getData(userId)
+            .then(function(posts) {
+              $scope.posts = posts;
+            });
+        }
       });
   }
 ]);

@@ -24,12 +24,12 @@ angular.module('users').config(['$stateProvider',
                 icon: 'home',
                 show: true
               },
-              /*{
-                title: 'Profile Settings',
-                sref: 'settings.profile',
-                icon: 'user',
-                show: $scope.authentication.hasAccess(userResolve._id)
-              },*/
+              {
+                title: 'Feed',
+                sref: 'users.feed({userId: user._id})',
+                icon: 'bullhorn',
+                show: true
+              },
               {
                 title: 'Files',
                 sref: 'users.files({userId: user._id})',

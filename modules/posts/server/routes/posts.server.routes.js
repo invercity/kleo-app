@@ -21,6 +21,9 @@ module.exports = function (app) {
     .put(posts.update)
     .delete(posts.delete);
 
+  app.route('/api/users/:userId/feed').all(postsPolicy.isAllowed)
+    .get(posts.getPostsForUser);
+
   // Finish by binding the post middleware
   app.param('postId', posts.postByID);
 };
