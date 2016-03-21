@@ -1,8 +1,9 @@
 'use strict';
 
 // Articles controller
-angular.module('posts').controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts', 'Dictionaries',
-  function ($scope, $stateParams, $location, Authentication, Posts, Dictionaries) {
+angular.module('posts')
+  .controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts', 'Dictionaries',
+    function ($scope, $stateParams, $location, Authentication, Posts, Dictionaries) {
 
     // hack for upload image
     $scope.$on('imageURLChanged', function(ev, url) {
@@ -121,5 +122,11 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
     $scope.onCancel = function() {
       $location.path('/posts');
     };
-  }
-]);
+  }])
+  .controller('UserFeedController', ['$scope', '$stateParams', 'Feed', function($scope, $stateParams, Feed) {
+    var userId = $stateParams.userId;
+    Feed.getData(userId)
+      .then(function(posts) {
+        $scope.posts = posts;
+      });
+  }]);

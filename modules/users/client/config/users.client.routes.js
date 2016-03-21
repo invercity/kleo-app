@@ -12,41 +12,7 @@ angular.module('users').config(['$stateProvider',
         url: '/users/:userId',
         abstract: true,
         templateUrl: 'modules/users/client/views/users/view-user.client.view.html',
-        controller: function($scope, $state, userResolve, Authentication) {
-          userResolve.$promise.then(function(user) {
-            $scope.user = user;
-
-            // later will be replaced with configuration instance
-            $scope.profileTabs = [
-              {
-                title: 'Overview',
-                sref: 'users.view({userId: user._id})',
-                icon: 'home',
-                show: true
-              },
-              {
-                title: 'Feed',
-                sref: 'users.feed({userId: user._id})',
-                icon: 'bullhorn',
-                show: true
-              },
-              {
-                title: 'Files',
-                sref: 'users.files({userId: user._id})',
-                icon: 'folder-open',
-                show: true
-              },
-              {
-                title: 'Administration',
-                sref: 'users.edit({userId: user._id})',
-                icon: 'lock',
-                show: $scope.authentication.isAdmin()
-              }
-            ];
-          });
-
-          $scope.authentication = Authentication;
-        },
+        controller: 'UserViewController',
         resolve: {
           userResolve: ['$stateParams', 'Users', function ($stateParams, Users) {
             return Users.get({
