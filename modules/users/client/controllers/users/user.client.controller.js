@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('users.admin').controller('UserController', ['$scope', '$state', 'Authentication', 'userResolve',
+angular.module('users.admin')
+  .controller('UserController', ['$scope', '$state', 'Authentication', 'userResolve',
   function ($scope, $state, Authentication, userResolve) {
     $scope.authentication = Authentication;
     $scope.user = userResolve;
@@ -36,5 +37,40 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
         $scope.error = errorResponse.data.message;
       });
     };
-  }
-]);
+  }])
+  .controller('UserViewController', ['$scope', '$state', 'userResolve', 'Authentication', 
+    function($scope, $state, userResolve, Authentication) {
+    userResolve.$promise.then(function(user) {
+      $scope.user = user;
+
+      // later will be replaced with configuration instance
+      $scope.profileTabs = [
+        {
+          title: 'Overview',
+          sref: 'users.view({userId: user._id})',
+          icon: 'home',
+          show: true
+        },
+        {
+          title: 'Feed',
+          sref: 'users.feed({userId: user._id})',
+          icon: 'bullhorn',
+          show: true
+        },
+        {
+          title: 'Files',
+          sref: 'users.files({userId: user._id})',
+          icon: 'folder-open',
+          show: true
+        },
+        {
+          title: 'Administration',
+          sref: 'users.edit({userId: user._id})',
+          icon: 'lock',
+          show: $scope.authentication.isAdmin()
+        }
+      ];
+    });
+
+    $scope.authentication = Authentication;
+  }]);

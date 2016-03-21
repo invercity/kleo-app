@@ -25,9 +25,5 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
         $scope.error = response.data.message;
       });
     };
-
-    $scope.back = function() {
-      $location.path('/users/' + $scope.user._id);
-    };
   }
 ]);

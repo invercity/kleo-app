@@ -31,6 +31,11 @@ angular.module('posts').config(['$stateProvider',
         data: {
           roles: ['user', 'admin']
         }
+      })
+      .state('users.feed', {
+        url: '/feed',
+        templateUrl: 'modules/posts/client/views/user-feed.client.view.html',
+        controller: 'UserFeedController'
       });
   }
 ]);

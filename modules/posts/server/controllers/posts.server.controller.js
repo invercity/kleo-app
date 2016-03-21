@@ -52,7 +52,6 @@ exports.create = function (req, res) {
 
 /**
  * Show the current post
- * @deprecated
  */
 exports.read = function (req, res) {
   res.json(req.post);
@@ -162,6 +161,35 @@ exports.getTopPostsForType = function(req, res) {
   var query = Post.find(searchObject)
     .sort('-created');
   if (limit) query = query.limit(limit);
+  query
+    .populate('user', 'displayName')
+    .exec(function(err, posts) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(posts);
+      }
+    });
+};
+
+exports.getPostsForUser = function(req, res) {
+  var user = req.params.userId;
+  if (!mongoose.Types.ObjectId.isValid(user)) {
+    return res.status(400).send({
+      message: 'User ID is invalid'
+    });
+  }
+  var type = req.query.type;
+  var searchObject = {
+    user: user
+  };
+  if (type) {
+    searchObject.postType = type;
+  }
+  var query = Post.find(searchObject)
+    .sort('-created');
   query
     .populate('user', 'displayName')
     .exec(function(err, posts) {

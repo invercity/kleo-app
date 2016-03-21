@@ -1,37 +1,35 @@
-<div class="profile-content">
-    <div class="row">
-        <div class="col-md-9">
-            <!--CONTENT START-->
-            <div class="row">
-                <div class="col-md-4 profile-content-name" >First Name</div>
-                <div class="col-md-8 profile-content-value" ng-bind="user.firstName"></div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-md-4 profile-content-name">Last Name</div>
-                <div class="col-md-8 profile-content-value" ng-bind="user.lastName"></div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-md-4 profile-content-name">Email</div>
-                <div class="col-md-8 profile-content-value" ng-bind="user.email"></div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-md-4 profile-content-name">Provider</div>
-                <div class="col-md-8 profile-content-value" ng-bind="user.provider"></div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-md-4 profile-content-name">Created</div>
-                <div class="col-md-8 profile-content-value" ng-bind="user.created"></div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-md-4 profile-content-name">Roles</div>
-                <div class="col-md-8 profile-content-value" ng-bind="user.roles"></div>
-            </div>
-            <hr/>
-        </div>
+<div class="col-md-12">
+    <div class="page-header">
+        <h2>User information</h2>
+    </div>
+    <!--CONTENT START-->
+    <div class="row profile-info-row">
+        <div class="col-md-6 profile-content-name" >First Name</div>
+        <div class="col-md-6 profile-content-value" ng-bind="user.firstName"></div>
+    </div>
+    <hr/>
+    <div class="row profile-info-row">
+        <div class="col-md-6 profile-content-name">Last Name</div>
+        <div class="col-md-6 profile-content-value" ng-bind="user.lastName"></div>
+    </div>
+    <hr/>
+    <div class="row profile-info-row">
+        <div class="col-md-6 profile-content-name">Email</div>
+        <div class="col-md-6 profile-content-value" ng-bind="user.email"></div>
+    </div>
+    <hr/>
+    <div class="row profile-info-row">
+        <div class="col-md-6 profile-content-name">Provider</div>
+        <div class="col-md-6 profile-content-value" ng-bind="user.provider"></div>
+    </div>
+    <hr/>
+    <div class="row profile-info-row">
+        <div class="col-md-6 profile-content-name">Created</div>
+        <div class="col-md-6 profile-content-value" ng-bind="user.created"></div>
+    </div>
+    <hr/>
+    <div class="row profile-info-row">
+        <div class="col-md-6 profile-content-name">Roles</div>
+        <div class="col-md-6 profile-content-value" ng-bind="user.roles"></div>
     </div>
 </div>

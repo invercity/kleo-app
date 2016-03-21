@@ -4,7 +4,7 @@ angular.module('content').config(['$stateProvider',
   function ($stateProvider) {
     $stateProvider
      .state('users.files', {
-       url: '/users/:id/files',
+       url: '/files',
        template: ''
      });
   }

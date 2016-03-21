@@ -162,3 +162,7 @@ body{
   display: block;
 }
 
+.profile-info-row {
+  margin-right: 15px;
+}
+
