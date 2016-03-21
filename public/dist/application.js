@@ -15,7 +15,8 @@ var ApplicationConfiguration = (function () {
     'ui-notification',
     'mgcrea.ngStrap.affix',
     'mgcrea.ngStrap.button',
-    'textAngular'
+    'textAngular',
+    'ui.tree'
   ];
 
   // Add a new vertical module
@@ -167,7 +168,7 @@ angular.module('content').config(['$stateProvider',
   function ($stateProvider) {
     $stateProvider
      .state('users.files', {
-       url: '/users/:id/files',
+       url: '/files',
        template: ''
      });
   }
@@ -222,11 +223,7 @@ angular.module('core.admin.routes').config(['$stateProvider',
             return AdminService.getAdminPages();
           }]
         },
-        controller: ["$scope", "$stateParams", "tabs", function($scope, $stateParams, tabs) {
-          $scope.tabs = tabs;
-          $scope.module = $stateParams.moduleId ? ': ' + $stateParams.moduleId : null;
-          $scope.item = $stateParams.itemId ? ': ' + $stateParams.itemid : null;
-        }]
+        controller: 'AdminMainController'
       })
       .state('admin.main.mode', {
         template: '<ui-view/>',
@@ -349,11 +346,17 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 ]);
 'use strict';
 
-angular.module('core.admin').controller('AdminController', ['$scope', '$stateParams',
-  function ($scope, $stateParams) {
+angular.module('core.admin')
+  .controller('AdminController', ['$scope', '$stateParams', function ($scope, $stateParams) {
     $scope.itemId = $stateParams.itemId;
-  }
-]);
+  }])
+  .controller('AdminMainController', ['$scope', '$stateParams', 'tabs', function($scope, $stateParams, tabs) {
+    $scope.tabs = tabs;
+    $scope.module = $stateParams.moduleId ? ': ' + $stateParams.moduleId : null;
+    $scope.item = $stateParams.itemId ? ': ' + $stateParams.itemid : null;
+  }]);
+
+
 'use strict';
 
 angular.module('core').controller('DevController', ['$scope',
@@ -876,6 +879,15 @@ angular.module('core').factory('AdminService', [
   function () {
     var adminPages = [
       {
+        id: 'config',
+        state: 'admin.main.mode({moduleId: "config"})',
+        title: 'Configuration',
+        items: [{
+          id: 'menu',
+          title: 'Menu'
+        }]
+      },
+      {
         id: 'models',
         state: 'admin.main.mode({moduleId: "models"})',
         title: 'Models',
@@ -894,10 +906,10 @@ angular.module('core').factory('AdminService', [
       },
       addModel: function(model) {
         model.state = 'admin.main.mode.item({moduleId: "models", itemId: "' + model.id + '"})';
-        adminPages[0].items.push(model);
+        adminPages[1].items.push(model);
       },
       getModel: function(modelId) {
-        return _.find(adminPages[0].items, function(model) {
+        return _.find(adminPages[1].items, function(model) {
           return model.id === modelId;
         });
       }
@@ -1321,14 +1333,20 @@ angular.module('posts').config(['$stateProvider',
         data: {
           roles: ['user', 'admin']
         }
+      })
+      .state('users.feed', {
+        url: '/feed',
+        templateUrl: 'modules/posts/client/views/user-feed.client.view.html',
+        controller: 'UserFeedController'
       });
   }
 ]);
 'use strict';
 
 // Articles controller
-angular.module('posts').controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts', 'Dictionaries',
-  function ($scope, $stateParams, $location, Authentication, Posts, Dictionaries) {
+angular.module('posts')
+  .controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts', 'Dictionaries',
+    function ($scope, $stateParams, $location, Authentication, Posts, Dictionaries) {
 
     // hack for upload image
     $scope.$on('imageURLChanged', function(ev, url) {
@@ -1446,6 +1464,35 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
     $scope.onCancel = function() {
       $location.path('/posts');
+    };
+  }])
+  .controller('UserFeedController', ['$scope', '$stateParams', 'Feed', function($scope, $stateParams, Feed) {
+    var userId = $stateParams.userId;
+    Feed.getData(userId)
+      .then(function(posts) {
+        $scope.posts = posts;
+      });
+  }]);
+'use strict';
+
+// Feed service
+angular.module('posts').factory('Feed', ['$http', '$q',
+  function ($http, $q) {
+    return {
+      getData: function(user, type) {
+        var deferred = $q.defer();
+        var urlParams = {};
+        if (type) {
+          urlParams.type = type;
+        }
+        $http.get('/api/users/' + user + '/feed', {
+          params: urlParams
+        })
+          .success(function(data) {
+            deferred.resolve(data);
+          });
+        return deferred.promise;
+      }
     };
   }
 ]);
@@ -1633,41 +1680,7 @@ angular.module('users').config(['$stateProvider',
         url: '/users/:userId',
         abstract: true,
         templateUrl: 'modules/users/client/views/users/view-user.client.view.html',
-        controller: ["$scope", "$state", "userResolve", "Authentication", function($scope, $state, userResolve, Authentication) {
-          userResolve.$promise.then(function(user) {
-            $scope.user = user;
-
-            // later will be replaced with configuration instance
-            $scope.profileTabs = [
-              {
-                title: 'Overview',
-                sref: 'users.view({userId: user._id})',
-                icon: 'home',
-                show: true
-              },
-              {
-                title: 'Profile Settings',
-                sref: 'settings.profile',
-                icon: 'user',
-                show: $scope.authentication.hasAccess(userResolve._id)
-              },
-              {
-                title: 'Files',
-                sref: 'users.files({userId: user._id})',
-                icon: 'folder-open',
-                show: true
-              },
-              {
-                title: 'Administration',
-                sref: 'users.edit({userId: user._id})',
-                icon: 'lock',
-                show: $scope.authentication.isAdmin()
-              }
-            ];
-          });
-
-          $scope.authentication = Authentication;
-        }],
+        controller: 'UserViewController',
         resolve: {
           userResolve: ['$stateParams', 'Users', function ($stateParams, Users) {
             return Users.get({
@@ -1887,10 +1900,6 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
         $scope.error = response.data.message;
       });
     };
-
-    $scope.back = function() {
-      $location.path('/users/' + $scope.user._id);
-    };
   }
 ]);
 
@@ -1959,7 +1968,8 @@ angular.module('users').controller('SettingsController', ['$scope', 'Authenticat
 
 'use strict';
 
-angular.module('users.admin').controller('UserController', ['$scope', '$state', 'Authentication', 'userResolve',
+angular.module('users.admin')
+  .controller('UserController', ['$scope', '$state', 'Authentication', 'userResolve',
   function ($scope, $state, Authentication, userResolve) {
     $scope.authentication = Authentication;
     $scope.user = userResolve;
@@ -1995,8 +2005,43 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
         $scope.error = errorResponse.data.message;
       });
     };
-  }
-]);
+  }])
+  .controller('UserViewController', ['$scope', '$state', 'userResolve', 'Authentication', 
+    function($scope, $state, userResolve, Authentication) {
+    userResolve.$promise.then(function(user) {
+      $scope.user = user;
+
+      // later will be replaced with configuration instance
+      $scope.profileTabs = [
+        {
+          title: 'Overview',
+          sref: 'users.view({userId: user._id})',
+          icon: 'home',
+          show: true
+        },
+        {
+          title: 'Feed',
+          sref: 'users.feed({userId: user._id})',
+          icon: 'bullhorn',
+          show: true
+        },
+        {
+          title: 'Files',
+          sref: 'users.files({userId: user._id})',
+          icon: 'folder-open',
+          show: true
+        },
+        {
+          title: 'Administration',
+          sref: 'users.edit({userId: user._id})',
+          icon: 'lock',
+          show: $scope.authentication.isAdmin()
+        }
+      ];
+    });
+
+    $scope.authentication = Authentication;
+  }]);
 
 'use strict';
 
