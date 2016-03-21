@@ -4,6 +4,12 @@ html, body{
   font-family: Roboto, sans-serif;
 }
 
+@media (min-width: 1200px) {
+  .container {
+    width: 980px !important;
+  }
+}
+
 .body-color{
   background-color: #eee;
 }
