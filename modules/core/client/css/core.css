@@ -117,13 +117,13 @@ p > img {
   }
 }
 
-/*Widgets*/
+/* Widgets */
 .panel-widget-container {
   padding: 0;
 }
 .widget-ann-item { margin-bottom: 0 !important; }
 
-/*Footer*/
+/* Footer */
 .main-footer > .container{
   padding: 20px;
   background-color: #000;
@@ -228,7 +228,7 @@ p > img {
   color: #555355;
 }
 
-/*Links*/
+/* Links */
 .link {
   color: black;
   font-weight: bolder;
@@ -238,7 +238,7 @@ p > img {
   margin-right: 2px;
 }
 
-/*Search*/
+/* Search */
 .search {
   margin-top: 7px;
   width: 30%;
@@ -255,8 +255,6 @@ p > img {
   z-index: 100;
 }
 */
-
-/* Logo bar */
 
 /* Control panel bar*/
 .panel-control-buttons {
