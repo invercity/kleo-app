@@ -57,7 +57,7 @@ $ Local admin added with password set to [some pass]
 After that, you may login to system using username: 'admin' and password [some pass].
 
 Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000) <br/>
-Next time, you may launch application with the following command:
+Next time, you may run application with the following command:
 
 ```
 $ grunt
