@@ -18,7 +18,7 @@ Installing Node.JS: (if not installed before)
 $ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 ```
-**IMPORTANT:** Actually we support Node.JS ```v4.x```, previous versions are **not** supported. Please check your Node.JS version using: 
+**IMPORTANT:** Actually we support Node.JS ```v4.x``` and higher, previous versions are **not** supported. Please check your Node.JS version using: 
 ```
 $ node -v
 ```
