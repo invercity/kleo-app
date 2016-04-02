@@ -36,6 +36,9 @@
           </div>
         </div>
 
+        <tag-view ng-model="tags" output="name" fetch="suggestions.json"></tag-view>
+        <span class="log">{{tags}}</span>
+
         <kui-upload-image image="post.previewImg"
                       image-title="'Preview Image'"
                       category="'Post'">
