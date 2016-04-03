@@ -1,4 +1,14 @@
 <div data-ng-controller="HomeController">
+  <style>
+    .topbar-block {
+      font-family: 'Book Antiqua  Arial';
+      text-align: center;
+    }
+    .topbar-title {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
   <!-- in future, will be replaced with page brief info, or banner -->
   <div class="row">
     <div class="col-md-12">
@@ -6,21 +16,17 @@
         <div class="row">
           <!-- logo bar -->
           <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
-            <!--<h1>Welcome to Kleo home</h1>
-            <p>
-              Too see development information, go to our <a class="link" ui-sref="dev">dev's</a> page
-            </p> -->
             <img class="logo-img" src="modules/core/client/img/logo-xs.png">
           </div>
           <div class="col-md-5 hidden-sm col-xs-9">
-            <div class="row" style="font-family: 'Book Antiqua  Arial'; text-align: center">
+            <div class="row topbar-block">
               <div class="hidden-md hidden-lg">
-                <h5 style="margin-top: 15px; font-weight: bold">CHERNIHIV NATIONAL</h5>
-                <h5 style="margin-top: 10px; font-weight: bold">UNIVERSITY OF TECHNOLOGY</h5>
+                <h5 class="topbar-title">CHERNIHIV NATIONAL</h5>
+                <h5 class="topbar-title">UNIVERSITY OF TECHNOLOGY</h5>
               </div>
               <div class="hidden-xs hidden-sm">
-                <h3 style="margin-top: 15px; font-weight: bold">CHERNIHIV NATIONAL</h3>
-                <h3 style="margin-top: 10px; font-weight: bold">UNIVERSITY OF TECHNOLOGY</h3>
+                <h3 class="topbar-title">CHERNIHIV NATIONAL</h3>
+                <h3 class="topbar-title">UNIVERSITY OF TECHNOLOGY</h3>
               </div>
             </div>
           </div>
