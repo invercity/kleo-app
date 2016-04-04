@@ -22,11 +22,11 @@ angular.module('core.admin.routes').config(['$stateProvider',
         },
         controller: 'AdminMainController'
       })
-      .state('admin.main.mode', {
+      .state('admin.main.models', {
         template: '<ui-view/>',
-        url: '/:moduleId'
+        url: '/'
       })
-      .state('admin.main.mode.item', {
+      .state('admin.main.models.item', {
         templateUrl: 'modules/core/client/views/admin/admin-module.client.view.html',
         url: '/:itemId',
         controller: 'AdminController'

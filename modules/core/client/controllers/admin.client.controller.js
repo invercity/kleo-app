@@ -6,7 +6,6 @@ angular.module('core.admin')
   }])
   .controller('AdminMainController', ['$scope', '$stateParams', 'tabs', function($scope, $stateParams, tabs) {
     $scope.tabs = tabs;
-    $scope.module = $stateParams.moduleId ? ': ' + $stateParams.moduleId : null;
     $scope.item = $stateParams.itemId ? ': ' + $stateParams.itemid : null;
   }]);
 
