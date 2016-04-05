@@ -31,5 +31,14 @@ angular.module('core.admin.routes').config(['$stateProvider',
         url: '/:itemId',
         controller: 'AdminController'
       });
+    .state('admin.main.config', {
+      template: '<ui-view/>',
+      url: '/'
+    })
+      .state('admin.main.config.item', {
+        templateUrl: '',
+        url: '/:itemId',
+        controller: 'AdminController'
+      });
   }
 ]);
