@@ -13,7 +13,7 @@ angular.module('core').directive('kuiUploadImage', ['$window', '$timeout', 'File
         category: '=',
         onSuccess: '='
       },
-      link: function(scope, element, attrs) {
+      link: function(scope) {
 
         scope.$watch('image',function(){
           if (scope.image) scope.imageUrl = scope.image;
