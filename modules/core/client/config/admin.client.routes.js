@@ -27,7 +27,7 @@ angular.module('core.admin.routes').config(['$stateProvider',
         url: '/'
       })
       .state('admin.main.models.item', {
-        templateUrl: 'modules/core/client/views/admin/admin-module.client.view.html',
+        templateUrl: 'modules/core/client/views/admin/admin-models.client.view.html',
         url: '/:itemId',
         controller: 'AdminController'
       });
