@@ -25,6 +25,16 @@ angular.module('core.admin.routes').config(['$stateProvider',
         templateUrl: 'modules/core/client/views/admin/admin-models.client.view.html',
         url: '/:itemId',
         controller: 'AdminModelsController'
-      });
+      })
+      .state('admin.config', {
+        template: '<ui-view/>',
+        url: '/config'
+      })
+      .state('admin.config.nav', {
+        templateUrl: 'modules/core/client/views/admin/admin-config-nav.client.view.html',
+        url: '/nav',
+        controller: 'AdminConfigController'
+      })
+    ;
   }
 ]);

@@ -7,6 +7,10 @@ angular.module('core.admin')
   }])
   .controller('AdminModelsController', ['$scope', '$stateParams', function ($scope, $stateParams) {
     $scope.itemId = $stateParams.itemId;
-  }]);
+  }])
+  .controller('AdminConfigController', ['$scope', '$stateParams', function($scope, $stateParams) {
+    
+  }])
+;
   
 
