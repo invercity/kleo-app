@@ -5,31 +5,26 @@ angular.module('core.admin.routes').config(['$stateProvider',
   function ($stateProvider) {
     $stateProvider
       .state('admin', {
-        abstract: true,
         url: '/admin',
-        template: '<ui-view/>',
-        data: {
-          roles: ['admin']
-        }
-      })
-      .state('admin.main', {
-        url: '',
         templateUrl: 'modules/core/client/views/admin/admin.client.view.html',
         resolve: {
           tabs: ['AdminService', function(AdminService) {
             return AdminService.getAdminPages();
           }]
         },
-        controller: 'AdminMainController'
+        controller: 'AdminController',
+        data: {
+          roles: ['admin']
+        }
       })
-      .state('admin.main.models', {
+      .state('admin.models', {
         template: '<ui-view/>',
-        url: '/'
+        url: '/models'
       })
-      .state('admin.main.models.item', {
+      .state('admin.models.item', {
         templateUrl: 'modules/core/client/views/admin/admin-models.client.view.html',
         url: '/:itemId',
-        controller: 'AdminController'
+        controller: 'AdminModelsController'
       });
   }
 ]);

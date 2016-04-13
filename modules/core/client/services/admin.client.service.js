@@ -3,7 +3,7 @@
 angular.module('core').factory('AdminService', [
   function () {
     var adminPages = [
-      {
+      /*{
         id: 'config',
         state: 'admin.main.mode({moduleId: "config"})',
         title: 'Configuration',
@@ -11,18 +11,19 @@ angular.module('core').factory('AdminService', [
           id: 'menu',
           title: 'Menu'
         }]
-      },
+      },*/
       {
         id: 'models',
-        state: 'admin.main.models',
+        state: 'admin.models',
         title: 'Models',
         items: []
-      }, {
+      }/*, 
+      {
         id: 'pages',
         state: 'admin.main.mode({moduleId: "pages"})',
         title: 'Pages',
         items: []
-      }
+      }*/
     ];
 
     return {
@@ -30,11 +31,11 @@ angular.module('core').factory('AdminService', [
         return adminPages;
       },
       addModel: function(model) {
-        model.state = 'admin.main.models.item({itemId: "' + model.id + '"})';
-        adminPages[1].items.push(model);
+        model.state = 'admin.models.item({itemId: "' + model.id + '"})';
+        adminPages[0].items.push(model);
       },
       getModel: function(modelId) {
-        return _.find(adminPages[1].items, function(model) {
+        return _.find(adminPages[0].items, function(model) {
           return model.id === modelId;
         });
       }
