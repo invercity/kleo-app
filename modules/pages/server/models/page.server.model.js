@@ -11,12 +11,12 @@ var mongoose = require('mongoose'),
  */
 var PageSchema = new Schema({
 	title: String,
-	menu: Schema.Types.Mixed,
-	logo: String,
+	//menu: Schema.Types.Mixed,
+	//logo: String,
 	// may be replaced with custom Type
 	type: String,
 	url: String,
-	data: Schema.Types.Mixed,
+	//data: Schema.Types.Mixed,
 	content: String,
 	subdomain: Boolean
 });
