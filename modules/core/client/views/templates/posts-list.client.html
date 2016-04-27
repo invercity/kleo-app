@@ -12,5 +12,8 @@
         <img ng-if="post.previewImg" ng-src="{{post.previewImg}}">
       </p>
     <p class="list-group-item-text" data-ng-bind="post.preview"></p>
+    <small>Tags:
+      <span class="tag" ng-repeat="tag in post.tags"> <a>{{tag.name}}</a> </span>
+    </small>
   </div>
 </div>

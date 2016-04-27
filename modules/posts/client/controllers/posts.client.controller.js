@@ -36,7 +36,8 @@ angular.module('posts')
           preview: this.post.preview,
           content: this.post.content,
           postType: this.post.postType,
-          previewImg: this.post.previewImg
+          previewImg: this.post.previewImg,
+          tags:this.post.tags
           // draft: this.post.draft,
           // showMain: this.post.showMain
         });
@@ -107,6 +108,7 @@ angular.module('posts')
           postId: $stateParams.postId
         }, function(post) {
           $scope.post = post;
+          $scope.tags=post.tags;
           // reject user with no rights for edit
           if (!$scope.authentication.isAdmin() && !$scope.authentication.hasAccess($scope.post.user._id)) {
             $location.path('forbidden');
@@ -116,6 +118,7 @@ angular.module('posts')
       else {
         $scope.updateValue = 'Create';
         $scope.post = {};
+        $scope.tags = [];
       }
     };
 

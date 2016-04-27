@@ -19,7 +19,8 @@
     "textAngular": "~1.5.0",
     "moment": "~2.11.2",
     "roboto-fontface": "~0.4.5",
-    "angular-ui-tree": "~2.15.0"
+    "angular-ui-tree": "~2.15.0",
+    "angular-tag-view": "^1.1.3"
   },
   "resolutions": {
     "angular": "~1.3"

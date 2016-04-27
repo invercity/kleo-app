@@ -39,7 +39,7 @@ var PostSchema = new Schema({
     default: 0
   },
   tags: {
-    type: [String],
+    type:{name:String,value:String},
     default: []
   },
   preview: {

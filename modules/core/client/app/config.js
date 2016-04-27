@@ -16,7 +16,8 @@ var ApplicationConfiguration = (function () {
     'mgcrea.ngStrap.affix',
     'mgcrea.ngStrap.button',
     'textAngular',
-    'ui.tree'
+    'ui.tree',
+    'ngTagView'
   ];
 
   // Add a new vertical module
