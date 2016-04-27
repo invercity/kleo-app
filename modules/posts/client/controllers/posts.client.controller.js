@@ -118,11 +118,7 @@ angular.module('posts')
       else {
         $scope.updateValue = 'Create';
         $scope.post = {};
-        $scope.tags = [
-          {name: 'Technology'},
-          {name: 'Performance'},
-          {name: 'Info'}
-        ];
+        $scope.tags = [];
       }
     };
 

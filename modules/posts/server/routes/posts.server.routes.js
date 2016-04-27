@@ -23,6 +23,10 @@ module.exports = function (app) {
 
   app.route('/api/users/:userId/feed').all(postsPolicy.isAllowed)
     .get(posts.getPostsForUser);
+  
+  //tags
+  app.route('/api/tags')
+      .get(posts.getTags);
 
   // Finish by binding the post middleware
   app.param('postId', posts.postByID);

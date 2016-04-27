@@ -202,3 +202,27 @@ exports.getPostsForUser = function(req, res) {
       }
     });
 };
+
+exports.getTags = function(req, res) {
+  var q = req.query.q;
+  Post.find().exec(function(err, posts) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      var tags = [];
+      _.each(posts, function(post) {
+        if (post.tags && post.tags.length) {
+          _.each(post.tags, function(tag) {
+            if (tag.name.indexOf(q) !== -1) tags.push(tag);
+          });
+        }
+      });
+      res.json({
+        status: 'success',
+        data: tags
+      });
+    }
+  });
+};

@@ -36,7 +36,7 @@
             <div class="col-md-12">
               <label class="control-label" for="type">Tags</label>
               <div class="controls">
-                <tag-view name="tags" data-ng-model="tags" output="tags" fetch="suggestions.json"></tag-view>
+                <tag-view name="tags" data-ng-model="tags" output="tags" fetch="/api/tags?q="></tag-view>
                 <span class="hidden" >{{post.tags=tags}}</span>
               </div>
             </div>
