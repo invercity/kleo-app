@@ -5,6 +5,15 @@ angular.module('posts')
   .controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts', 'Dictionaries',
     function ($scope, $stateParams, $location, Authentication, Posts, Dictionaries) {
 
+      $scope.tags = [
+        {name: 'Technology'},
+        {name: 'Performance'},
+        {name: 'Meeting'},
+        {name: 'Development'},
+        {name: 'AngularJS'},
+        {name: 'Workshop'}
+      ];
+
     // hack for upload image
     $scope.$on('imageURLChanged', function(ev, url) {
       $scope.post.previewImg = url;
