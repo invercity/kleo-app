@@ -369,6 +369,9 @@ p > img {
   margin-right: 10px;
   margin-left: 10px;
 }
+span.hidden {
+  display: none;
+}
 
 /* Navbar links */
 @media (max-width: 768px) {

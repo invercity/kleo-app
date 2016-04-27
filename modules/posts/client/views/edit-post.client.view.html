@@ -33,12 +33,15 @@
                 </button>
               </div>
             </div>
+            <div class="col-md-12">
+              <label class="control-label" for="type">Tags</label>
+              <div class="controls">
+                <tag-view name="tags" data-ng-model="tags" output="tags" fetch="suggestions.json"></tag-view>
+                <span class="hidden" >{{post.tags=tags}}</span>
+              </div>
+            </div>
           </div>
         </div>
-
-        <tag-view ng-model="tags" output="name" fetch="suggestions.json"></tag-view>
-        <span class="log">{{tags}}</span>
-
         <kui-upload-image image="post.previewImg"
                       image-title="'Preview Image'"
                       category="'Post'">

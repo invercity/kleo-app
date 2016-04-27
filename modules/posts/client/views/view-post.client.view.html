@@ -8,6 +8,9 @@
       </div>
 
       <p class="lead" ng-bind-html="post.content"></p>
+      <small>Tags:
+        <span class="tag" ng-repeat="tag in post.tags"> <a>{{tag.name}}</a> </span>
+      </small>
     </div>
   </div>
 </section>

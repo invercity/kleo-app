@@ -5,14 +5,6 @@ angular.module('posts')
   .controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts', 'Dictionaries',
     function ($scope, $stateParams, $location, Authentication, Posts, Dictionaries) {
 
-      $scope.tags = [
-        {name: 'See'},
-        {name: 'how'},
-        {name: 'amazing'},
-        {name: 'is'},
-        {name: 'AngularJS'}
-      ];
-
     // hack for upload image
     $scope.$on('imageURLChanged', function(ev, url) {
       $scope.post.previewImg = url;
@@ -44,7 +36,8 @@ angular.module('posts')
           preview: this.post.preview,
           content: this.post.content,
           postType: this.post.postType,
-          previewImg: this.post.previewImg
+          previewImg: this.post.previewImg,
+          tags:this.post.tags
           // draft: this.post.draft,
           // showMain: this.post.showMain
         });
@@ -115,6 +108,7 @@ angular.module('posts')
           postId: $stateParams.postId
         }, function(post) {
           $scope.post = post;
+          $scope.tags=post.tags;
           // reject user with no rights for edit
           if (!$scope.authentication.isAdmin() && !$scope.authentication.hasAccess($scope.post.user._id)) {
             $location.path('forbidden');
@@ -124,6 +118,11 @@ angular.module('posts')
       else {
         $scope.updateValue = 'Create';
         $scope.post = {};
+        $scope.tags = [
+          {name: 'Technology'},
+          {name: 'Performance'},
+          {name: 'Info'}
+        ];
       }
     };
 
