@@ -1,7 +1,7 @@
 {
   "name": "kleo",
   "version": "0.1.0",
-  "description": "Micro CMS for University Infomation System",
+  "description": "Micro CMS for University Information System",
   "dependencies": {
     "bootstrap": "~3",
     "angular": "~1.3",
