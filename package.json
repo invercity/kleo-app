@@ -37,7 +37,7 @@
     "forever": "~0.15.1",
     "glob": "~7.0.0",
     "gridfs-stream": "^1.1.1",
-    "grunt": "^1.0.0",
+    "grunt": "0.4.5",
     "grunt-cli": "~1.2.0",
     "helmet": "^2.0.0",
     "jasmine-core": "^2.4.1",
