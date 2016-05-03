@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('users.admin')
+angular.module('users')
   .controller('UserController', ['$scope', '$state', 'Authentication', 'userResolve',
   function ($scope, $state, Authentication, userResolve) {
     $scope.authentication = Authentication;
@@ -38,7 +38,8 @@ angular.module('users.admin')
       });
     };
   }])
-  .controller('UserViewController', ['$scope', '$state', 'userResolve', 'Authentication', 
+
+    .controller('UserViewController', ['$scope', '$state', 'userResolve', 'Authentication',
     function($scope, $state, userResolve, Authentication) {
     userResolve.$promise.then(function(user) {
       $scope.user = user;
@@ -73,4 +74,46 @@ angular.module('users.admin')
     });
 
     $scope.authentication = Authentication;
-  }]);
+    }])
+
+    .controller('UserDocController', ['$scope', 'Authentication', '$http',
+        function ($scope, Authentication, $http) {
+            $scope.authentication = Authentication;
+
+            $scope.docTypes = [
+                {
+                    key: 'Avatars',
+                    title: 'Avatars'
+                },
+                {
+                    key: 'Posts',
+                    title: 'Posts'
+                },
+                {
+                    key: 'Documents',
+                    title: 'Documents'
+                },
+                {
+                    key: 'All',
+                    title: 'All'
+                }
+            ];
+
+            $scope.setSelected = function (item) {
+                if ($scope.selectedDocType) $scope.selectedDocType.active = false;
+                item.active = true;
+                $scope.selectedDocType = item;
+            };
+
+            $scope.setSelected($scope.docTypes[0]);
+
+            //$http({method: 'GET', url: 'api/users/:id/files', params: {id: $scope.user._id}}).then(function(response){
+            //    $scope.docs1 = response.data;
+            //});
+
+            //list of files example
+            $scope.docs = [
+                {name: 'Doc1', size: '125k'}, {name: 'Doc2', size: '23k'}
+            ];
+
+        }]);

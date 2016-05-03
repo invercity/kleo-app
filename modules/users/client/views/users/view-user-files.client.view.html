@@ -1,0 +1,22 @@
+<div class="col-md-12" ng-controller="UserDocController">
+    <div class="page-header">
+        <h2>User files</h2>
+    </div>
+    <!--CONTENT START-->
+    <div>
+        <div>
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-repeat="item in docTypes" ng-class="{'active': item.active}">
+                    <a href="#" ng-click="setSelected(item)" data-toogle="tab">{{item.title}}</a>
+                </li>
+            </ul>
+            <table width="100%" class="news-panel-container">
+                <tr ng-repeat="x in docs">
+                    <td><a href="">{{x.name}}</a></td>
+                    <td>{{x.size}}</td>
+                    <td><a href=""><i class="glyphicon glyphicon-remove nav-icon-btn"></i></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
