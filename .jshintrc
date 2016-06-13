@@ -12,6 +12,7 @@
   "undef": true, // Require all non-global variables be declared before they are used.
   "unused": false, // Warn unused variables.
   "strict": true, // Require `use strict` pragma in every file.
+  "expr": true, // Allow to use expressions where normally appear assignmeents or calls
   "globals": { // Globals variables.
     "angular": true,
     "io": true,
