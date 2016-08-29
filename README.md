@@ -43,26 +43,20 @@ To install Node.js dependencies you're going to use npm again, in the applicatio
 $ npm install
 ```
 
-## First Launch
-For creaing default app 'administator' user, set ``MONGO_SEED`` environment variable to ``true`` on a first launch (only once)
-
-```
-$ MONGO_SEED=true grunt
-```
-During launch, default 'user' and 'admin' will be created, and you'll see next messages in stdout:
-
-```
-$ Local user added with password set to [some pass] 
-$ Local admin added with password set to [some pass]
-```
-After that, you may login to system using username: 'admin' and password [some pass].
-
-Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000) <br/>
-Next time, you may run application with the following command:
+## Start application
+Application can be started with launching (in *development* mode):
 
 ```
 $ grunt
 ```
+During first launch, default 'admin' will be created, and you'll see next messages in stdout:
+
+```
+$ Local admin added with password set to [PASS_GOES_HERE]
+```
+After that, you may login to system using username: 'admin' and generated password.
+
+Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000) <br/>
 
 ## Wiki
 Wiki pages you can found [here](https://github.com/invercity/kleo/wiki)

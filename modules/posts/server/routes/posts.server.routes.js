@@ -26,7 +26,7 @@ module.exports = function (app) {
   
   //tags
   app.route('/api/tags')
-      .get(posts.getTags);
+    .get(posts.getTags);
 
   // Finish by binding the post middleware
   app.param('postId', posts.postByID);

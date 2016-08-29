@@ -65,6 +65,5 @@ module.exports = {
         pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
       }
     }
-  },
-  seedDB: process.env.MONGO_SEED || false
+  }
 };

@@ -8,24 +8,23 @@ var config = require('../config'),
   express = require('./express'),
   chalk = require('chalk');
 
-// Initialize Models
-mongoose.loadModels();
-
-//SeedDB
-if (config.seedDB) {
-  require('./seed');
-}
-
 module.exports.loadModels = function loadModels() {
   mongoose.loadModels();
 };
+
+// Initialize Models
+module.exports.loadModels();
+
+// Seed DB
+require('./seed');
 
 module.exports.init = function init(callback) {
   mongoose.connect(function (db) {
     // Initialize express
     var app = express.init(db);
-    if (callback) callback(app, db, config);
-
+    if (callback) {
+      callback(app, db, config);
+    }
   });
 };
 
@@ -48,7 +47,9 @@ module.exports.start = function start(callback) {
       }
       console.log('--');
 
-      if (callback) callback(app, db, config);
+      if (callback) {
+        callback(app, db, config);
+      }
     });
 
   });
