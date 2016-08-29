@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/invercity/kleo.svg?branch=master)](https://travis-ci.org/invercity/kleo)
 [![GitHub tag](https://img.shields.io/github/tag/invercity/kleo.svg)]()
 [![David](https://david-dm.org/invercity/kleo.svg)](https://david-dm.org/invercity/kleo)
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 Kleo is a modern HTML5 based app, built on **MEAN** stack ([**M**ongoDB](http://www.mongodb.org/), [**N**ode.js](http://www.nodejs.org/), [**E**xpress](http://expressjs.com/), [**A**ngularJS](http://angularjs.org/))
 
