@@ -8,7 +8,7 @@
       </div>
 
       <p class="lead" ng-bind-html="post.content"></p>
-      <small>Tags:
+      <small ng-if="post.tags.length">Tags:
         <span class="tag" ng-repeat="tag in post.tags"> <a>{{tag.name}}</a> </span>
       </small>
     </div>
