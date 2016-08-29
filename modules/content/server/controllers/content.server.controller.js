@@ -140,9 +140,12 @@ exports.getFilesForUser = function(req, res) {
   }
 
   var query = {
-    user: id,
-    category: req.query.category
+    user: id
   };
+
+  if (req.query.category) {
+    query.category = req.query.category;
+  }
 
   Content.find(query).exec(function (err, contents) {
     if (err) {
