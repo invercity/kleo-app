@@ -41,7 +41,7 @@ describe('Post Model Unit Tests:', function () {
   describe('Method Save', function () {
     it('should be able to save without problems', function (done) {
       this.timeout(10000);
-      return post.save(function (err) {
+      post.save(function (err) {
         should.not.exist(err);
         done();
       });
@@ -50,7 +50,7 @@ describe('Post Model Unit Tests:', function () {
     it('should be able to show an error when try to save without title', function (done) {
       post.title = '';
 
-      return post.save(function (err) {
+      post.save(function (err) {
         should.exist(err);
         done();
       });
