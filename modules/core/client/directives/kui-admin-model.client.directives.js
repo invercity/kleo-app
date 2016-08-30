@@ -1,14 +1,14 @@
 'use strict';
 
-angular.module('core').directive('adminModuleModel', ['$filter', 'AdminService',
+angular.module('core').directive('kuiAdminModel', ['$filter', 'AdminService',
   function($filter, Admin) {
     return {
-      templateUrl: 'modules/core/client/views/templates/admin-module-model.client.html',
+      templateUrl: 'modules/core/client/views/kui/admin-module-model.client.html',
       restrict: 'E',
       scope: {
         model: '='
       },
-      link: function(scope, element, attrs) {
+      link: function(scope) {
 
         scope.isArray = angular.isArray;
 
