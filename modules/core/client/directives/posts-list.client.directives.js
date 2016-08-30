@@ -9,9 +9,6 @@ angular.module('core').directive('postsList', [
 				items: '=',
 				filter: '=',
 				disabledAuthor: '='
-			},
-			link: function postLink(scope, element, attrs) {
-
 			}
 		};
 	}
