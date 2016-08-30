@@ -452,3 +452,8 @@ tr.angular-ui-tree-empty {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.user-tab-top {
+  margin: 10px 0 10px 0;
+  border-bottom: 1px solid #eeeeee;
+}

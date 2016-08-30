@@ -1,0 +1,17 @@
+<div class="col-md-12">
+    <div class="user-tab-top"></div>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="file in fileList">
+            <a ng-href="{{file.location}}" target="_blank">{{file._id}}</a>
+            <div class="pull-right" ng-if="isCurrent">
+                <a class="btn btn-xs">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+                <a class="btn btn-xs">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </div>
+        </li>
+  </ul>
+</div>
+

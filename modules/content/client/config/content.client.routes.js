@@ -5,7 +5,8 @@ angular.module('content').config(['$stateProvider',
     $stateProvider
      .state('users.files', {
        url: '/files',
-       template: ''
+       templateUrl: 'modules/content/client/views/user-files.client.view.html',
+       controller: 'UserFilesController'
      });
   }
 ]);
