@@ -18,7 +18,6 @@ var PostSchema = new Schema({
   },
   title: {
     type: String,
-    default: '',
     trim: true,
     required: 'Title cannot be blank'
   },
@@ -52,8 +51,7 @@ var PostSchema = new Schema({
     trim: true
   },
   domain: {
-    type: String,
-    default: ''
+    type: Schema.ObjectId
   },
   user: {
     type: Schema.ObjectId,

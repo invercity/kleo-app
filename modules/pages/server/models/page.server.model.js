@@ -10,15 +10,25 @@ var mongoose = require('mongoose'),
  * Page Schema
  */
 var PageSchema = new Schema({
-	title: String,
-	//menu: Schema.Types.Mixed,
-	//logo: String,
-	// may be replaced with custom Type
-	type: String,
-	url: String,
-	//data: Schema.Types.Mixed,
-	content: String,
-	subdomain: Boolean
+	title: {
+		type: String,
+    trim: true,
+    required: 'Title cannot be blank'
+	},
+	type: {
+	  type: String
+  },
+	url: {
+    type: String
+  },
+	content: {
+    type: String,
+    default: '',
+    trim: true
+  },
+	domain: {
+    type: Schema.ObjectId
+  }
 });
 
 mongoose.model('Page', PageSchema);
