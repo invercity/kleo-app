@@ -10,6 +10,10 @@ var mongoose = require('mongoose'),
  * Page Schema
  */
 var PageSchema = new Schema({
+  created: {
+    type: Date,
+    default: Date.now
+  },
 	title: {
 		type: String,
     trim: true,
@@ -25,6 +29,12 @@ var PageSchema = new Schema({
     type: String,
     default: '',
     trim: true
+  },
+  templateId: {
+    type: Schema.ObjectId
+  },
+  templateData: {
+    type: Schema.Types.Mixed
   },
 	domain: {
     type: Schema.ObjectId

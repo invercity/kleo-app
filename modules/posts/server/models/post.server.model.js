@@ -50,7 +50,7 @@ var PostSchema = new Schema({
     default: '',
     trim: true
   },
-  domain: {
+  domainId: {
     type: Schema.ObjectId
   },
   user: {

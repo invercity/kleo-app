@@ -10,9 +10,8 @@ var mongoose = require('mongoose'),
  * Config Schema
  */
 var ConfigSchema = new Schema({
-  domain: {
-    type: String,
-    default: ''
+  domainId: {
+    type: Schema.ObjectId
   },
   type: {
     type: String,
