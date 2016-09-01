@@ -54,7 +54,7 @@ exports.create = function (req, res) {
  * Show the current post
  */
 exports.read = function (req, res) {
-  res.json(req.post);
+  res.json(req.item);
 };
 
 /**
@@ -71,7 +71,7 @@ exports.update = function (req, res) {
     }
   }
 
-  var post = req.post;
+  var post = req.item;
 
   post = _.extend(post, req.body);
 
@@ -138,7 +138,7 @@ exports.postByID = function (req, res, next, id) {
         message: 'No post with that identifier has been found'
       });
     }
-    req.post = post;
+    req.item = post;
     next();
   });
 };
