@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('core.admin').run(['Menus',
+angular.module('admin').run(['Menus',
   function (Menus) {
     Menus.addMenuItem('topbar', {
       title: 'Admin',
@@ -8,6 +8,8 @@ angular.module('core.admin').run(['Menus',
       roles: ['admin'],
       position: 5
     });
+
+    /* temporary - later will be replaced with module server configuration */
     Menus.addMenuItem('topbar', {
       title: 'Page',
       state: 'page',

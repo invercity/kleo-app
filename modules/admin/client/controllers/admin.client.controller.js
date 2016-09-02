@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('core.admin')
+angular.module('admin')
   .controller('AdminController', ['$scope', '$stateParams', 'tabs', function($scope, $stateParams, tabs) {
     $scope.tabs = tabs;
     $scope.item = $stateParams.itemId ? ': ' + $stateParams.itemid : null;

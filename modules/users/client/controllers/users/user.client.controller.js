@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('users.admin')
+angular.module('users')
   .controller('UserController', ['$scope', '$state', 'Authentication', 'userResolve',
   function ($scope, $state, Authentication, userResolve) {
     $scope.authentication = Authentication;

@@ -38,10 +38,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         ignoreState: true
       }
     })
-    .state('dev', {
-      url: '/dev',
-      templateUrl: 'modules/core/client/views/dev.client.view.html'
-    })
+    /* Later will be replaced with server config  */
     .state('page', {
       url: '/page',
       templateUrl: 'modules/core/client/views/page.client.view.html'
