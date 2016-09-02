@@ -63,8 +63,8 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
 
   if (!isAdmin(req.user)) {
-    if ((undefined !== req.body.showMain && req.body.showMain !== req.post.showMain) ||
-      (undefined !== req.body.showGlobal && req.body.showGlobal !== req.post.showGlobal)) {
+    if ((undefined !== req.body.showMain && req.body.showMain !== req.item.showMain) ||
+      (undefined !== req.body.showGlobal && req.body.showGlobal !== req.item.showGlobal)) {
       return res.status(403).send({
         message: 'You need administrator rights to make this action'
       });
@@ -91,7 +91,7 @@ exports.update = function (req, res) {
  * Delete a post/news/announcement
  */
 exports.delete = function (req, res) {
-  var post = req.post;
+  var post = req.item;
 
   post.remove(function (err) {
     if (err) {

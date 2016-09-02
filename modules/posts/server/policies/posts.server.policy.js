@@ -58,7 +58,7 @@ exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
 
   // If a post is being processed and the current user created it then allow any manipulation
-  if ((roles.indexOf('admin') !== -1) || req.post && req.user && req.post.user.id === req.user.id) {
+  if ((roles.indexOf('admin') !== -1) || req.item && req.user && req.item.user.id === req.user.id) {
     return next();
   }
 
