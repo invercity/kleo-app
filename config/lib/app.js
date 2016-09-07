@@ -6,6 +6,7 @@
 var config = require('../config'),
   mongoose = require('./mongoose'),
   express = require('./express'),
+  pem = require('pem'),
   chalk = require('chalk');
 
 module.exports.loadModels = function loadModels() {
@@ -20,11 +21,23 @@ require('./seed');
 
 module.exports.init = function init(callback) {
   mongoose.connect(function (db) {
-    // Initialize express
-    var app = express.init(db);
-    if (callback) {
-      callback(app, db, config);
-    }
+    pem.createCertificate({days: 365, selfSigned: true}, (err, keys) => {
+      if (config.secure && config.secure.ssl === true && config.secure.auto === true) {
+        if (err || !keys) {
+          console.log(chalk.red('Error while creating ssl certificate! SSL mode turned off'));
+          config.secure.ssl = false;
+        }
+        else {
+          config.secure.privateKey = keys.serviceKey;
+          config.secure.certificate = keys.certificate;
+        }
+      }
+      // Initialize express
+      var app = express.init(db);
+      if (callback) {
+        callback(app, db, config);
+      }
+    });
   });
 };
 

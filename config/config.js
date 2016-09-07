@@ -80,10 +80,9 @@ var validateSecureMode = function (config) {
   var certificate = fs.existsSync(path.resolve(config.secure.certificate));
 
   if (!privateKey || !certificate) {
-    console.log(chalk.red('+ Error: Certificate file or key file is missing, falling back to non-SSL mode'));
-    console.log(chalk.red('  To create them, simply run the following from your shell: sh ./scripts/generate-ssl-certs.sh'));
+    config.secure.auto = true;
+    console.log(chalk.yellow('+ Warning: Certificate file or key file is missing, auto-generated certificate will be used.'));
     console.log();
-    config.secure.ssl = false;
   }
 };
 
