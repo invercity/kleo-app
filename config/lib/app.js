@@ -3,24 +3,27 @@
 /**
  * Module dependencies.
  */
-var config = require('../config'),
+let config = require('../config'),
   mongoose = require('./mongoose'),
   express = require('./express'),
+  seed = require('./seed'),
   pem = require('pem'),
   chalk = require('chalk');
 
-module.exports.loadModels = function loadModels() {
+// Initialize Models
+mongoose.loadModels();
+
+// Seed DB
+seed.checkUser();
+
+// Alias for tests
+module.exports.loadModels = () => {
   mongoose.loadModels();
 };
 
-// Initialize Models
-module.exports.loadModels();
-
-// Seed DB
-require('./seed');
-
-module.exports.init = function init(callback) {
-  mongoose.connect(function (db) {
+module.exports.init = (callback) => {
+  mongoose.connect((db) => {
+    // Generate ssl certificate data
     pem.createCertificate({days: 365, selfSigned: true}, (err, keys) => {
       if (config.secure && config.secure.ssl === true && config.secure.auto === true) {
         if (err || !keys) {
@@ -33,7 +36,7 @@ module.exports.init = function init(callback) {
         }
       }
       // Initialize express
-      var app = express.init(db);
+      let app = express.init(db);
       if (callback) {
         callback(app, db, config);
       }
@@ -41,13 +44,10 @@ module.exports.init = function init(callback) {
   });
 };
 
-module.exports.start = function start(callback) {
-  var _this = this;
-
-  _this.init(function (app, db, config) {
-
+module.exports.start = (callback) => {
+  module.exports.init((app, db, config) => {
     // Start the app by listening on <port>
-    app.listen(config.port, function () {
+    app.listen(config.port, () => {
 
       // Logging initialization
       console.log('--');
