@@ -8,7 +8,7 @@ var config = require('../config'),
   https = require('https'),
   cookieParser = require('cookie-parser'),
   passport = require('passport'),
-  //socketio = require('socket.io'),
+  socketio = require('socket.io'),
   session = require('express-session'),
   MongoStore = require('connect-mongo')(session);
 
@@ -60,7 +60,7 @@ module.exports = function (app, db) {
     server = http.createServer(app);
   }
   // Create a new Socket.io server
-  //var io = socketio.listen(server);
+  var io = socketio.listen(server);
 
   // Create a MongoDB storage object
   var mongoStore = new MongoStore({
@@ -69,7 +69,7 @@ module.exports = function (app, db) {
   });
 
   // Intercept Socket.io's handshake request
-  /* io.use(function (socket, next) {
+  io.use(function (socket, next) {
     // Use the 'cookie-parser' module to parse the request cookies
     cookieParser(config.sessionSecret)(socket.request, {}, function (err) {
       // Get the session id from the request cookies
@@ -104,7 +104,7 @@ module.exports = function (app, db) {
     config.files.server.sockets.forEach(function (socketConfiguration) {
       require(path.resolve(socketConfiguration))(io, socket);
     });
-  }); */
+  });
 
   return server;
 };

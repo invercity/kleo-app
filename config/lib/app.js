@@ -64,7 +64,5 @@ module.exports.start = (callback) => {
         callback(app, db, config);
       }
     });
-
   });
-
 };
