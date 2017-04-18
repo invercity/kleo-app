@@ -240,15 +240,17 @@ p > img {
 
 /* Search */
 .search {
-  margin-top: 7px;
-  width: 30%;
+  margin-top: 8px;
+  width: 21%;
   /*-webkit-transition: width 1s ease-in-out;
   -moz-transition:width 1s ease-in-out;
   -o-transition: width 1s ease-in-out;
   transition: width 1s ease-in-out;*/
   float:right;
 }
-
+.navbar-right~.navbar-right {
+  margin-right: 4%;
+}
 /*
 .search:focus {
   width: 30%;
