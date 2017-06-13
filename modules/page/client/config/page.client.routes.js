@@ -1,33 +1,34 @@
 'use strict';
 
 // Setting up route
-angular.module('pages').config(['$stateProvider',
+angular.module('page').config(['$stateProvider',
   function ($stateProvider) {
     // Articles state routing
     $stateProvider
-      .state('pages', {
+      .state('page', {
         abstract: true,
-        url: '/pages',
+        url: '/page',
         template: '<ui-view/>'
       })
       /*.state('pages.list', {
         url: '',
         template: ''
       }) */
-      .state('pages.create', {
+      .state('page.create', {
         url: '/create',
-        templateUrl: 'modules/pages/client/views/edit-page.client.view.html',
+        controller: 'PageController',
+        templateUrl: 'modules/page/client/views/edit-page.client.view.html',
         data: {
           roles: ['admin']
         }
       })
-      .state('pages.view', {
+      .state('page.view', {
         url: '/:pageId',
-        templateUrl: 'modules/pages/client/views/view-page.client.view.html'
+        templateUrl: 'modules/page/client/views/view-page.client.view.html'
       })
-      .state('pages.edit', {
+      .state('page.edit', {
         url: '/:pageId/edit',
-        templateUrl: 'modules/pages/client/views/edit-page.client.view.html',
+        templateUrl: 'modules/page/client/views/edit-page.client.view.html',
         data: {
           roles: ['admin']
         }

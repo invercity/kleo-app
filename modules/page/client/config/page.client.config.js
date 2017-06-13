@@ -1,12 +1,12 @@
 'use strict';
 
-// Configuring the Posts module
-angular.module('posts').run(['Menus', 'AdminService', 'Posts',
+// Configuring the Page module
+angular.module('page').run(['Menus', 'AdminService',
   function (Menus) {
     // Add the pages dropdown item
     Menus.addMenuItem('topbar', {
       title: 'Pages',
-      state: 'pages.create',
+      state: 'page.create',
       roles: ['*']
     });
   }
