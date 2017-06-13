@@ -10,8 +10,8 @@
     "url": "https://github.com/invercity/kleo.git"
   },
   "engines": {
-    "node": ">=4",
-    "npm": ">=2"
+    "node": ">=6.9.0",
+    "npm": ">=4"
   },
   "scripts": {
     "start": "grunt",
