@@ -1,11 +1,12 @@
-# Kleo
-[![Build Status](https://travis-ci.org/invercity/kleo.svg?branch=master)](https://travis-ci.org/invercity/kleo)
-[![GitHub tag](https://img.shields.io/github/tag/invercity/kleo.svg)]()
-[![David](https://david-dm.org/invercity/kleo.svg)](https://david-dm.org/invercity/kleo)
+# kleo-app
+[![Build Status](https://travis-ci.org/invercity/kleo-app.svg?branch=master)](https://travis-ci.org/invercity/kleo-app)
+[![GitHub tag](https://img.shields.io/github/tag/invercity/kleo-app.svg)]()
+[![David](https://david-dm.org/invercity/kleo.svg)](https://david-dm.org/invercity/kleo-app)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
-Kleo is a modern HTML5 based app, built on **MEAN** stack ([**M**ongoDB](http://www.mongodb.org/), [**N**ode.js](http://www.nodejs.org/), [**E**xpress](http://expressjs.com/), [**A**ngularJS](http://angularjs.org/))
+**kleo-app** is a CMS, built on **MEAN** stack (**M**ongoDB, **N**ode.js, **E**xpress, **A**ngularJS 1.x, Bootstrap 3.x)
 
+**IMPORTANT!** Project is **CLOSED** See modern [kleo](https://github.com/invercity/kleo) app, based on AngularJS 4.x/Bootstrap 4.x
 ## Prerequisites
 Make sure you have installed all these prerequisites on your development machine.
 
@@ -59,7 +60,7 @@ After that, you may login to system using username: 'admin' and generated passwo
 Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000) <br/>
 
 ## Wiki
-Wiki pages you can found [here](https://github.com/invercity/kleo/wiki)
+Wiki pages you can found [here](https://github.com/invercity/kleo-app/wiki)
 
 ## License
 ### MIT
