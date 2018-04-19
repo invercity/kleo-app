@@ -1,12 +1,11 @@
 # kleo-app
 [![Build Status](https://travis-ci.org/invercity/kleo-app.svg?branch=master)](https://travis-ci.org/invercity/kleo-app)
-[![GitHub tag](https://img.shields.io/github/tag/invercity/kleo-app.svg)]()
 [![David](https://david-dm.org/invercity/kleo.svg)](https://david-dm.org/invercity/kleo-app)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 **kleo-app** is a CMS, built on **MEAN** stack (**M**ongoDB, **N**ode.js, **E**xpress, **A**ngularJS 1.x, Bootstrap 3.x)
 
-**IMPORTANT!** Project is **CLOSED** See modern [kleo](https://github.com/invercity/kleo) app, based on AngularJS 4.x/Bootstrap 4.x
+**IMPORTANT!** Project is **CLOSED** See soon modern kleo(https://github.com/invercity/kleo) app, based on Vue 2.x/Bootstrap 4.x soon
 ## Prerequisites
 Make sure you have installed all these prerequisites on your development machine.
 
@@ -58,9 +57,6 @@ $ Local admin added with password set to [PASS_GOES_HERE]
 After that, you may login to system using username: 'admin' and generated password.
 
 Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000) <br/>
-
-## Wiki
-Wiki pages you can found [here](https://github.com/invercity/kleo-app/wiki)
 
 ## License
 ### MIT
